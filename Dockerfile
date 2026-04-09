@@ -2,11 +2,13 @@
 
 FROM node:20-alpine AS deps
 WORKDIR /app
+RUN apk add --no-cache libc6-compat openssl
 COPY package.json package-lock.json* ./
 RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
 FROM node:20-alpine AS builder
 WORKDIR /app
+RUN apk add --no-cache libc6-compat openssl
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npx prisma generate && npm run build
@@ -16,7 +18,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 
-RUN addgroup -S nextjs && adduser -S nextjs -G nextjs
+RUN apk add --no-cache libc6-compat openssl \
+ && addgroup -S nextjs \
+ && adduser -S nextjs -G nextjs
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
