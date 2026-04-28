@@ -1,0 +1,47 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="40" fill="#07111D"/>
+  <circle cx="987" cy="107" r="180" fill="url(#paint0_radial_1_13)" fill-opacity="0.9"/>
+  <circle cx="200" cy="516" r="240" fill="url(#paint1_radial_1_13)" fill-opacity="0.85"/>
+  <rect x="88" y="72" width="1024" height="486" rx="36" fill="url(#paint2_linear_1_13)" fill-opacity="0.32" stroke="url(#paint3_linear_1_13)" stroke-opacity="0.6"/>
+  <text x="120" y="220" fill="white" font-family="Sora, sans-serif" font-size="54" font-weight="700">
+    Serratech
+  </text>
+  <text x="120" y="290" fill="#D9E7F4" font-family="Sora, sans-serif" font-size="42" font-weight="600">
+    Tecnologia, gestão e inovação
+  </text>
+  <text x="120" y="345" fill="#D9E7F4" font-family="Manrope, sans-serif" font-size="28">
+    para empresas e condomínios que querem crescer com segurança.
+  </text>
+  <rect x="120" y="410" width="210" height="54" rx="27" fill="url(#paint4_linear_1_13)"/>
+  <text x="170" y="445" fill="#04101A" font-family="Manrope, sans-serif" font-size="22" font-weight="800">
+    serratech.tec.br
+  </text>
+  <rect x="746" y="146" width="276" height="196" rx="24" fill="#0A1523" fill-opacity="0.92" stroke="#1C6C8B" stroke-opacity="0.55"/>
+  <rect x="782" y="190" width="204" height="16" rx="8" fill="#21E1C1" fill-opacity="0.85"/>
+  <rect x="782" y="224" width="160" height="12" rx="6" fill="#8AB4D8" fill-opacity="0.85"/>
+  <rect x="782" y="252" width="180" height="12" rx="6" fill="#8AB4D8" fill-opacity="0.55"/>
+  <rect x="782" y="292" width="80" height="80" rx="18" fill="#0F2A45"/>
+  <rect x="880" y="292" width="106" height="80" rx="18" fill="#102E36"/>
+  <defs>
+    <radialGradient id="paint0_radial_1_13" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(987 107) rotate(90) scale(180)">
+      <stop stop-color="#0BD4C3"/>
+      <stop offset="1" stop-color="#0BD4C3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint1_radial_1_13" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 516) rotate(90) scale(240)">
+      <stop stop-color="#0D4D89"/>
+      <stop offset="1" stop-color="#0D4D89" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="paint2_linear_1_13" x1="88" y1="72" x2="1112" y2="558" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E2236"/>
+      <stop offset="1" stop-color="#0B1624"/>
+    </linearGradient>
+    <linearGradient id="paint3_linear_1_13" x1="120" y1="100" x2="1060" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0BD4C3"/>
+      <stop offset="1" stop-color="#1C6C8B"/>
+    </linearGradient>
+    <linearGradient id="paint4_linear_1_13" x1="120" y1="410" x2="330" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0BD4C3"/>
+      <stop offset="1" stop-color="#6CF9E3"/>
+    </linearGradient>
+  </defs>
+</svg>
