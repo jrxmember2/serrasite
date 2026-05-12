@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { navigation } from '../data/siteContent';
+import Brandmark from './Brandmark';
 import Icon from './Icon';
 
 export default function Header() {
@@ -24,13 +25,7 @@ export default function Header() {
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="container header-inner">
-        <Link className="brandmark" to="/" aria-label="Serratech - Página inicial">
-          <span className="brandmark-glow" />
-          <span className="brandmark-text">
-            <strong>Serratech</strong>
-            <small>Soluções Digitais</small>
-          </span>
-        </Link>
+        <Brandmark />
 
         <nav className="desktop-nav" aria-label="Menu principal">
           {navigation.map((item) => (

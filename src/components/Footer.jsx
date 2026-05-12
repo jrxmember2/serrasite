@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { featuredProducts, navigation, siteConfig } from '../data/siteContent';
+import Brandmark from './Brandmark';
 import Icon from './Icon';
 
 const quickLinks = navigation.filter((item) => item.to !== '/');
@@ -9,15 +10,9 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand" data-reveal>
-          <Link className="brandmark is-footer" to="/">
-            <span className="brandmark-glow" />
-            <span className="brandmark-text">
-              <strong>Serratech</strong>
-              <small>Soluções Digitais</small>
-            </span>
-          </Link>
+          <Brandmark variant="footer" />
           <p>
-            Serratech Soluções Digitais Corporativas e Condominiais — tecnologia, segurança e
+            Serratech Soluções Digitais Corporativas e Condominiais - tecnologia, segurança e
             inovação para empresas e condomínios.
           </p>
           <div className="footer-socials">

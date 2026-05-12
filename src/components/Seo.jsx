@@ -26,10 +26,10 @@ export default function Seo({ title, description, keywords, path = '/' }) {
     upsertMeta('property', 'og:title', pageTitle);
     upsertMeta('property', 'og:description', description);
     upsertMeta('property', 'og:url', canonicalUrl);
-    upsertMeta('property', 'og:image', `${siteConfig.siteUrl}/og-cover.svg`);
+    upsertMeta('property', 'og:image', `${siteConfig.siteUrl}/logo-serratech.svg`);
     upsertMeta('name', 'twitter:title', pageTitle);
     upsertMeta('name', 'twitter:description', description);
-    upsertMeta('name', 'twitter:image', `${siteConfig.siteUrl}/og-cover.svg`);
+    upsertMeta('name', 'twitter:image', `${siteConfig.siteUrl}/logo-serratech.svg`);
 
     let canonical = document.head.querySelector('link[rel="canonical"]');
 
