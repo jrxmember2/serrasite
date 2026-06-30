@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="footer-brand" data-reveal>
           <Brandmark variant="footer" />
           <p>
-            Serratech Soluções Digitais Corporativas e Condominiais - tecnologia, segurança e
+            Serratech Soluções em Tecnologia Corporativa e Condominial - tecnologia, segurança e
             inovação para empresas e condomínios.
           </p>
           <div className="footer-socials">
