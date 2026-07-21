@@ -39,12 +39,7 @@ export default function ClientPortalPage() {
 
   return (
     <>
-      <Seo
-        title="Portal do cliente"
-        description="Portal do Cliente Serratech: acompanhe chamados, solicitações, documentos e atendimentos em um só lugar."
-        keywords="portal do cliente, chamados de TI, suporte técnico corporativo, portal Serratech, app para síndico"
-        path="/portal-cliente"
-      />
+      <Seo path="/portal-cliente" />
 
       <PageHero
         eyebrow="Portal do Cliente"

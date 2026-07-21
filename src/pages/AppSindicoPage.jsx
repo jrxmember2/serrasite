@@ -8,12 +8,7 @@ import { appFeatures, appScreens } from '../data/siteContent';
 export default function AppSindicoPage() {
   return (
     <>
-      <Seo
-        title="App para síndico"
-        description="Âncora Síndico: app moderno para organizar chamados, documentos, comunicados, solicitações e rotinas condominiais com integração ao ecossistema Serratech."
-        keywords="app para síndico, gestão condominial digital, tecnologia condominial, sistema para condomínios, app de condomínio, Serratech"
-        path="/app-sindico"
-      />
+      <Seo path="/app-sindico" />
 
       <PageHero
         eyebrow="App Âncora Síndico"

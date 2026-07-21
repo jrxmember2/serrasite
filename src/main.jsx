@@ -1,10 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App';
 import './styles.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root');
+
+const tree = (
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
+
+// Em produção o HTML já vem pré-renderizado (scripts/prerender.mjs), então hidratamos.
+// No dev server o container está vazio e a montagem é normal.
+if (container.hasChildNodes()) {
+  hydrateRoot(container, tree);
+} else {
+  createRoot(container).render(tree);
+}

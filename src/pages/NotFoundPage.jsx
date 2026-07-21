@@ -5,12 +5,7 @@ import Icon from '../components/Icon';
 export default function NotFoundPage() {
   return (
     <>
-      <Seo
-        title="Página não encontrada"
-        description="A página solicitada não foi encontrada. Volte para o site da Serratech e continue sua navegação."
-        keywords="Serratech"
-        path="/404"
-      />
+      <Seo path="/404" />
       <section className="section not-found">
         <div className="container">
           <div className="statement-banner" data-reveal>

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { siteConfig } from '../data/siteContent';
+import { resolveSeo } from '../data/seo';
 
 function upsertMeta(attribute, value, content) {
   let tag = document.head.querySelector(`meta[${attribute}="${value}"]`);
@@ -13,10 +13,11 @@ function upsertMeta(attribute, value, content) {
   tag.setAttribute('content', content);
 }
 
-export default function Seo({ title, description, keywords, path = '/' }) {
+// O head já vem correto do HTML pré-renderizado; este efeito mantém os metadados
+// em dia durante a navegação client-side do SPA.
+export default function Seo({ path = '/' }) {
   useEffect(() => {
-    const pageTitle = `${title} | Serratech`;
-    const canonicalUrl = new URL(path, siteConfig.siteUrl).toString();
+    const { pageTitle, description, keywords, canonicalUrl, imageUrl } = resolveSeo(path);
 
     document.title = pageTitle;
     document.documentElement.lang = 'pt-BR';
@@ -26,10 +27,10 @@ export default function Seo({ title, description, keywords, path = '/' }) {
     upsertMeta('property', 'og:title', pageTitle);
     upsertMeta('property', 'og:description', description);
     upsertMeta('property', 'og:url', canonicalUrl);
-    upsertMeta('property', 'og:image', `${siteConfig.siteUrl}/logo-serratech.svg`);
+    upsertMeta('property', 'og:image', imageUrl);
     upsertMeta('name', 'twitter:title', pageTitle);
     upsertMeta('name', 'twitter:description', description);
-    upsertMeta('name', 'twitter:image', `${siteConfig.siteUrl}/logo-serratech.svg`);
+    upsertMeta('name', 'twitter:image', imageUrl);
 
     let canonical = document.head.querySelector('link[rel="canonical"]');
 
@@ -40,7 +41,7 @@ export default function Seo({ title, description, keywords, path = '/' }) {
     }
 
     canonical.setAttribute('href', canonicalUrl);
-  }, [description, keywords, path, title]);
+  }, [path]);
 
   return null;
 }

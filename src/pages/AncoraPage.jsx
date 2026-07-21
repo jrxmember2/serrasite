@@ -14,12 +14,7 @@ import {
 export default function AncoraPage() {
   return (
     <>
-      <Seo
-        title="Âncora sistema"
-        description="Âncora: hub inteligente para centralizar clientes, contratos, cobranças, documentos, atendimento e automações em operações jurídicas, condominiais e administrativas."
-        keywords="Âncora sistema, sistema para escritórios, sistema para condomínios, portal do cliente, automação empresarial, gestão condominial digital"
-        path="/ancora"
-      />
+      <Seo path="/ancora" />
 
       <PageHero
         eyebrow="Sistema Âncora"
