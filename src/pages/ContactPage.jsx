@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import PageHero from '../components/PageHero';
-import SectionHeading from '../components/SectionHeading';
 import Seo from '../components/Seo';
 import Icon from '../components/Icon';
 import { contactChannels, contactInterests } from '../data/siteContent';
@@ -19,85 +18,39 @@ export default function ContactPage() {
 
       <PageHero
         eyebrow="Contato"
-        title="Vamos conversar sobre como a tecnologia pode organizar sua operação?"
-        description="Fale com a Serratech para avaliar infraestrutura, processos, automações e oportunidades de evolução digital para empresas, escritórios, condomínios e síndicos."
+        title="Vamos conversar sobre como organizar sua operação?"
+        description="Fale com a Serratech para avaliar infraestrutura, processos, automações, desenvolvimento sob medida e oportunidades de evolução digital."
         primaryAction={{ label: 'Abrir portal do cliente', to: '/portal-cliente' }}
-        secondaryAction={{ label: 'Conhecer o Âncora', to: '/ancora' }}
-        highlights={['Diagnóstico tecnológico', 'Projetos consultivos', 'Atendimento corporativo', 'Foco condominial']}
+        secondaryAction={{ label: 'Ver a fábrica de software', to: '/fabrica-de-software' }}
+        highlights={['Diagnóstico tecnológico', 'Projetos sob medida', 'Atendimento corporativo', 'Foco condominial']}
       />
 
       <section className="section" id="canais">
-        <div className="container contact-layout">
-          <div className="contact-form-card" data-reveal>
-            <SectionHeading
-              eyebrow="Formulário de contato"
-              title="Conte um pouco sobre a sua necessidade."
-              description="Vamos entender o cenário atual e indicar a melhor frente de atuação para a Serratech apoiar sua operação."
-            />
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-grid">
-                <label>
-                  <span>Nome</span>
-                  <input name="name" type="text" placeholder="Seu nome" required />
-                </label>
-                <label>
-                  <span>Empresa / Condomínio</span>
-                  <input name="company" type="text" placeholder="Nome da empresa ou condomínio" required />
-                </label>
-                <label>
-                  <span>E-mail</span>
-                  <input name="email" type="email" placeholder="voce@empresa.com.br" required />
-                </label>
-                <label>
-                  <span>Telefone / WhatsApp</span>
-                  <input name="phone" type="tel" placeholder="(00) 00000-0000" required />
-                </label>
-                <label className="full-width">
-                  <span>Tipo de interesse</span>
-                  <select name="interest" defaultValue="" required>
-                    <option value="" disabled>
-                      Selecione
-                    </option>
-                    {contactInterests.map((item) => (
-                      <option key={item} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="full-width">
-                  <span>Mensagem</span>
-                  <textarea
-                    name="message"
-                    rows="6"
-                    placeholder="Descreva a necessidade, dores da operação ou objetivo do projeto."
-                    required
-                  />
-                </label>
-              </div>
-              <button className="btn btn-primary" type="submit">
-                <span>Enviar mensagem</span>
-                <Icon name="arrow" className="btn-icon" />
-              </button>
-              {submitted ? (
-                <p className="form-feedback">
-                  Mensagem registrada com sucesso nesta interface demonstrativa. O próximo passo é
-                  integrar este formulário ao canal comercial da Serratech.
-                </p>
-              ) : null}
-            </form>
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow" data-anim="rise">
+                Canais
+              </span>
+              <h2 data-anim="rise">Escolha por onde prefere começar.</h2>
+            </div>
           </div>
 
-          <div className="contact-aside">
-            {contactChannels.map((channel) => (
-              <a key={channel.title} className="contact-channel" href={channel.href} data-reveal>
-                <div className="icon-badge is-solid">
-                  <Icon name={channel.icon} className="icon-badge-svg" />
+          <div className="ledger" data-stagger>
+            {contactChannels.map((channel, index) => (
+              <a
+                className="ledger-row is-link"
+                href={channel.href}
+                key={channel.title}
+                data-stagger-item
+              >
+                <span className="ledger-index">{String(index + 1).padStart(2, '0')}</span>
+                <div className="ledger-title">
+                  <h3>{channel.title}</h3>
                 </div>
                 <div>
-                  <h3>{channel.title}</h3>
-                  <strong>{channel.value}</strong>
-                  <p>{channel.description}</p>
+                  <strong className="channel-value">{channel.value}</strong>
+                  <p className="ledger-text">{channel.description}</p>
                 </div>
               </a>
             ))}
@@ -105,32 +58,79 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="section dark-section" id="diagnostico">
+      <section className="section section-tint" id="diagnostico">
         <div className="container">
-          <div className="diagnostic-banner" data-reveal>
+          <div className="section-head">
             <div>
-              <span className="eyebrow">Solicite um diagnóstico tecnológico</span>
-              <h2>Mapeie infraestrutura, processos e oportunidades de automação com visão consultiva.</h2>
-              <p>
-                A Serratech pode avaliar sua estrutura tecnológica, identificar riscos, apontar
-                gargalos e sugerir prioridades para modernizar a operação com segurança.
-              </p>
+              <span className="eyebrow" data-anim="rise">
+                Formulário
+              </span>
+              <h2 data-anim="rise">Conte um pouco sobre a sua necessidade.</h2>
             </div>
-            <ul className="feature-list compact">
-              <li>
-                <Icon name="check" className="feature-list-icon" />
-                <span>Análise do cenário atual</span>
-              </li>
-              <li>
-                <Icon name="check" className="feature-list-icon" />
-                <span>Levantamento de riscos e retrabalhos</span>
-              </li>
-              <li>
-                <Icon name="check" className="feature-list-icon" />
-                <span>Recomendações de infraestrutura, sistemas e automação</span>
-              </li>
-            </ul>
+            <p className="lead" data-anim="rise">
+              Quanto mais contexto sobre o cenário atual, mais precisa fica a primeira resposta.
+            </p>
           </div>
+
+          <form className="form-block" onSubmit={handleSubmit} data-anim="rise">
+            <div className="form-grid">
+              <label>
+                <span>Nome</span>
+                <input name="name" type="text" placeholder="Seu nome" required />
+              </label>
+              <label>
+                <span>Empresa / Condomínio</span>
+                <input
+                  name="company"
+                  type="text"
+                  placeholder="Nome da empresa ou condomínio"
+                  required
+                />
+              </label>
+              <label>
+                <span>E-mail</span>
+                <input name="email" type="email" placeholder="voce@empresa.com.br" required />
+              </label>
+              <label>
+                <span>Telefone / WhatsApp</span>
+                <input name="phone" type="tel" placeholder="(00) 00000-0000" required />
+              </label>
+              <label className="full-width">
+                <span>Tipo de interesse</span>
+                <select name="interest" defaultValue="" required>
+                  <option value="" disabled>
+                    Selecione
+                  </option>
+                  {contactInterests.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="full-width">
+                <span>Mensagem</span>
+                <textarea
+                  name="message"
+                  rows="6"
+                  placeholder="Descreva a necessidade, dores da operação ou objetivo do projeto."
+                  required
+                />
+              </label>
+            </div>
+
+            <button className="btn" type="submit">
+              <span>Enviar mensagem</span>
+              <Icon name="arrow" className="btn-icon" />
+            </button>
+
+            {submitted ? (
+              <p className="form-feedback">
+                Mensagem registrada nesta interface demonstrativa. O próximo passo é integrar o
+                formulário ao canal comercial da Serratech.
+              </p>
+            ) : null}
+          </form>
         </div>
       </section>
     </>

@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import Icon from './Icon';
 
 function ActionButton({ action, secondary = false }) {
-  const className = `btn ${secondary ? 'btn-secondary' : 'btn-primary'}`;
-
   if (!action) {
     return null;
   }
+
+  const className = `btn ${secondary ? 'btn-secondary' : ''}`;
 
   if (action.href) {
     return (
@@ -35,47 +35,30 @@ export default function PageHero({
   children,
 }) {
   return (
-    <section className="page-hero section">
-      <div className="container page-hero-grid">
-        <div className="page-hero-copy" data-reveal>
-          <span className="eyebrow">{eyebrow}</span>
-          <h1>{title}</h1>
-          <p>{description}</p>
-          <div className="button-row">
-            <ActionButton action={primaryAction} />
-            <ActionButton action={secondaryAction} secondary />
-          </div>
-          {highlights.length ? (
-            <div className="hero-mini-grid">
-              {highlights.map((highlight) => (
-                <div key={highlight} className="mini-panel">
-                  <Icon name="check" className="mini-panel-icon" />
-                  <span>{highlight}</span>
-                </div>
-              ))}
-            </div>
-          ) : null}
+    <section className="page-hero">
+      <div className="container">
+        <span className="eyebrow" data-anim="rise">
+          {eyebrow}
+        </span>
+        <h1 data-anim="rise">{title}</h1>
+        <p className="lead" data-anim="rise">
+          {description}
+        </p>
+
+        <div className="button-row" data-anim="rise">
+          <ActionButton action={primaryAction} />
+          <ActionButton action={secondaryAction} secondary />
         </div>
-        <div className="page-hero-visual" data-reveal>
-          {children || (
-            <div className="glass-panel visual-matrix">
-              <div className="visual-matrix-header">
-                <span className="dot dot-cyan" />
-                <span className="dot dot-blue" />
-                <span className="dot dot-teal" />
-              </div>
-              <div className="visual-matrix-grid">
-                {highlights.map((item) => (
-                  <article key={item} className="matrix-card">
-                    <span className="matrix-badge">Serratech</span>
-                    <strong>{item}</strong>
-                    <p>Tecnologia aplicada com estrutura, clareza e evolução contínua.</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+
+        {highlights.length ? (
+          <ul className="hero-tags" data-anim="rise">
+            {highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+        ) : null}
+
+        {children}
       </div>
     </section>
   );

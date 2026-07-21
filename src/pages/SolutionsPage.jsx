@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
-import SectionHeading from '../components/SectionHeading';
 import Seo from '../components/Seo';
 import Icon from '../components/Icon';
-import { featuredProducts, solutionsCategories } from '../data/siteContent';
+import { factoryPitch, featuredProducts, solutionsCategories } from '../data/siteContent';
 
 export default function SolutionsPage() {
   return (
@@ -15,33 +14,38 @@ export default function SolutionsPage() {
         title="Soluções completas para empresas, escritórios, condomínios e síndicos."
         description="Planejamento, infraestrutura, consultoria, desenvolvimento, automação e tecnologia condominial em uma abordagem integrada, comercial e orientada a resultado."
         primaryAction={{ label: 'Solicitar diagnóstico', to: '/contato#diagnostico' }}
-        secondaryAction={{ label: 'Ver o portal do cliente', to: '/portal-cliente' }}
-        highlights={['Infraestrutura em TI', 'Consultoria', 'Sistemas', 'Automação', 'Condomínios', 'Segurança digital']}
+        secondaryAction={{ label: 'Ver a fábrica de software', to: '/fabrica-de-software' }}
+        highlights={['Infraestrutura', 'Consultoria', 'Sistemas', 'Automação', 'Condomínios', 'Segurança']}
       />
 
       <section className="section">
         <div className="container">
-          <SectionHeading
-            eyebrow="Amplitude de atuação"
-            title="Da base tecnológica ao produto digital."
-            description="Cada frente foi pensada para sustentar empresas e condomínios com mais controle, produtividade e maturidade digital."
-          />
-          <div className="solution-grid">
-            {solutionsCategories.map((category) => (
-              <article key={category.id} className="solution-card" id={category.id} data-reveal>
-                <div className="solution-card-header">
-                  <div className="icon-badge is-solid">
-                    <Icon name={category.icon} className="icon-badge-svg" />
-                  </div>
+          <div className="section-head">
+            <div>
+              <span className="eyebrow" data-anim="rise">
+                Amplitude de atuação
+              </span>
+              <h2 data-anim="rise">Da base tecnológica ao produto digital.</h2>
+            </div>
+            <p className="lead" data-anim="rise">
+              Seis frentes pensadas para sustentar empresas e condomínios com mais controle,
+              produtividade e maturidade digital.
+            </p>
+          </div>
+
+          <div className="catalog">
+            {solutionsCategories.map((category, index) => (
+              <article className="catalog-item" id={category.id} key={category.id} data-anim="rise">
+                <div className="catalog-head">
+                  <span className="ledger-index">
+                    {String(index + 1).padStart(2, '0')} / {solutionsCategories.length}
+                  </span>
                   <h3>{category.title}</h3>
+                  <p>{category.description}</p>
                 </div>
-                <p>{category.description}</p>
-                <ul className="feature-list">
+                <ul className="chip-list">
                   {category.items.map((item) => (
-                    <li key={item}>
-                      <Icon name="check" className="feature-list-icon" />
-                      <span>{item}</span>
-                    </li>
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
               </article>
@@ -50,30 +54,60 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section className="section dark-section">
+      <section className="section section-tint">
         <div className="container">
-          <SectionHeading
-            eyebrow="Produtos próprios"
-            title="Soluções com identidade Serratech."
-            description="Plataformas em evolução para fortalecer atendimento, gestão condominial, automação e relacionamento com clientes."
-            centered
-          />
-          <div className="card-grid card-grid-two">
-            {featuredProducts.map((product) => (
-              <article key={product.title} className="product-card glass-card" data-reveal>
-                <div className="product-card-header">
-                  <div className="icon-badge">
-                    <Icon name={product.icon} className="icon-badge-svg" />
-                  </div>
-                  <span className="status-chip">Saiba mais</span>
+          <div className="section-head">
+            <div>
+              <span className="eyebrow" data-anim="rise">
+                Fábrica de software
+              </span>
+              <h2 data-anim="rise">Precisa de um sistema que não existe pronto?</h2>
+            </div>
+            <p className="lead" data-anim="rise">
+              {factoryPitch}
+            </p>
+          </div>
+
+          <div className="button-row" data-anim="rise">
+            <Link className="btn" to="/fabrica-de-software">
+              <span>Conhecer a fábrica de software</span>
+              <Icon name="arrow" className="btn-icon" />
+            </Link>
+            <Link className="btn btn-ghost" to="/contato#diagnostico">
+              <span>Solicitar orçamento</span>
+              <Icon name="chart" className="btn-icon" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow" data-anim="rise">
+                Produtos próprios
+              </span>
+              <h2 data-anim="rise">Soluções com identidade Serratech.</h2>
+            </div>
+            <p className="lead" data-anim="rise">
+              Plataformas em evolução para fortalecer atendimento, gestão condominial, automação e
+              relacionamento com clientes.
+            </p>
+          </div>
+
+          <div className="index-list" data-stagger>
+            {featuredProducts.map((product, index) => (
+              <Link className="index-item" to={product.to} key={product.title} data-stagger-item>
+                <div className="index-item-inner">
+                  <span className="ledger-index">{String(index + 1).padStart(2, '0')}</span>
+                  <h3>{product.title}</h3>
+                  <span className="index-arrow">
+                    <Icon name="arrow" />
+                  </span>
                 </div>
-                <h3>{product.title}</h3>
                 <p>{product.text}</p>
-                <Link className="btn btn-secondary" to={product.to}>
-                  <span>Saiba mais</span>
-                  <Icon name="arrow" className="btn-icon" />
-                </Link>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

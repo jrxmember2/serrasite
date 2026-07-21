@@ -25,6 +25,13 @@ export const seoByPath = {
     keywords:
       'infraestrutura de TI, consultoria em TI, sistema para escritórios, sistema para condomínios, automação empresarial, segurança digital, portal do cliente',
   },
+  '/fabrica-de-software': {
+    title: 'Fábrica de software',
+    description:
+      'Fábrica de software da Serratech: sistemas web sob medida, portais, dashboards, apps, integrações e automação, do discovery ao deploy em produção.',
+    keywords:
+      'fábrica de software, desenvolvimento de sistemas sob medida, software sob medida, desenvolvimento web, squad dedicado, integração de sistemas, automação de processos, modernização de sistemas legados',
+  },
   '/ancora': {
     title: 'Âncora sistema',
     description:

@@ -6,13 +6,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#081321" />
+    <meta name="theme-color" content="#f4f6f4" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <!--seo-start-->
@@ -23,6 +23,17 @@
     />
     <link rel="canonical" href="https://serratech.tec.br/" />
     <!--seo-end-->
+    <script>
+      // Marca que o JS assumiu o motion antes da primeira pintura. Sem isso, o
+      // HTML pré-renderizado continua visível — nada depende do JS para ser lido.
+      (function () {
+        try {
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('js-motion');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"><!--app-html--></div>

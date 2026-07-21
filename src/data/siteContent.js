@@ -18,10 +18,11 @@ export const siteConfig = {
   serviceHours: 'Segunda a sexta, das 8h às 18h',
 };
 
+// A home fica fora do menu: a marca no header já cumpre esse papel.
 export const navigation = [
-  { label: 'Home', to: '/' },
   { label: 'Sobre', to: '/sobre' },
   { label: 'Soluções', to: '/solucoes' },
+  { label: 'Fábrica de Software', to: '/fabrica-de-software' },
   { label: 'Âncora', to: '/ancora' },
   { label: 'App Síndico', to: '/app-sindico' },
   { label: 'Contato', to: '/contato' },
@@ -123,12 +124,18 @@ export const homeSolutions = [
   },
 ];
 
+// Ficha técnica: cada valor é um número verificável no próprio site.
 export const homeMetrics = [
-  { value: '+20 anos', label: 'de experiência em tecnologia aplicada a operações reais' },
-  { value: '100%', label: 'foco em soluções corporativas com visão consultiva' },
-  { value: 'Mercado condominial', label: 'como especialidade estratégica em evolução' },
-  { value: 'Sistemas próprios', label: 'em construção contínua com visão de produto SaaS' },
-  { value: 'Atendimento próximo', label: 'para decisões técnicas mais seguras e inteligentes' },
+  { value: '20+', label: 'anos de experiência em TI aplicada a operações que não podem parar' },
+  {
+    value: '8',
+    label: 'frentes técnicas que operam de forma integrada, da infraestrutura à automação',
+  },
+  { value: '4', label: 'produtos próprios em operação e evolução contínua' },
+  {
+    value: '2',
+    label: 'mercados atendidos com a mesma disciplina: corporativo e condominial',
+  },
 ];
 
 export const pillars = [
@@ -165,6 +172,118 @@ export const featuredProducts = [
     text: 'Fluxos com WhatsApp, n8n, APIs e inteligência artificial para conectar setores, reduzir atrito e acelerar respostas.',
     to: '/solucoes#automacoes',
   },
+];
+
+/* =========================================================================
+   Fábrica de software
+   ========================================================================= */
+
+export const factoryPitch =
+  'A Serratech opera como fábrica de software: um time e um processo definidos para construir, entregar e sustentar o sistema que a sua operação precisa — do primeiro diagnóstico ao deploy em produção.';
+
+// O que a fábrica entrega. Cada linha é um tipo de projeto, não uma promessa vaga.
+export const factoryCapabilities = [
+  {
+    title: 'Sistemas web sob medida',
+    text: 'Plataformas de gestão, módulos administrativos e ferramentas internas construídas em torno do fluxo real da operação, não de um template genérico.',
+  },
+  {
+    title: 'Portais e áreas logadas',
+    text: 'Ambientes para clientes, fornecedores ou moradores acompanharem chamados, documentos, contratos e solicitações com histórico e responsável.',
+  },
+  {
+    title: 'Dashboards e indicadores',
+    text: 'Painéis que consolidam dados dispersos em sistemas e planilhas para que a gestão decida com número, não com percepção.',
+  },
+  {
+    title: 'Aplicativos móveis',
+    text: 'Apps e PWAs para equipes de campo, síndicos e operações que precisam registrar, consultar e aprovar fora do escritório.',
+  },
+  {
+    title: 'Integrações e APIs',
+    text: 'Conexão entre sistemas que hoje não conversam: ERPs, CRMs, sistemas jurídicos, planilhas, WhatsApp e serviços externos.',
+  },
+  {
+    title: 'Automação de processos',
+    text: 'Fluxos com n8n, webhooks e inteligência artificial para eliminar tarefas repetitivas e acelerar respostas ao cliente.',
+  },
+  {
+    title: 'Modernização de legado',
+    text: 'Migração e reconstrução de sistemas antigos que travam a operação, com transição planejada e sem parar o negócio.',
+  },
+];
+
+// Sequência real de trabalho — por isso é numerada.
+export const factoryProcess = [
+  {
+    title: 'Discovery',
+    text: 'Entendimento da operação, mapeamento de fluxos, gargalos e regras de negócio. Sai daqui o que o sistema precisa resolver.',
+  },
+  {
+    title: 'Escopo e arquitetura',
+    text: 'Definição técnica, modelo de dados, integrações necessárias e prioridades. Escopo, prazo e custo ficam claros antes de escrever código.',
+  },
+  {
+    title: 'Protótipo navegável',
+    text: 'Interface desenhada e clicável para validar com quem vai usar, antes que mudanças custem caro.',
+  },
+  {
+    title: 'Desenvolvimento em ciclos',
+    text: 'Entregas curtas e frequentes, com ambiente de homologação disponível para acompanhamento contínuo.',
+  },
+  {
+    title: 'Homologação',
+    text: 'Testes com usuários reais e dados reais, ajustes finais e treinamento da equipe que vai operar.',
+  },
+  {
+    title: 'Deploy e operação',
+    text: 'Publicação em infraestrutura preparada, com backup, monitoramento e controle de acesso desde o primeiro dia.',
+  },
+  {
+    title: 'Evolução contínua',
+    text: 'Roadmap, suporte e novas entregas. O sistema acompanha a operação em vez de envelhecer parado.',
+  },
+];
+
+export const factoryModels = [
+  {
+    title: 'Projeto fechado',
+    text: 'Escopo, prazo e valor definidos após o discovery. Indicado para sistemas com objetivo delimitado.',
+    detail: 'Escopo definido',
+  },
+  {
+    title: 'Squad dedicado',
+    text: 'Time alocado por período para evoluir um produto de forma contínua, com prioridades revisadas a cada ciclo.',
+    detail: 'Time alocado',
+  },
+  {
+    title: 'Sustentação e evolução',
+    text: 'Manutenção, correções e novas funcionalidades sobre um sistema já em produção — nosso ou de terceiros.',
+    detail: 'Contrato contínuo',
+  },
+];
+
+// O argumento de venda que a Serratech pode provar.
+export const factoryDifferentials = [
+  {
+    title: 'Software que nasce operável',
+    text: 'Quem constrói o sistema também domina a infraestrutura que o sustenta. Backup, acesso, monitoramento e continuidade entram no projeto, não depois dele.',
+  },
+  {
+    title: 'Produtos próprios em produção',
+    text: 'Âncora, Âncora Síndico e o Portal do Cliente não são portfólio de terceiros: foram desenhados, construídos e operados pela Serratech.',
+  },
+  {
+    title: 'Domínio do negócio do cliente',
+    text: 'Mais de 20 anos dentro de operações corporativas e condominiais. A conversa começa no problema, não no framework.',
+  },
+];
+
+export const factoryStack = [
+  { term: 'Aplicação', detail: 'React, TypeScript e interfaces responsivas' },
+  { term: 'Serviços', detail: 'Node.js, APIs REST e bancos relacionais' },
+  { term: 'Infraestrutura', detail: 'Linux, Docker, Nginx, backup e monitoramento' },
+  { term: 'Automação', detail: 'n8n, webhooks, WhatsApp e integrações com IA' },
 ];
 
 export const aboutReasons = [
