@@ -5,55 +5,75 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import SolutionsPage from './pages/SolutionsPage';
+import SoftwareFactoryPage from './pages/SoftwareFactoryPage';
 import AncoraPage from './pages/AncoraPage';
 import AppSindicoPage from './pages/AppSindicoPage';
 import ContactPage from './pages/ContactPage';
 import ClientPortalPage from './pages/ClientPortalPage';
 import NotFoundPage from './pages/NotFoundPage';
+import { loadGsap, prefersReducedMotion, revealAll, startMotionWatchdog } from './lib/motion';
 
 export function Layout() {
   const location = useLocation();
 
+  useEffect(() => startMotionWatchdog(), []);
+
+  // Revelações por scroll. Recriadas a cada rota porque os alvos mudam.
   useEffect(() => {
-    const updateScrollVar = () => {
-      document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
-    };
-
-    updateScrollVar();
-    window.addEventListener('scroll', updateScrollVar, { passive: true });
-
-    return () => window.removeEventListener('scroll', updateScrollVar);
-  }, []);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const revealNodes = Array.from(document.querySelectorAll('[data-reveal]'));
-
-    if (prefersReducedMotion) {
-      revealNodes.forEach((node) => node.classList.add('is-visible'));
+    if (prefersReducedMotion()) {
+      revealAll();
       return undefined;
     }
 
-    revealNodes.forEach((node) => node.classList.remove('is-visible'));
+    let ctx;
+    let cancelled = false;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
+    loadGsap().then((lib) => {
+      if (cancelled || !lib) return;
+      const { gsap, ScrollTrigger } = lib;
+
+      ctx = gsap.context(() => {
+        gsap.utils.toArray('[data-anim="rise"]').forEach((node) => {
+          gsap.to(node, {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: node, start: 'top 88%' },
+          });
         });
-      },
-      {
-        threshold: 0.18,
-        rootMargin: '0px 0px -50px 0px',
-      },
-    );
 
-    revealNodes.forEach((node) => observer.observe(node));
+        gsap.utils.toArray('[data-anim="line"]').forEach((node) => {
+          gsap.to(node, {
+            scaleX: 1,
+            duration: 1.1,
+            ease: 'power3.inOut',
+            scrollTrigger: { trigger: node, start: 'top 92%' },
+          });
+        });
 
-    return () => observer.disconnect();
+        gsap.utils.toArray('[data-stagger]').forEach((group) => {
+          const items = group.querySelectorAll('[data-stagger-item]');
+          if (!items.length) return;
+
+          gsap.to(items, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.07,
+            scrollTrigger: { trigger: group, start: 'top 82%' },
+          });
+        });
+      });
+
+      ScrollTrigger.refresh();
+    });
+
+    return () => {
+      cancelled = true;
+      if (ctx) ctx.revert();
+    };
   }, [location.pathname]);
 
   useEffect(() => {
@@ -74,17 +94,14 @@ export function Layout() {
 
   return (
     <div className="site-shell">
-      <div className="global-backdrop" aria-hidden="true">
-        <span className="backdrop-orb orb-one parallax-layer" />
-        <span className="backdrop-orb orb-two parallax-layer" />
-        <span className="backdrop-grid" />
-      </div>
+      <div className="blueprint-grid" aria-hidden="true" />
       <Header />
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/sobre" element={<AboutPage />} />
           <Route path="/solucoes" element={<SolutionsPage />} />
+          <Route path="/fabrica-de-software" element={<SoftwareFactoryPage />} />
           <Route path="/ancora" element={<AncoraPage />} />
           <Route path="/app-sindico" element={<AppSindicoPage />} />
           <Route path="/contato" element={<ContactPage />} />

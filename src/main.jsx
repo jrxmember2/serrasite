@@ -12,8 +12,9 @@ const tree = (
 );
 
 // Em produção o HTML já vem pré-renderizado (scripts/prerender.mjs), então hidratamos.
-// No dev server o container está vazio e a montagem é normal.
-if (container.hasChildNodes()) {
+// No dev o root só contém o comentário marcador, por isso testamos por elemento
+// e não por nó — um comentário também conta como filho.
+if (container.firstElementChild) {
   hydrateRoot(container, tree);
 } else {
   createRoot(container).render(tree);
