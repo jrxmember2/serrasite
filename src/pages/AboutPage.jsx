@@ -8,12 +8,7 @@ import { aboutReasons, values } from '../data/siteContent';
 export default function AboutPage() {
   return (
     <>
-      <Seo
-        title="Sobre a Serratech"
-        description="Conheça a Serratech: tecnologia com visão prática, estratégica e humana para empresas, escritórios, síndicos e condomínios."
-        keywords="Serratech, consultoria em TI, tecnologia para empresas, tecnologia condominial, suporte técnico corporativo"
-        path="/sobre"
-      />
+      <Seo path="/sobre" />
 
       <PageHero
         eyebrow="Sobre a Serratech"

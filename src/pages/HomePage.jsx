@@ -14,12 +14,7 @@ import {
 export default function HomePage() {
   return (
     <>
-      <Seo
-        title="TI para empresas, condomínios e escritórios"
-        description="Infraestrutura em TI, consultoria, automação, segurança digital, sistemas próprios e tecnologia condominial para operações que não podem parar."
-        keywords="TI para empresas, TI para condomínios, consultoria em TI, infraestrutura de TI, automação empresarial, segurança digital, portal do cliente, Serratech"
-        path="/"
-      />
+      <Seo path="/" />
 
       <section className="hero section">
         <div className="container hero-grid">

@@ -15,12 +15,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Seo
-        title="Contato"
-        description="Entre em contato com a Serratech para falar sobre infraestrutura em TI, consultoria, sistemas, automação, Âncora, App do Síndico e suporte técnico corporativo."
-        keywords="contato Serratech, consultoria em TI, suporte técnico corporativo, automação empresarial, app para síndico, Âncora sistema"
-        path="/contato"
-      />
+      <Seo path="/contato" />
 
       <PageHero
         eyebrow="Contato"

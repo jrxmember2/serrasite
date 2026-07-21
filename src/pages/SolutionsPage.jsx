@@ -8,12 +8,7 @@ import { featuredProducts, solutionsCategories } from '../data/siteContent';
 export default function SolutionsPage() {
   return (
     <>
-      <Seo
-        title="Produtos e soluções"
-        description="Soluções completas para empresas, escritórios, condomínios e síndicos: infraestrutura em TI, consultoria, sistemas, automação, segurança digital e produtos próprios."
-        keywords="infraestrutura de TI, consultoria em TI, sistema para escritórios, sistema para condomínios, automação empresarial, segurança digital, portal do cliente"
-        path="/solucoes"
-      />
+      <Seo path="/solucoes" />
 
       <PageHero
         eyebrow="Produtos e soluções"

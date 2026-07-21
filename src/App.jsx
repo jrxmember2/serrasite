@@ -11,7 +11,7 @@ import ContactPage from './pages/ContactPage';
 import ClientPortalPage from './pages/ClientPortalPage';
 import NotFoundPage from './pages/NotFoundPage';
 
-function Layout() {
+export function Layout() {
   const location = useLocation();
 
   useEffect(() => {
