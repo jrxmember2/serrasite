@@ -4,6 +4,10 @@ const whatsappUrl = import.meta.env.VITE_WHATSAPP_URL || '/contato#canais';
 const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL || '#';
 const instagramUrl = import.meta.env.VITE_INSTAGRAM_URL || '#';
 
+// Link público do app do síndico. Fica aqui porque aparece em mais de uma página.
+export const playStoreUrl =
+  'https://play.google.com/store/apps/details?id=br.com.sindancora.app&hl=pt_BR';
+
 export const siteConfig = {
   name: 'Serratech',
   fullName: 'Serratech Soluções Digitais Corporativas e Condominiais',
@@ -40,108 +44,110 @@ export const heroKeywords = [
   'Nuvem',
 ];
 
+// O diagnóstico é a parte mais comercial do site: o cliente precisa se
+// reconhecer na descrição antes de acreditar na solução.
 export const homePainPoints = [
   {
     icon: 'server',
-    title: 'TI desorganizada e reativa',
-    text: 'Ambientes sem padrão, sem documentação e sempre correndo atrás do problema comprometem produtividade e previsibilidade.',
+    title: 'A TI só aparece quando quebra',
+    text: 'Ninguém sabe o que está instalado, onde, nem desde quando. Toda semana some uma tarde apagando incêndio que poderia ter sido evitado.',
   },
   {
     icon: 'building',
-    title: 'Condomínios sem controle digital',
-    text: 'Documentos, demandas, comunicados e ocorrências dispersos geram ruído, atrasos e desgaste operacional.',
+    title: 'O condomínio roda no grupo de mensagem',
+    text: 'Documento importante, reclamação de morador e decisão de assembleia se perdem no meio de bom dia e figurinha. Depois ninguém acha nada.',
   },
   {
     icon: 'users',
-    title: 'Síndicos sobrecarregados',
-    text: 'Rotinas manuais, cobranças descentralizadas e excesso de mensagens tiram foco da gestão estratégica.',
+    title: 'O síndico virou o gargalo',
+    text: 'Tudo passa por uma pessoa: cobrança, obra, reclamação, ata. Quando ela tira férias, a gestão do prédio para junto.',
   },
   {
     icon: 'shield',
-    title: 'Segurança da informação frágil',
-    text: 'Falhas de backup, acessos sem controle e ausência de boas práticas aumentam risco de perda e exposição de dados.',
+    title: 'O backup existe até o dia em que precisa',
+    text: 'Quase toda empresa acha que tem backup. Poucas já testaram restaurar. A diferença entre as duas coisas custa caro uma vez só.',
   },
   {
     icon: 'workflow',
-    title: 'Processos repetitivos e manuais',
-    text: 'Tarefas que poderiam ser automatizadas consomem horas de trabalho e travam a escalabilidade da operação.',
+    title: 'Gente boa fazendo trabalho de robô',
+    text: 'Copiar dado de um lugar para outro, reenviar o mesmo aviso, conferir planilha na mão. Horas de time qualificado indo embora todo mês.',
   },
   {
     icon: 'layers',
-    title: 'Sistemas que não conversam',
-    text: 'Sem integrações, a empresa perde visão do todo, duplica esforço e fica dependente de retrabalho humano.',
+    title: 'Cada setor tem a sua própria verdade',
+    text: 'Os sistemas não conversam, então cada área tem um número diferente para a mesma pergunta. A reunião vira discussão sobre qual planilha está certa.',
   },
   {
     icon: 'portal',
-    title: 'Atendimento sem canal estruturado',
-    text: 'Sem portal ou fluxo claro, chamados, solicitações e retornos ficam desorganizados e difíceis de acompanhar.',
+    title: 'O cliente não sabe onde o pedido dele está',
+    text: 'Sem um canal organizado, ele cobra por telefone, e-mail e mensagem ao mesmo tempo. Sua equipe responde três vezes a mesma coisa.',
   },
   {
     icon: 'chart',
-    title: 'Gestão sem visão centralizada',
-    text: 'Escritórios e operações que decidem no escuro têm mais dificuldade para crescer com consistência e controle.',
+    title: 'A decisão é tomada no escuro',
+    text: 'Sem número confiável na mão, a gestão decide por percepção e descobre o problema no fechamento do mês, quando já não dá para corrigir.',
   },
 ];
 
 export const homeSolutions = [
   {
     icon: 'server',
-    title: 'Infraestrutura em TI',
-    text: 'Planejamento, organização e evolução da base tecnológica para operações corporativas e condominiais.',
+    title: 'Infraestrutura que não te dá susto',
+    text: 'Rede, servidores e estações organizados, documentados e monitorados. A base para de ser motivo de preocupação e volta a ser só base.',
   },
   {
     icon: 'spark',
-    title: 'Consultoria tecnológica',
-    text: 'Diagnóstico, estratégia e apoio decisório para alinhar tecnologia, operação e crescimento.',
+    title: 'Consultoria que evita o gasto errado',
+    text: 'Antes de comprar ferramenta ou trocar sistema, uma leitura honesta do que a sua operação realmente precisa — e do que é dinheiro jogado fora.',
   },
   {
     icon: 'app',
-    title: 'Sistemas sob medida',
-    text: 'Plataformas, portais, dashboards e módulos internos pensados para resolver fluxos reais do dia a dia.',
+    title: 'Sistemas feitos para o seu jeito de trabalhar',
+    text: 'Quando nenhum software de prateleira serve, construímos o que falta em volta do processo que você já tem. Sem adaptar a empresa ao sistema.',
   },
   {
     icon: 'workflow',
-    title: 'Automações com n8n, APIs e IA',
-    text: 'Integração de processos, atendimento e dados para reduzir gargalos e acelerar respostas.',
+    title: 'Automação que devolve horas ao time',
+    text: 'Tarefas repetitivas passam a acontecer sozinhas, com registro do que foi feito. Sua equipe volta a cuidar do que exige gente.',
   },
   {
     icon: 'building',
-    title: 'Soluções para condomínios',
-    text: 'Ferramentas e processos digitais para síndicos, administradoras e operações que atendem condomínios.',
+    title: 'Tecnologia para quem administra condomínio',
+    text: 'Ferramentas pensadas para a rotina real de síndicos e administradoras, feitas por quem conhece o dia a dia do prédio.',
   },
   {
     icon: 'support',
-    title: 'Suporte técnico consultivo',
-    text: 'Atendimento orientado à causa e à melhoria estrutural, não apenas ao reparo pontual.',
+    title: 'Suporte que resolve a causa',
+    text: 'Atendimento que não se contenta em fazer o problema sumir hoje. A pergunta é sempre por que ele apareceu — e como não voltar.',
   },
   {
     icon: 'shield',
-    title: 'Segurança digital',
-    text: 'Boas práticas, controle de acesso, backup, rastreabilidade e proteção da informação.',
+    title: 'Segurança testada, não prometida',
+    text: 'Controle de acesso, cópia dos dados fora da empresa e boas práticas que já foram postas à prova antes de você precisar delas.',
   },
   {
     icon: 'portal',
-    title: 'Portais de atendimento',
-    text: 'Experiências digitais para clientes acompanharem chamados, documentos, contratos e solicitações.',
+    title: 'Um canal só para o seu cliente',
+    text: 'Ele abre o pedido, acompanha o andamento e acha o documento sozinho. Sua equipe para de trabalhar como central de recados.',
   },
 ];
 
-// Ficha técnica: cada valor é verificável — no próprio site, no repositório dos
-// produtos ou na loja de aplicativos. Nada aqui é número de efeito.
+// Ficha técnica: cada valor é verificável — no próprio site ou na loja de
+// aplicativos. Nada aqui é número de efeito.
 export const homeMetrics = [
-  { value: '20+', label: 'anos de experiência em TI aplicada a operações que não podem parar' },
+  { value: '20+', label: 'anos resolvendo problema de tecnologia em operação que não pode parar' },
   {
     value: '2',
     label:
-      'plataformas SaaS multitenant próprias em produção: o Âncora, para escritórios de advocacia, e o SindÂncora, para gestão condominial',
+      'plataformas próprias no ar todo dia: o Âncora, para escritórios de advocacia, e o SindÂncora, para gestão de condomínios',
   },
   {
     value: '1',
-    label: 'aplicativo do síndico publicado na Google Play, com API própria por trás',
+    label: 'aplicativo do síndico disponível na Google Play, pronto para instalar no Android',
   },
   {
     value: '8',
-    label: 'frentes técnicas que operam de forma integrada, da infraestrutura à automação',
+    label: 'frentes de trabalho que funcionam juntas, da tomada na parede ao relatório da diretoria',
   },
 ];
 
@@ -158,25 +164,25 @@ export const featuredProducts = [
   {
     icon: 'anchor',
     title: 'Âncora',
-    text: 'SaaS jurídico multitenant para escritórios de advocacia: processos, publicações, honorários, financeiro, agenda e automações com isolamento de dados por escritório.',
+    text: 'O escritório de advocacia inteiro em um lugar só: processos, prazos, documentos, honorários e financeiro, com cada cliente na sua própria caixa-forte.',
     to: '/ancora',
   },
   {
     icon: 'building',
     title: 'SindÂncora',
-    text: 'Plataforma de gestão condominial com atendimento por WhatsApp, obras, assembleias, portaria, cobrança e a LemeIA respondendo com base nos documentos do condomínio.',
+    text: 'Gestão de condomínio com atendimento pelo WhatsApp, obras, assembleias, portaria e cobrança — e app para Android, disponível na Google Play.',
     to: '/app-sindico',
   },
   {
     icon: 'portal',
     title: 'Portal do Cliente',
-    text: 'Área digital para chamados, solicitações, documentos, contratos e acompanhamento organizado de atendimentos.',
+    text: 'Uma área só sua para abrir chamado, acompanhar o andamento e achar contrato e documento sem precisar pedir para ninguém.',
     to: '/portal-cliente',
   },
   {
     icon: 'workflow',
     title: 'Automações Inteligentes',
-    text: 'Fluxos com WhatsApp, n8n, APIs e inteligência artificial para conectar setores, reduzir atrito e acelerar respostas.',
+    text: 'Avisos, cobranças e respostas que acontecem sozinhas, na hora certa, sem alguém precisar lembrar de apertar o botão.',
     to: '/solucoes#automacoes',
   },
 ];
@@ -186,86 +192,86 @@ export const featuredProducts = [
    ========================================================================= */
 
 export const factoryPitch =
-  'A Serratech opera como fábrica de software: um time e um processo definidos para construir, entregar e sustentar o sistema que a sua operação precisa — do primeiro diagnóstico ao deploy em produção.';
+  'Quando nenhum sistema de prateleira resolve, a Serratech constrói o seu: um time e um processo definidos para tirar a ideia do papel, colocar no ar e continuar cuidando dela depois — do primeiro diagnóstico ao dia a dia com o sistema rodando.';
 
 // O que a fábrica entrega. Cada linha é um tipo de projeto, não uma promessa vaga.
 export const factoryCapabilities = [
   {
-    title: 'Sistemas web sob medida',
-    text: 'Plataformas de gestão, módulos administrativos e ferramentas internas construídas em torno do fluxo real da operação, não de um template genérico.',
+    title: 'O sistema que a sua operação pediu',
+    text: 'Construído em volta do jeito como você já trabalha, e não o contrário. Nada de pagar por cem funções para usar sete.',
   },
   {
-    title: 'Portais e áreas logadas',
-    text: 'Ambientes para clientes, fornecedores ou moradores acompanharem chamados, documentos, contratos e solicitações com histórico e responsável.',
+    title: 'Área exclusiva para cliente e fornecedor',
+    text: 'Cada um entra, vê o que é dele e acompanha o andamento sozinho — com histórico e um responsável em cada etapa.',
   },
   {
-    title: 'Dashboards e indicadores',
-    text: 'Painéis que consolidam dados dispersos em sistemas e planilhas para que a gestão decida com número, não com percepção.',
+    title: 'Painéis que respondem antes da pergunta',
+    text: 'O número que hoje leva meio dia para levantar passa a estar na tela quando a reunião começa.',
   },
   {
-    title: 'Aplicativos móveis',
-    text: 'Apps e PWAs para equipes de campo, síndicos e operações que precisam registrar, consultar e aprovar fora do escritório.',
+    title: 'Aplicativo para quem trabalha fora do escritório',
+    text: 'Equipe de campo, síndico e time externo registrando, consultando e aprovando de onde estiverem, pelo celular.',
   },
   {
-    title: 'Integrações e APIs',
-    text: 'Conexão entre sistemas que hoje não conversam: ERPs, CRMs, sistemas jurídicos, planilhas, WhatsApp e serviços externos.',
+    title: 'Sistemas que finalmente conversam',
+    text: 'O que hoje é copiado na mão de um lugar para outro passa a andar sozinho, sem retrabalho e sem erro de digitação.',
   },
   {
-    title: 'Automação de processos',
-    text: 'Fluxos com n8n, webhooks e inteligência artificial para eliminar tarefas repetitivas e acelerar respostas ao cliente.',
+    title: 'Rotinas que acontecem sem você lembrar',
+    text: 'Cobrança, aviso, relatório e follow-up disparam na hora certa, todo dia, inclusive quando o time está fora.',
   },
   {
-    title: 'Modernização de legado',
-    text: 'Migração e reconstrução de sistemas antigos que travam a operação, com transição planejada e sem parar o negócio.',
+    title: 'Resgate de sistema antigo',
+    text: 'Aquele programa que ninguém mais mantém e que todo mundo tem medo de mexer. Trocamos com plano, sem parar a operação.',
   },
 ];
 
 // Sequência real de trabalho — por isso é numerada.
 export const factoryProcess = [
   {
-    title: 'Discovery',
-    text: 'Entendimento da operação, mapeamento de fluxos, gargalos e regras de negócio. Sai daqui o que o sistema precisa resolver.',
+    title: 'Entender o problema',
+    text: 'Sentamos com quem opera para mapear o caminho que o trabalho faz hoje e onde ele trava. Aqui sai o que o sistema precisa resolver.',
   },
   {
-    title: 'Escopo e arquitetura',
-    text: 'Definição técnica, modelo de dados, integrações necessárias e prioridades. Escopo, prazo e custo ficam claros antes de escrever código.',
+    title: 'Fechar escopo e preço',
+    text: 'O que entra, o que fica para depois, quanto custa e quanto tempo leva. Tudo definido antes de escrever a primeira linha.',
   },
   {
-    title: 'Protótipo navegável',
-    text: 'Interface desenhada e clicável para validar com quem vai usar, antes que mudanças custem caro.',
+    title: 'Ver antes de existir',
+    text: 'Você navega pelas telas e aprova o desenho antes da construção. É muito mais barato mudar de ideia nesta etapa.',
   },
   {
-    title: 'Desenvolvimento em ciclos',
-    text: 'Entregas curtas e frequentes, com ambiente de homologação disponível para acompanhamento contínuo.',
+    title: 'Entregas de pouco em pouco',
+    text: 'Nada de sumir por seis meses e voltar com uma surpresa. Você acompanha o sistema crescendo e opina no caminho.',
   },
   {
-    title: 'Homologação',
-    text: 'Testes com usuários reais e dados reais, ajustes finais e treinamento da equipe que vai operar.',
+    title: 'Testar com quem vai usar',
+    text: 'Seu time usa o sistema com dados reais, aponta o que incomoda e é treinado antes de a chave virar.',
   },
   {
-    title: 'Deploy e operação',
-    text: 'Publicação em infraestrutura preparada, com backup, monitoramento e controle de acesso desde o primeiro dia.',
+    title: 'Colocar no ar com rede de proteção',
+    text: 'Entrada em operação com cópia dos dados, controle de acesso e acompanhamento desde o primeiro dia.',
   },
   {
-    title: 'Evolução contínua',
-    text: 'Roadmap, suporte e novas entregas. O sistema acompanha a operação em vez de envelhecer parado.',
+    title: 'Continuar evoluindo',
+    text: 'Sistema bom não fica pronto: acompanha o negócio. Você segue com suporte e com espaço no calendário para o que vier.',
   },
 ];
 
 export const factoryModels = [
   {
     title: 'Projeto fechado',
-    text: 'Escopo, prazo e valor definidos após o discovery. Indicado para sistemas com objetivo delimitado.',
-    detail: 'Escopo definido',
+    text: 'Escopo, prazo e valor definidos depois do diagnóstico. Indicado para quem já sabe onde quer chegar.',
+    detail: 'Preço fechado',
   },
   {
-    title: 'Squad dedicado',
-    text: 'Time alocado por período para evoluir um produto de forma contínua, com prioridades revisadas a cada ciclo.',
-    detail: 'Time alocado',
+    title: 'Time dedicado',
+    text: 'Uma equipe reservada para o seu produto, com prioridades revistas a cada ciclo. Para quem vai evoluir sempre.',
+    detail: 'Equipe reservada',
   },
   {
-    title: 'Sustentação e evolução',
-    text: 'Manutenção, correções e novas funcionalidades sobre um sistema já em produção — nosso ou de terceiros.',
+    title: 'Cuidar do que já existe',
+    text: 'Manutenção, correção e melhorias sobre um sistema que já está no ar — nosso ou de outra empresa.',
     detail: 'Contrato contínuo',
   },
 ];
@@ -273,51 +279,44 @@ export const factoryModels = [
 // O argumento de venda que a Serratech pode provar.
 export const factoryDifferentials = [
   {
-    title: 'Software que nasce operável',
-    text: 'Quem constrói o sistema também domina a infraestrutura que o sustenta. Backup, acesso, monitoramento e continuidade entram no projeto, não depois dele.',
+    title: 'Um telefone só quando der problema',
+    text: 'Quem constrói o sistema é quem cuida do ambiente onde ele roda. Você não vai ficar no meio de uma empresa culpando a outra.',
   },
   {
-    title: 'Produtos próprios em produção',
-    text: 'O Âncora e o SindÂncora não são portfólio de terceiros: foram desenhados, construídos e são operados pela Serratech — servidor, backup e monitoramento inclusos.',
+    title: 'A gente usa o que vende',
+    text: 'Âncora e SindÂncora não são portfólio de terceiro: nasceram aqui, são mantidos aqui e atendem cliente de verdade todo dia.',
   },
   {
-    title: 'Domínio do negócio do cliente',
-    text: 'Mais de 20 anos dentro de operações corporativas e condominiais. A conversa começa no problema, não no framework.',
+    title: 'A conversa começa no seu problema',
+    text: 'Mais de 20 anos dentro de empresas e condomínios. Você não vai precisar traduzir a sua operação para a gente entender.',
   },
-];
-
-export const factoryStack = [
-  { term: 'Aplicação', detail: 'React, TypeScript e interfaces responsivas' },
-  { term: 'Serviços', detail: 'Node.js, APIs REST e bancos relacionais' },
-  { term: 'Infraestrutura', detail: 'Linux, Docker, Nginx, backup e monitoramento' },
-  { term: 'Automação', detail: 'n8n, webhooks, WhatsApp e integrações com IA' },
 ];
 
 export const aboutReasons = [
   {
     icon: 'spark',
-    title: 'Vivência de campo',
-    text: 'A Serratech nasce da prática, entendendo o que trava a operação e o que realmente precisa funcionar no dia a dia.',
+    title: 'Sabemos como é na prática',
+    text: 'A Serratech nasceu no campo, não na sala de reunião. Conhecemos o que trava a operação porque já destravamos muitas vezes.',
   },
   {
     icon: 'shield',
-    title: 'Tecnologia com responsabilidade',
-    text: 'Cada decisão técnica precisa proteger dados, reduzir riscos e sustentar o crescimento do negócio.',
+    title: 'Decisão técnica é decisão de risco',
+    text: 'Cada escolha que fazemos precisa proteger a sua informação e sustentar o crescimento. O barato de hoje costuma cobrar caro depois.',
   },
   {
     icon: 'workflow',
-    title: 'Processos simplificados',
-    text: 'Tecnologia boa não complica: organiza, integra, automatiza e deixa o time mais produtivo.',
+    title: 'Simplificar, não complicar',
+    text: 'Tecnologia boa some do caminho. Se a sua equipe precisa de manual para usar, alguma coisa foi mal resolvida.',
   },
   {
     icon: 'building',
-    title: 'Especialização condominial',
-    text: 'Há uma leitura clara das dores de síndicos, administradoras, escritórios jurídicos e prestadores de serviço.',
+    title: 'Especialistas em condomínio',
+    text: 'Entendemos a rotina de síndicos, administradoras e escritórios que atendem prédios — inclusive a parte que ninguém conta.',
   },
   {
     icon: 'support',
-    title: 'Atendimento próximo',
-    text: 'Relacionamento consultivo para evoluir estrutura, rotina, ferramentas e tomada de decisão.',
+    title: 'Você fala com gente, não com protocolo',
+    text: 'Relacionamento próximo e continuado. Quem atende sabe o nome da sua empresa e o histórico do que já foi feito.',
   },
 ];
 
@@ -337,17 +336,16 @@ export const solutionsCategories = [
     icon: 'server',
     title: 'Infraestrutura em TI',
     description:
-      'Planejamento, implantação, organização e manutenção da estrutura tecnológica da empresa ou condomínio.',
+      'A base que sustenta tudo: planejada, instalada, organizada e mantida para a sua operação não depender de sorte.',
     items: [
-      'Redes cabeadas e Wi-Fi',
+      'Rede cabeada e Wi-Fi',
       'Servidores',
-      'Computadores e estações de trabalho',
-      'Backup',
-      'Segurança',
+      'Computadores e estações',
+      'Cópia de segurança',
       'Controle de acesso',
-      'Organização de ambiente tecnológico',
+      'Organização do ambiente',
       'Diagnóstico técnico',
-      'Documentação da infraestrutura',
+      'Documentação de tudo',
     ],
   },
   {
@@ -355,14 +353,13 @@ export const solutionsCategories = [
     icon: 'spark',
     title: 'Consultoria em TI',
     description:
-      'Acompanhamento estratégico para empresas e condomínios que precisam tomar melhores decisões tecnológicas.',
+      'Uma opinião técnica independente antes de você assinar contrato, trocar sistema ou investir em ferramenta nova.',
     items: [
-      'Planejamento tecnológico',
-      'Análise de sistemas',
+      'Planejamento de tecnologia',
+      'Análise dos sistemas atuais',
       'Redução de riscos',
       'Melhoria de processos',
       'Escolha de ferramentas',
-      'Governança básica de TI',
       'Relatórios e diagnósticos',
     ],
   },
@@ -371,14 +368,14 @@ export const solutionsCategories = [
     icon: 'app',
     title: 'Sistemas e Desenvolvimento',
     description:
-      'Criação e evolução de sistemas digitais para organizar processos, centralizar informações e automatizar tarefas.',
+      'O software que a sua empresa precisa e que não existe pronto — feito sob medida e mantido depois de entregue.',
     items: [
-      'Sistemas web',
-      'Portais de cliente',
-      'Dashboards',
+      'Sistemas de gestão',
+      'Portal do cliente',
+      'Painéis de indicadores',
       'Módulos administrativos',
-      'Sistemas internos',
-      'Integrações com APIs',
+      'Ferramentas internas',
+      'Ligação entre sistemas',
       'Relatórios e automações',
     ],
   },
@@ -386,18 +383,15 @@ export const solutionsCategories = [
     id: 'automacoes',
     icon: 'workflow',
     title: 'Automação e Integrações',
-    description: 'Automatização de processos repetitivos com ferramentas modernas.',
+    description:
+      'Tudo que hoje é feito na mão, toda semana, do mesmo jeito, passa a acontecer sozinho e com registro.',
     items: [
-      'n8n',
-      'WhatsApp',
-      'E-mail',
-      'APIs',
-      'Webhooks',
-      'CRMs',
-      'Planilhas',
-      'Sistemas jurídicos',
-      'Sistemas condominiais',
-      'Inteligência artificial',
+      'Avisos por WhatsApp',
+      'Disparo de e-mail',
+      'Cobrança automática',
+      'Ligação com o sistema que você já usa',
+      'Planilhas alimentadas sozinhas',
+      'Atendimento com inteligência artificial',
     ],
   },
   {
@@ -405,18 +399,17 @@ export const solutionsCategories = [
     icon: 'building',
     title: 'Tecnologia para Condomínios',
     description:
-      'Soluções voltadas para síndicos, administradoras, escritórios jurídicos condominiais e prestadores de serviço.',
+      'Para síndicos, administradoras, escritórios que atendem condomínio e prestadores que vivem essa rotina.',
     items: [
-      'Organização de cadastros',
-      'Comunicação com moradores',
-      'Chamados',
-      'Documentos',
+      'Cadastro de moradores e unidades',
+      'Comunicação com o prédio',
+      'Chamados e ocorrências',
+      'Documentos do condomínio',
       'Controle de demandas',
-      'Relatórios',
-      'Apoio à gestão',
-      'Integração com WhatsApp',
+      'Relatórios para prestação de contas',
+      'Atendimento pelo WhatsApp',
       'Portal do síndico',
-      'App do síndico',
+      'App do síndico para Android',
     ],
   },
   {
@@ -424,344 +417,362 @@ export const solutionsCategories = [
     icon: 'shield',
     title: 'Segurança Digital',
     description:
-      'Proteção de dados, boas práticas, controle de acesso e prevenção de perdas para uma operação mais segura.',
+      'Proteger a informação antes do susto: quem acessa o quê, o que acontece se o pior acontecer e como voltar rápido.',
     items: [
-      'Backup',
+      'Cópia de segurança testada',
       'Controle de usuários',
-      'Senhas',
+      'Gestão de senhas',
       'Proteção contra perda de dados',
       'Organização de permissões',
-      'Auditoria',
-      'Logs',
-      'Segurança de sistemas',
+      'Registro de quem fez o quê',
+      'Plano de recuperação',
     ],
   },
 ];
 
 /* =========================================================================
-   Âncora — SaaS jurídico multitenant
-   Conteúdo conferido contra o repositório do produto (README, docs/roadmap.md
-   e as páginas em apps/web/src/pages). O que está aqui existe em código; o que
-   ainda não existe vive em `ancoraRoadmap`, separado de propósito.
+   Âncora — para escritórios de advocacia
    ========================================================================= */
 
 export const ancoraPitch =
-  'O Âncora é um SaaS jurídico multitenant para escritórios de advocacia: processos, prazos, publicações, documentos, honorários e financeiro em uma base só, com os dados de cada escritório isolados no próprio banco.';
+  'Processos, prazos, documentos, honorários e financeiro deixam de estar espalhados: o Âncora junta tudo, calcula o prazo por você e guarda cada cliente na sua própria caixa-forte.';
 
 export const ancoraAudience = [
   'Escritórios de advocacia de qualquer área',
   'Bancas com vários advogados e correspondentes',
-  'Escritórios de Direito Condominial',
-  'Departamentos jurídicos internos',
-  'Operações que precisam separar dados por cliente e por responsável',
-  'Times que hoje dividem processo, prazo e honorário entre planilhas',
+  'Escritórios especializados em Direito Condominial',
+  'Departamentos jurídicos dentro da empresa',
+  'Quem precisa separar o que cada advogado enxerga',
+  'Quem hoje divide processo, prazo e honorário entre planilhas',
 ];
 
 export const ancoraModules = [
   {
     icon: 'chart',
-    title: 'Área de trabalho',
+    title: 'Sua mesa de trabalho',
     bullets: [
-      'Visão consolidada da operação do escritório',
-      'Central de alertas com sino, lidos e não lidos',
-      'Deep-link do alerta direto para o registro',
-      'Cronômetro de timesheet no próprio cabeçalho',
+      'O escritório inteiro em uma tela ao abrir o dia',
+      'Aviso na hora em que algo precisa da sua atenção',
+      'Um clique do aviso até o processo',
+      'Cronômetro de horas sempre à mão',
     ],
   },
   {
     icon: 'clients',
-    title: 'Pessoas',
+    title: 'Clientes e partes',
     bullets: [
-      'Cadastro de pessoa física e jurídica',
-      'Papéis por pessoa: cliente, parte contrária, terceiro',
-      'Validação de CPF e CNPJ na entrada',
-      'Vínculo direto com processos e atendimentos',
+      'Pessoas e empresas em um cadastro só',
+      'Quem é cliente, quem é parte contrária, quem é terceiro',
+      'CPF e CNPJ conferidos na hora de digitar',
+      'Tudo ligado aos processos e atendimentos',
     ],
   },
   {
     icon: 'contract',
     title: 'Processos',
     bullets: [
-      'Partes, andamentos e histórico por processo',
-      'Documentos e financeiro amarrados ao caso',
-      'Agenda e prazos vinculados',
-      'Consulta ao DataJUD em fila diária',
+      'Partes, andamentos e histórico completo',
+      'Documentos e valores presos ao caso certo',
+      'Agenda e prazos do processo no mesmo lugar',
+      'Consulta automática ao andamento oficial',
     ],
   },
   {
     icon: 'calendar',
-    title: 'Agenda e prazos',
+    title: 'Prazos e agenda',
     bullets: [
-      'Calculadora de prazos com motor CPC e CLT',
-      'Audiências, compromissos e tarefas em uma agenda',
-      'Lembretes automáticos por e-mail e WhatsApp',
-      'Rotina diária de disparo às 07h',
+      'O sistema calcula o prazo, você não conta dia no papel',
+      'Audiências, compromissos e tarefas juntos',
+      'Lembrete automático por e-mail e WhatsApp',
+      'Aviso todo dia de manhã, antes de virar problema',
     ],
   },
   {
     icon: 'notify',
-    title: 'Publicações e monitoramento',
+    title: 'Publicações',
     bullets: [
-      'Captura de publicações e andamentos',
-      'Deduplicação antes de chegar ao escritório',
-      'Alerta no sino quando algo novo entra',
-      'Ingestão por API assinada, sem tocar o banco do tenant',
+      'O que saiu sobre os seus processos chega até você',
+      'Sem publicação repetida enchendo a caixa',
+      'Aviso imediato quando algo novo entra',
+      'Nada mais depende de alguém abrir o diário',
     ],
   },
   {
     icon: 'workflow',
-    title: 'Kanban',
+    title: 'Quadro de tarefas',
     bullets: [
-      'Board de casos e tarefas',
-      'Colunas configuráveis por escritório',
-      'Arrastar e soltar sem dependência externa',
-      'Cartão ligado ao processo de origem',
+      'Todo o trabalho do escritório em um quadro visual',
+      'Colunas do jeito que o seu time trabalha',
+      'Arrastar a tarefa para mudar de etapa',
+      'Cada cartão ligado ao processo de origem',
     ],
   },
   {
     icon: 'support',
     title: 'Atendimentos',
     bullets: [
-      'Registro de atendimento ligado a pessoa ou processo',
-      'Timeline de interações',
-      'Filtros e drawer de detalhe',
-      'Alerta ao atribuir responsável',
+      'Registro de cada contato com o cliente',
+      'Histórico completo da conversa',
+      'Busca rápida por cliente ou processo',
+      'Aviso automático para quem ficou responsável',
     ],
   },
   {
     icon: 'document',
     title: 'Documentos e modelos',
     bullets: [
-      'GED com Google Drive por escritório',
-      'Templates com merge de variáveis',
-      'Geração a partir dos dados do processo',
-      'Histórico de versões dos documentos',
+      'Todos os arquivos do escritório organizados',
+      'Modelos que se preenchem sozinhos',
+      'Petição gerada a partir dos dados do processo',
+      'Histórico das versões de cada documento',
     ],
   },
   {
     icon: 'cash',
     title: 'Financeiro',
     bullets: [
-      'Faturas: a faturar, emitidas, pagas e canceladas',
-      'Fluxo de caixa com realizado contra previsto',
-      'Categorias, centros de custo e contas bancárias',
-      'Exportação em CSV',
+      'O que falta faturar, o que foi emitido, o que já entrou',
+      'Quanto você vai receber nos próximos meses',
+      'Receita e despesa separadas por categoria',
+      'Exportação para planilha quando precisar',
     ],
   },
   {
     icon: 'clock',
-    title: 'Honorários e timesheet',
+    title: 'Honorários e horas',
     bullets: [
-      'Contratos de honorários por cliente',
+      'Contrato de honorários por cliente',
       'Apontamento de horas por processo',
-      'Cronômetro que registra ao parar',
-      'Horas viram recebível no financeiro',
+      'Cronômetro que registra sozinho ao parar',
+      'A hora trabalhada vira dinheiro a receber',
     ],
   },
   {
     icon: 'chart',
     title: 'Indicadores',
     bullets: [
-      'Receita contra despesa realizada',
-      'Processos por status e por área',
-      'Ranking de clientes',
-      'Gráficos legíveis para daltonismo',
+      'Quanto entrou e quanto saiu, mês a mês',
+      'Processos por situação e por área',
+      'Quais clientes realmente sustentam o escritório',
+      'Gráficos legíveis, inclusive para quem não enxerga cores',
     ],
   },
   {
     icon: 'message',
-    title: 'Automações e canais',
+    title: 'Comunicação e cobrança',
     bullets: [
-      'WhatsApp via Evolution API',
-      'E-mail com SMTP e IMAP',
-      'Lembretes e disparos agendados',
-      'Cobrança recorrente integrada ao Asaas',
+      'Mensagens pelo WhatsApp direto do sistema',
+      'E-mail enviado e recebido sem sair da tela',
+      'Lembretes que disparam na hora certa',
+      'Cobrança recorrente que roda sozinha',
     ],
   },
   {
     icon: 'settings',
-    title: 'Super administração',
+    title: 'Administração',
     bullets: [
-      'Gestão de escritórios, planos e assinaturas',
-      'Configuração global da plataforma',
-      'Faturamento do próprio SaaS',
-      'Contratos customizados por cliente',
+      'Quem entra, o que vê e o que pode alterar',
+      'Registro de todas as ações importantes',
+      'Configuração da identidade do escritório',
+      'Planos e contratos sob controle',
     ],
   },
 ];
 
-// A fundação técnica é o argumento comercial mais forte do Âncora — e é
-// verificável no repositório, não uma promessa de marketing.
+// As garantias do produto, ditas como o cliente pensa nelas — não como o
+// time técnico as chamaria.
 export const ancoraFoundation = [
   {
-    term: 'Isolamento',
+    term: 'Sigilo',
     detail:
-      'Row Level Security do PostgreSQL como camada obrigatória: um escritório não alcança a linha do outro nem por erro de aplicação',
+      'Os dados de cada escritório ficam separados no nível mais profundo do sistema: um cliente não alcança a informação do outro nem por engano',
   },
   {
-    term: 'Auditoria',
-    detail: 'Registro das ações sensíveis desde a fundação do produto, não como módulo adicionado depois',
+    term: 'Rastreabilidade',
+    detail: 'Toda ação importante fica registrada, com autor e data, desde o primeiro dia de uso',
   },
   {
-    term: 'Permissões',
-    detail: 'Perfis e permissões granulares controlando rota, módulo e dado visível',
+    term: 'Controle',
+    detail: 'Cada pessoa enxerga só o que o cargo dela permite, definido por você',
   },
   {
-    term: 'Operação',
-    detail: 'Deploy em container com Postgres dedicado, proxy reverso e TLS',
+    term: 'Continuidade',
+    detail: 'Ambiente próprio, cópia de segurança e acompanhamento contínuo por conta da Serratech',
   },
 ];
 
 export const ancoraDifferentials = [
   {
-    title: 'Segurança na fundação, não na borda',
-    text: 'O isolamento entre escritórios é feito pelo banco, com Row Level Security. Mesmo uma falha na aplicação não vaza dado de um cliente para outro — a regra está abaixo do código.',
+    title: 'Sigilo que não depende de boa vontade',
+    text: 'A separação entre escritórios é feita no fundo do sistema, não por uma regrinha de tela. Mesmo uma falha em outro ponto não abre a porta do seu cliente para ninguém.',
   },
   {
-    title: 'Prazo calculado, não digitado',
-    text: 'O motor de prazos entende CPC e CLT. O sistema calcula a data a partir do ato, em vez de depender de alguém contar dias no calendário e acertar sempre.',
+    title: 'Prazo calculado, não contado no dedo',
+    text: 'O Âncora sabe as regras de contagem e devolve a data certa a partir do ato. Você para de depender de alguém acertar a conta todas as vezes.',
   },
   {
-    title: 'Construído por quem também opera',
-    text: 'Quem escreve o Âncora sustenta o servidor, o backup e o monitoramento em que ele roda. Continuidade não vira problema de outra empresa.',
+    title: 'Feito por quem também cuida do ambiente',
+    text: 'Quem escreve o sistema é quem mantém o servidor, a cópia de segurança e o acompanhamento. Continuidade não vira problema de outra empresa.',
   },
 ];
 
 export const ancoraJourney = [
-  'Pessoa cadastrada',
+  'Cliente cadastrado',
   'Processo aberto',
   'Prazo calculado',
   'Publicação capturada',
-  'Tarefa no kanban',
+  'Tarefa no quadro',
   'Horas apontadas',
   'Fatura emitida',
-  'Indicador atualizado',
+  'Resultado à vista',
 ];
 
 // Roadmap: o que ainda não está pronto. Fica separado dos módulos de propósito.
 export const ancoraRoadmap = [
-  'Motor de monitoramento próprio com a API Comunica/DJEN do PJe',
-  'Detecção automática de ato que abre prazo',
-  'Painel "meu dia" com prazos, tarefas e audiências',
-  'Conciliação bancária',
-  'Exportação em XLSX nas demais telas',
-  'Filtros salvos e colunas configuráveis nos indicadores',
+  'Acompanhamento automático de todos os tribunais',
+  'Prazo sugerido sozinho quando o ato aparece',
+  'Painel do dia com prazos, tarefas e audiências',
+  'Conciliação com o extrato do banco',
+  'Exportação em planilha em todas as telas',
+  'Filtros salvos nos indicadores',
 ];
 
 /* =========================================================================
-   SindÂncora — gestão condominial
-   Conferido contra `docs/produto/10-resumo-executivo-sistema-e-app-sindico.md`
-   e as rotas em `routes/web.php` do produto.
+   SindÂncora — gestão de condomínios
    ========================================================================= */
 
 export const sindancoraPitch =
-  'O SindÂncora é a plataforma de gestão condominial da Serratech: atendimento, obras, comunicação, cobrança e decisões de assembleia em um só lugar — com a LemeIA respondendo a partir dos documentos do próprio condomínio.';
+  'Atendimento, obras, comunicação, cobrança e decisões de assembleia em um lugar só — com aplicativo para Android na Google Play e a LemeIA respondendo dúvidas a partir dos documentos do próprio condomínio.';
 
 export const sindancoraAudience = [
-  'Administradoras com carteira de condomínios',
+  'Administradoras com vários condomínios',
   'Síndicos profissionais',
   'Síndicos moradores',
   'Conselhos e subsíndicos',
   'Equipes de portaria e zeladoria',
-  'Moradores, pelo portal e pelo app',
+  'Moradores, pelo portal e pelo aplicativo',
 ];
 
-// Cada tela citada existe como rota no produto.
+// Cada tela citada existe no produto.
 export const appScreens = [
   {
-    title: 'Carteira de condomínios',
-    accent: 'Visão consolidada',
-    items: ['Todos os condomínios geridos', 'Seletor de contexto', 'Dashboard modular', 'Cronograma consolidado'],
+    title: 'Todos os seus prédios em uma tela',
+    accent: 'Visão do dia',
+    items: [
+      'Cada condomínio da sua carteira',
+      'Troca de prédio em um clique',
+      'Painel montado do seu jeito',
+      'O que vence esta semana',
+    ],
   },
   {
-    title: 'Atendimento por WhatsApp',
-    accent: 'Inbox em tempo real',
-    items: ['Conversas centralizadas', 'Setores e respostas rápidas', 'Chatbot de triagem', 'Campanhas e disparos'],
+    title: 'Atendimento pelo WhatsApp',
+    accent: 'Conversa organizada',
+    items: [
+      'Todas as conversas em um lugar',
+      'Setores e respostas prontas',
+      'Atendimento automático nas dúvidas simples',
+      'Aviso para o prédio inteiro de uma vez',
+    ],
   },
   {
-    title: 'LemeIA',
-    accent: 'Assistente do síndico',
-    items: ['Responde pelos documentos do condomínio', 'Cita a fonte da resposta', 'Busca híbrida com pgvector', 'Apoio a inadimplência e comunicados'],
+    title: 'LemeIA, a assistente do síndico',
+    accent: 'Resposta em segundos',
+    items: [
+      'Pergunta sobre convenção e regimento',
+      'Resposta com a fonte no documento',
+      'Consulta sobre finanças e ocorrências',
+      'Apoio para escrever comunicado',
+    ],
   },
   {
     title: 'Portaria digital',
-    accent: 'Entrada controlada',
-    items: ['Visitantes e autorizações', 'QR code e token', 'Check-in e check-out', 'Encomendas com rastro de retirada'],
+    accent: 'Quem entra e o que chega',
+    items: [
+      'Visitantes e autorizações',
+      'Liberação por QR Code',
+      'Registro de entrada e saída',
+      'Encomenda com comprovante de retirada',
+    ],
   },
 ];
 
 export const appFeatures = [
   {
     icon: 'spark',
-    title: 'LemeIA, o assistente do síndico',
-    text: 'Responde perguntas sobre convenção, regimento e atas usando os documentos indexados do próprio condomínio, com busca híbrida e citação da fonte — não é um chat genérico.',
+    title: 'A LemeIA responde o que o morador pergunta',
+    text: 'Pode fazer churrasco no salão? Qual o horário de obra? A LemeIA lê a convenção, o regimento e as atas do seu condomínio e responde na hora, dizendo em qual documento está escrito.',
+  },
+  {
+    icon: 'app',
+    title: 'Aplicativo para Android na Google Play',
+    text: 'O síndico instala no próprio celular e resolve de onde estiver: chamado, comunicado, documento e aprovação na palma da mão, sem depender de estar no computador.',
   },
   {
     icon: 'message',
-    title: 'Atendimento por WhatsApp',
-    text: 'Conexão por condomínio, setores, chatbot de triagem, inbox em tempo real, mídia e campanhas. A conversa com o morador para de viver no celular pessoal do síndico.',
+    title: 'Seu WhatsApp pessoal volta a ser seu',
+    text: 'As conversas com moradores saem do seu número e passam para um canal do condomínio, com setores, respostas prontas e atendimento automático nas perguntas de sempre.',
   },
   {
     icon: 'support',
-    title: 'Ocorrências com SLA',
-    text: 'Abertura com anexos, responsável, status, comentários e timeline. Cada ocorrência tem prazo, dono e histórico auditável.',
+    title: 'Chamado com dono e prazo',
+    text: 'Cada ocorrência tem responsável, prazo e histórico com fotos e comentários. Ninguém mais pergunta em que pé ficou aquele vazamento do terceiro andar.',
   },
   {
     icon: 'notify',
-    title: 'Comunicados multicanal',
-    text: 'Editor rico, anexos, agendamento e disparo por mais de um canal, com histórico do que foi enviado e para quem.',
+    title: 'Comunicado que chega mesmo',
+    text: 'Aviso enviado por mais de um canal, com data marcada e registro de quem recebeu. Acabou o morador dizendo que nunca ficou sabendo.',
   },
   {
     icon: 'building',
-    title: 'Obras, orçamentos e manutenção',
-    text: 'Manutenção preventiva, obras e reformas com orçamento, cronograma e andamento — a reforma deixa de ser controlada por grupo de mensagem.',
+    title: 'Obra que não vira surpresa',
+    text: 'Orçamento, cronograma e andamento acompanhados de perto, junto com a manutenção preventiva. A reforma sai do grupo de mensagem e entra no controle.',
   },
   {
     icon: 'users',
-    title: 'Assembleias digitais',
-    text: 'Pauta, votação, registro de presença, geração de ata em PDF e apoio da IA na redação. Enquetes com voto por unidade e link público.',
+    title: 'Assembleia com voto e ata prontas',
+    text: 'Pauta, votação, registro de presença e ata em PDF ao final, com apoio da inteligência artificial na redação. Enquete com voto por unidade quando a decisão é menor.',
   },
   {
     icon: 'cash',
-    title: 'Cobrança e financeiro',
-    text: 'Cobranças, despesas, inadimplência e relatórios, com PIX e boleto pelo Asaas e conciliação por webhook.',
-  },
-  {
-    icon: 'document',
-    title: 'Documentos e portaria',
-    text: 'Documentos com visibilidade controlada, download assinado e lixeira. Portaria com visitantes, autorizações, QR e encomendas.',
+    title: 'Cobrança que roda sozinha',
+    text: 'Boleto e PIX emitidos, baixa automática quando o morador paga e a inadimplência sempre atualizada, sem ninguém conferir extrato na mão.',
   },
   {
     icon: 'portal',
-    title: 'Portal e app do morador',
-    text: 'O morador acompanha comunicados, ocorrências, reservas, documentos, cobranças, encomendas, visitantes e enquetes sem passar pelo síndico.',
+    title: 'O morador se resolve sozinho',
+    text: 'Ele consulta comunicado, abre chamado, reserva o salão, baixa documento, vê a cobrança e confere a encomenda sem precisar te procurar.',
   },
 ];
 
 // Confiabilidade: o que sustenta o produto quando ninguém está olhando.
 export const sindancoraOps = [
-  { term: 'Backup', detail: 'Diário e criptografado, enviado para armazenamento externo' },
-  { term: 'Saúde', detail: 'Health check profundo de banco e cache em /api/health' },
-  { term: 'Erros', detail: 'Monitoramento com contexto por tenant e sem dado pessoal' },
-  { term: 'Isolamento', detail: 'Multitenant com permissões, planos, limites e escopo por condomínio' },
+  { term: 'Seus dados', detail: 'Cópia de segurança diária, protegida e guardada fora do prédio digital do sistema' },
+  { term: 'Disponibilidade', detail: 'Sistema acompanhado de perto para o problema ser visto antes de você sentir' },
+  { term: 'Privacidade', detail: 'Cada administradora e cada condomínio enxergam apenas o que lhes pertence' },
+  { term: 'Sua marca', detail: 'Nome, logotipo e cores da administradora no sistema que o morador acessa' },
 ];
 
 export const sindancoraDifferentials = [
-  'Multitenant por administradora',
-  'Escopo por condomínio',
-  'Perfis do super admin ao morador',
-  'IA ancorada nos documentos do condomínio',
-  'WhatsApp nativo, não plugin',
-  'Portaria e encomendas',
+  'App para Android na Google Play',
+  'Inteligência artificial que lê o seu condomínio',
+  'WhatsApp de verdade, não recado por e-mail',
+  'Portaria e encomendas sob controle',
   'Assembleia com voto e ata',
-  'API pública com escopos e webhooks',
-  'LGPD com exportação e exclusão de conta',
+  'Cobrança com boleto e PIX',
+  'Do síndico ao morador, cada um no seu lugar',
+  'Vários condomínios na mesma conta',
+  'Privacidade e exclusão de dados garantidas',
 ];
+
+/* =========================================================================
+   Contato e portal
+   ========================================================================= */
 
 export const contactInterests = [
   'Infraestrutura em TI',
   'Consultoria',
-  'Sistemas',
+  'Sistemas sob medida',
   'Âncora',
   'SindÂncora',
   'Automação',
@@ -772,30 +783,34 @@ export const contactInterests = [
 export const contactChannels = [
   {
     icon: 'phone',
-    title: 'WhatsApp consultivo',
-    value: 'Canal para novos projetos e solicitações comerciais',
-    description: 'Use o WhatsApp para acelerar o primeiro contato e alinhar diagnóstico, escopo e próximos passos.',
+    title: 'WhatsApp',
+    value: 'O caminho mais rápido para começar',
+    description:
+      'Manda uma mensagem contando o que está travando. A gente responde com as próximas perguntas certas, não com um catálogo.',
     href: whatsappUrl,
   },
   {
     icon: 'mail',
     title: 'E-mail',
     value: contactEmail,
-    description: 'Ideal para demandas institucionais, propostas, documentação e alinhamentos comerciais.',
+    description:
+      'Melhor para proposta, documentação e assunto que precisa ficar registrado com calma.',
     href: `mailto:${contactEmail}`,
   },
   {
     icon: 'pin',
-    title: 'Localização / atendimento',
-    value: 'Atuação com suporte remoto e agenda presencial',
-    description: 'Projetos atendidos com formato flexível para empresas, escritórios, condomínios e síndicos.',
+    title: 'Onde atendemos',
+    value: 'Remoto sempre, presencial quando faz diferença',
+    description:
+      'Atendemos empresas, escritórios, condomínios e síndicos com o formato que o projeto pedir.',
     href: '/contato#diagnostico',
   },
   {
     icon: 'clock',
-    title: 'Horário de atendimento',
+    title: 'Horário',
     value: 'Segunda a sexta, das 8h às 18h',
-    description: 'Operação consultiva com respostas organizadas e visão de continuidade para cada cliente.',
+    description:
+      'Fora disso, deixe a mensagem: ela entra na fila do próximo dia útil com o histórico junto.',
     href: '/portal-cliente',
   },
 ];

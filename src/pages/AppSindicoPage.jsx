@@ -7,14 +7,12 @@ import Icon from '../components/Icon';
 import {
   appFeatures,
   appScreens,
+  playStoreUrl,
   sindancoraAudience,
   sindancoraDifferentials,
   sindancoraOps,
   sindancoraPitch,
 } from '../data/siteContent';
-
-const playStoreUrl =
-  'https://play.google.com/store/apps/details?id=br.com.sindancora.app&hl=pt_BR';
 
 export default function AppSindicoPage() {
   return (
@@ -26,8 +24,13 @@ export default function AppSindicoPage() {
         title="Comande a gestão dos seus condomínios."
         description={sindancoraPitch}
         primaryAction={{ label: 'Solicitar apresentação', to: '/contato' }}
-        secondaryAction={{ label: 'Baixar o app do síndico', href: playStoreUrl }}
-        highlights={['LemeIA', 'Atendimento por WhatsApp', 'Obras e reformas', 'Portaria digital']}
+        secondaryAction={{ label: 'Baixar o app na Google Play', href: playStoreUrl }}
+        highlights={[
+          'App para Android',
+          'LemeIA responde pelo condomínio',
+          'Atendimento pelo WhatsApp',
+          'Obras, assembleias e portaria',
+        ]}
       />
 
       <PhotoBand
@@ -44,25 +47,25 @@ export default function AppSindicoPage() {
           <div className="showcase">
             <div className="showcase-aside">
               <span className="eyebrow" data-anim="rise">
-                O produto rodando
+                O sistema por dentro
               </span>
-              <h2 data-anim="lines">Uma administradora inteira em uma tela só.</h2>
+              <h2 data-anim="lines">A carteira inteira cabe em uma tela.</h2>
               <p data-anim="rise">
-                O SindÂncora é multitenant por administradora e tem escopo por condomínio: o síndico
-                profissional com nove prédios na carteira alterna o contexto sem trocar de sistema, e
-                cada perfil — do super admin ao morador — só enxerga o que lhe cabe.
+                O síndico profissional troca de condomínio em um clique, sem abrir outro sistema nem
+                outra planilha. E cada pessoa entra pela porta certa: o conselheiro vê o que é do
+                conselho, o morador vê o que é dele, a portaria vê o que precisa para trabalhar.
               </p>
 
               <ul className="spec-notes" data-stagger>
-                <li data-stagger-item>Perfis do super admin ao morador, com permissão granular</li>
-                <li data-stagger-item>Planos, módulos e limites de uso por administradora</li>
-                <li data-stagger-item>Identidade visual própria: nome, logo e cores por cliente</li>
-                <li data-stagger-item>App do síndico publicado na Google Play</li>
+                <li data-stagger-item>Do síndico ao morador, cada um enxergando o seu</li>
+                <li data-stagger-item>Vários condomínios na mesma conta</li>
+                <li data-stagger-item>Com o nome, o logotipo e as cores da sua administradora</li>
+                <li data-stagger-item>App para Android, disponível na Google Play</li>
               </ul>
 
               <div className="button-row" data-anim="rise">
                 <a className="btn" href={playStoreUrl}>
-                  <span>Ver na Google Play</span>
+                  <span>Baixar na Google Play</span>
                   <Icon name="arrow" className="btn-icon" />
                 </a>
               </div>
@@ -74,14 +77,14 @@ export default function AppSindicoPage() {
                 url="sindancora.ancorahub.com.br/dashboard"
                 alt="Painel do SindÂncora com carteira de nove condomínios, unidades, moradores e ações rápidas"
                 caption="Painel da administradora"
-                meta="Widgets configuráveis"
+                meta="Painel montado do seu jeito"
               />
               <ProductShot
                 src="/media/sindancora-condominios.jpg"
                 url="sindancora.ancorahub.com.br/condominios"
                 alt="Lista de condomínios do SindÂncora, cada um com cidade, blocos e número de unidades"
                 caption="Condomínios da carteira"
-                meta="Blocos, unidades e links públicos"
+                meta="Blocos, unidades e cidade"
               />
               <ProductShot
                 src="/media/sindancora-login.jpg"

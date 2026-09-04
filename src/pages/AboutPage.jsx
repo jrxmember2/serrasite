@@ -28,7 +28,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Sobre a Serratech"
         title="Tecnologia com visão prática, estratégica e humana."
-        description="A Serratech nasceu da experiência prática em tecnologia corporativa, infraestrutura, sistemas e atendimento a operações reais. Simplificamos processos, melhoramos segurança, reduzimos retrabalho e criamos soluções digitais que realmente funcionam."
+        description="Mais de 20 anos dentro de empresas e condomínios de verdade, resolvendo o que quebra às sete da manhã de uma segunda-feira. É de onde vem tudo o que a Serratech faz hoje."
         primaryAction={{ label: 'Falar com a Serratech', to: '/contato' }}
         secondaryAction={{ label: 'Conhecer soluções', to: '/solucoes' }}
         highlights={['Experiência prática', 'Atendimento próximo', 'Visão consultiva', 'Corporativo e condominial']}
@@ -41,11 +41,11 @@ export default function AboutPage() {
               <span className="eyebrow" data-anim="rise">
                 Nossa história
               </span>
-              <h2 data-anim="lines">Tecnologia precisa resolver, proteger e organizar.</h2>
+              <h2 data-anim="lines">Tecnologia boa é a que você esquece que existe.</h2>
             </div>
             <p className="lead" data-anim="rise">
-              A Serratech entende que tecnologia não deve ser complicada. Ela precisa resolver
-              problemas, proteger informações, organizar rotinas e gerar produtividade com clareza.
+              Quando está bem feita, ninguém comenta. Ela só aparece no dia em que falta — e é
+              exatamente esse dia que a gente trabalha para você nunca ter.
             </p>
           </div>
 
@@ -102,7 +102,7 @@ export default function AboutPage() {
         src="/media/foto/equipe-reuniao.jpg"
         alt="Equipe reunida em volta de uma mesa de madeira, com notebooks, relatórios impressos e discussão em andamento"
         eyebrow="Como o trabalho começa"
-        title="A conversa começa no problema, não no framework."
+        title="A conversa começa no seu problema, não no nosso catálogo."
         text="Antes de falar em sistema, backup ou automação, a Serratech senta com quem opera para entender onde o processo trava. Diagnóstico primeiro; proposta depois."
         credit="Foto: Pexels"
       />

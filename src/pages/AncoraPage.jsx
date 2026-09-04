@@ -20,33 +20,33 @@ export default function AncoraPage() {
       <Seo path="/ancora" />
 
       <PageHero
-        eyebrow="Âncora · ERP jurídico"
-        title="O escritório inteiro em um ambiente isolado por tenant."
+        eyebrow="Âncora · Sistema para escritórios de advocacia"
+        title="Seu escritório inteiro em um lugar só."
         description={ancoraPitch}
         primaryAction={{ label: 'Solicitar apresentação', to: '/contato' }}
-        secondaryAction={{ label: 'Ver os módulos', to: '/ancora#modulos' }}
+        secondaryAction={{ label: 'Ver o que ele faz', to: '/ancora#modulos' }}
         highlights={[
-          'Multitenant com RLS',
-          'Cálculo de prazos CPC e CLT',
-          'Honorários e timesheet',
-          'Auditoria desde a fundação',
+          'Prazo calculado pelo sistema',
+          'Publicação chega até você',
+          'Honorários e horas',
+          'Sigilo por cliente',
         ]}
       />
 
-      {/* A fundação técnica vem antes da lista de módulos: é ela que sustenta
-          a promessa comercial, e é o que diferencia o Âncora de uma planilha. */}
+      {/* A garantia de sigilo vem antes da lista de funcionalidades: é ela que
+          sustenta a venda para um escritório, e o que separa o Âncora de uma planilha. */}
       <section className="band">
         <div className="container">
           <div className="showcase">
             <div className="showcase-aside">
               <span className="eyebrow" data-anim="rise">
-                Fundação
+                O que sustenta
               </span>
-              <h2 data-anim="lines">Segurança que está abaixo do código, não ao lado dele.</h2>
+              <h2 data-anim="lines">Sigilo profissional não pode ser promessa de vendedor.</h2>
               <p data-anim="rise">
-                Em um sistema que guarda processo, prazo e honorário de vários escritórios ao mesmo
-                tempo, o vazamento entre clientes não pode depender de o programador ter lembrado do
-                filtro. No Âncora, o isolamento é responsabilidade do banco de dados.
+                Você responde pelo segredo do seu cliente perante a OAB. Por isso a separação entre
+                escritórios no Âncora não é uma configuração de tela que alguém pode esquecer de
+                marcar: está no nível mais profundo do sistema, ligada o tempo inteiro.
               </p>
 
               <dl className="hero-spec" data-stagger>
@@ -62,10 +62,10 @@ export default function AncoraPage() {
             <div className="showcase-stack">
               <ProductShot
                 src="/media/ancora-login.jpg"
-                url="Âncora — ERP jurídico"
-                alt="Tela de acesso do Âncora, com o texto ambiente seguro por escritório e entrada por e-mail ou código"
-                caption="Âncora — acesso do escritório"
-                meta="Entrada por senha ou código"
+                url="Âncora · sistema para escritórios de advocacia"
+                alt="Tela de entrada do Âncora, com acesso por e-mail e senha ou por código enviado ao advogado"
+                caption="Âncora — entrada do escritório"
+                meta="Acesso por senha ou por código"
               />
             </div>
           </div>
@@ -109,13 +109,13 @@ export default function AncoraPage() {
           <div className="section-head">
             <div>
               <span className="eyebrow" data-anim="rise">
-                Módulos
+                O que ele faz
               </span>
-              <h2 data-anim="lines">Do primeiro cadastro ao indicador do mês.</h2>
+              <h2 data-anim="lines">Do primeiro cadastro ao fechamento do mês.</h2>
             </div>
             <p className="lead" data-anim="rise">
-              Treze módulos que funcionam juntos. Cada um resolve uma etapa que hoje costuma viver em
-              uma ferramenta diferente — ou em nenhuma.
+              Treze frentes que funcionam juntas. Cada uma resolve uma etapa que hoje vive em uma
+              ferramenta diferente — ou em nenhuma.
             </p>
           </div>
 
@@ -152,8 +152,8 @@ export default function AncoraPage() {
               <h2 data-anim="lines">Do cadastro à fatura, sem trocar de ferramenta.</h2>
             </div>
             <p className="lead" data-anim="rise">
-              A sequência que o sistema acompanha de ponta a ponta. Cada etapa alimenta a seguinte —
-              a hora apontada vira recebível, o recebível vira fatura, a fatura vira indicador.
+              O caminho que o sistema acompanha do começo ao fim. Cada etapa alimenta a seguinte:
+              a hora que você aponta vira valor a receber, que vira fatura, que vira resultado.
             </p>
           </div>
 

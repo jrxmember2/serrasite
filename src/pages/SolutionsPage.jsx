@@ -14,7 +14,7 @@ export default function SolutionsPage() {
       <PageHero
         eyebrow="Produtos e soluções"
         title="Soluções completas para empresas, escritórios, condomínios e síndicos."
-        description="Planejamento, infraestrutura, consultoria, desenvolvimento, automação e tecnologia condominial em uma abordagem integrada, comercial e orientada a resultado."
+        description="Da tomada na parede ao relatório da diretoria. Seis frentes que resolvem o que trava a sua operação hoje — e evitam o problema que apareceria no ano que vem."
         primaryAction={{ label: 'Solicitar diagnóstico', to: '/contato#diagnostico' }}
         secondaryAction={{ label: 'Ver a fábrica de software', to: '/fabrica-de-software' }}
         highlights={['Infraestrutura', 'Consultoria', 'Sistemas', 'Automação', 'Condomínios', 'Segurança']}
@@ -27,11 +27,11 @@ export default function SolutionsPage() {
               <span className="eyebrow" data-anim="rise">
                 Amplitude de atuação
               </span>
-              <h2 data-anim="lines">Da base tecnológica ao produto digital.</h2>
+              <h2 data-anim="lines">Se depende de tecnologia para funcionar, está aqui.</h2>
             </div>
             <p className="lead" data-anim="rise">
-              Seis frentes pensadas para sustentar empresas e condomínios com mais controle,
-              produtividade e maturidade digital.
+              São seis frentes, e elas raramente aparecem sozinhas: o problema que você notou
+              costuma ter a raiz em outra. Por isso trabalhamos as seis juntas.
             </p>
           </div>
 
@@ -74,18 +74,18 @@ export default function SolutionsPage() {
               <span className="eyebrow" data-anim="rise">
                 Como a segurança é montada
               </span>
-              <h2 data-anim="lines">Quatro camadas entre a internet e o seu dado.</h2>
+              <h2 data-anim="lines">Quatro portas entre o mundo lá fora e o seu dado.</h2>
               <p data-anim="rise">
-                Segurança não é um produto que se instala no fim do projeto: é a ordem em que as
-                coisas foram montadas. Cada camada abaixo tem uma função específica, e a de baixo
-                existe justamente para o dia em que a de cima falhar.
+                Segurança não é uma caixa que se compra no fim do projeto: é a ordem em que as
+                coisas foram montadas. Cada camada tem uma função, e a de baixo existe exatamente
+                para o dia em que a de cima falhar. Porque um dia ela falha.
               </p>
 
               <ul className="spec-notes" data-stagger>
-                <li data-stagger-item>Acesso cifrado e superfície de exposição reduzida</li>
-                <li data-stagger-item>Aplicação em container, com deploy versionado e reversível</li>
-                <li data-stagger-item>Banco com isolamento por cliente e registro de auditoria</li>
-                <li data-stagger-item>Backup cifrado guardado fora do servidor que ele protege</li>
+                <li data-stagger-item>Só entra quem tem permissão, e a conversa vai protegida</li>
+                <li data-stagger-item>Atualização que pode voltar atrás se der errado</li>
+                <li data-stagger-item>Cada cliente com os dados separados e cada ação registrada</li>
+                <li data-stagger-item>Cópia guardada longe do sistema que ela protege</li>
               </ul>
             </div>
 
@@ -130,11 +130,11 @@ export default function SolutionsPage() {
               <span className="eyebrow" data-anim="rise">
                 Produtos próprios
               </span>
-              <h2 data-anim="lines">Soluções com identidade Serratech.</h2>
+              <h2 data-anim="lines">A gente não só instala software. A gente faz.</h2>
             </div>
             <p className="lead" data-anim="rise">
-              Plataformas em evolução para fortalecer atendimento, gestão condominial, automação e
-              relacionamento com clientes.
+              Estes produtos nasceram de problemas que encontramos em campo e hoje atendem cliente
+              de verdade, todo dia. É o mesmo cuidado que entra no seu projeto.
             </p>
           </div>
 

@@ -34,14 +34,14 @@ export default function ClientPortalPage() {
   const handleLogin = (event) => {
     event.preventDefault();
     setView('dashboard');
-    setFeedback('Login demonstrativo realizado. Esta área está pronta para integração com backend.');
+    setFeedback('Entrada de demonstração. No seu portal, este acesso é o do seu time.');
   };
 
   const handleTicket = (event) => {
     event.preventDefault();
     setView('ticket');
     setFeedback(
-      'Chamado demonstrativo enviado. O próximo passo é conectar ao fluxo real de atendimento.',
+      'Chamado de demonstração enviado. No seu portal, ele já cairia na fila da equipe com prazo e responsável.',
     );
   };
 
@@ -52,10 +52,10 @@ export default function ClientPortalPage() {
       <PageHero
         eyebrow="Portal do Cliente"
         title="Chamados, documentos e solicitações em um só lugar."
-        description="Acompanhe atendimentos, contratos e documentos em uma interface pensada para integrar com o ecossistema Serratech."
+        description="Abra o chamado, acompanhe o andamento e ache contrato e documento sozinho, a qualquer hora, sem precisar ligar para ninguém."
         primaryAction={{ label: 'Abrir chamado', to: '/portal-cliente#abrir-chamado' }}
         secondaryAction={{ label: 'Falar com a Serratech', to: '/contato' }}
-        highlights={['Acompanhamento de chamados', 'Documentos', 'Faturas e contratos', 'Base para integração']}
+        highlights={['Acompanhe seus chamados', 'Documentos à mão', 'Faturas e contratos', 'Sem depender de ninguém']}
       />
 
       <section className="section">
@@ -68,8 +68,8 @@ export default function ClientPortalPage() {
               <h2 data-anim="lines">Veja como funciona.</h2>
             </div>
             <p className="lead" data-anim="rise">
-              Esta é a interface do portal. Os dados são de demonstração — a estrutura já está pronta
-              para autenticação e API reais.
+              Assim funciona o portal por dentro. Os dados abaixo são de demonstração; no seu, cada
+              chamado, contrato e documento seria da sua empresa.
             </p>
           </div>
 

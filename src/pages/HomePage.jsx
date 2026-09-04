@@ -31,10 +31,10 @@ const tickerItems = [
   'Segurança digital',
   'Sistemas sob medida',
   'Automação',
-  'Multitenant',
-  'Backup',
-  'Integrações',
-  'Suporte consultivo',
+  'Condomínios',
+  'Escritórios de advocacia',
+  'Suporte que resolve',
+  'Cópia de segurança',
 ];
 
 // As capturas são telas reais dos produtos da Serratech, não maquete.
@@ -55,10 +55,10 @@ const shots = [
   },
   {
     src: '/media/ancora-login.jpg',
-    url: 'ancora — erp jurídico',
-    alt: 'Tela de acesso do Âncora, ERP jurídico multitenant, com ambiente isolado por escritório',
-    caption: 'Âncora — ERP jurídico multitenant',
-    meta: 'Ambiente isolado por escritório',
+    url: 'Âncora · sistema para escritórios de advocacia',
+    alt: 'Tela de entrada do Âncora, o sistema de gestão para escritórios de advocacia da Serratech',
+    caption: 'Âncora — entrada do escritório',
+    meta: 'Cada cliente na sua caixa-forte',
   },
 ];
 
@@ -108,9 +108,9 @@ export default function HomePage() {
               </h1>
 
               <p className="lead" data-hero-body>
-                A Serratech conecta infraestrutura de TI, sistemas próprios, automação e segurança
-                digital para que empresas, escritórios, síndicos e condomínios operem com controle e
-                previsibilidade.
+                Infraestrutura, sistemas sob medida, automação e segurança para empresas,
+                escritórios e condomínios que não podem parar. Você cuida do negócio — a parte que
+                precisa funcionar todo santo dia é com a gente.
               </p>
 
               <div className="button-row" data-hero-body>
@@ -161,10 +161,10 @@ export default function HomePage() {
         <div className="container">
           <div className="section-head">
             <span className="eyebrow" data-anim="rise">
-              Dois mercados, uma base técnica
+              Dois mundos, o mesmo cuidado
             </span>
             <h2 data-anim="lines">
-              A mesma disciplina de engenharia, aplicada a operações muito diferentes.
+              Uma sala de reunião e um hall de prédio têm mais em comum do que parece.
             </h2>
           </div>
 
@@ -263,20 +263,20 @@ export default function HomePage() {
           <div className="showcase">
             <div className="showcase-aside">
               <span className="eyebrow" data-anim="rise">
-                Produtos em produção
+                Nossos produtos, no ar
               </span>
-              <h2 data-anim="lines">Isto não é portfólio de terceiro. É o que a gente opera.</h2>
+              <h2 data-anim="lines">A gente não mostra portfólio dos outros. Mostra o que opera.</h2>
               <p data-anim="rise">
-                O Âncora e o SindÂncora foram desenhados, construídos e são sustentados pela
-                Serratech — servidor, backup, monitoramento e roadmap inclusos. As telas abaixo são
-                dos sistemas rodando, não maquete de apresentação.
+                O Âncora e o SindÂncora nasceram aqui, são mantidos aqui e atendem cliente de
+                verdade todo dia. As telas abaixo são dos sistemas em funcionamento — não é maquete
+                bonita de apresentação comercial.
               </p>
 
               <ul className="spec-notes" data-stagger>
-                <li data-stagger-item>Multitenant com isolamento de dados por cliente</li>
-                <li data-stagger-item>Auditoria e permissões desde a fundação</li>
-                <li data-stagger-item>Backup diário criptografado fora do servidor</li>
-                <li data-stagger-item>App do síndico publicado na Google Play</li>
+                <li data-stagger-item>Cada cliente com os dados guardados só para ele</li>
+                <li data-stagger-item>Registro de quem fez o quê, desde o primeiro dia</li>
+                <li data-stagger-item>Cópia de segurança diária, protegida e fora do sistema</li>
+                <li data-stagger-item>App do síndico para Android, na Google Play</li>
               </ul>
 
               <div className="button-row" data-anim="rise">
@@ -346,7 +346,7 @@ export default function HomePage() {
               <span className="eyebrow" data-anim="rise">
                 Ficha técnica
               </span>
-              <h2 data-anim="lines">Experiência prática, não teoria de slide.</h2>
+              <h2 data-anim="lines">Estrada rodada, não teoria de slide.</h2>
             </div>
           </div>
 
