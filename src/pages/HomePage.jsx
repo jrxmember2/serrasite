@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import Icon from '../components/Icon';
 import OperationDiagram from '../components/OperationDiagram';
-import { loadGsap, prefersReducedMotion } from '../lib/motion';
+import PhotoBand from '../components/PhotoBand';
+import ProductShot from '../components/ProductShot';
+import Ticker from '../components/Ticker';
+import { prefersReducedMotion, withGsap } from '../lib/motion';
 import {
   factoryCapabilities,
   factoryPitch,
@@ -23,6 +26,42 @@ const heroSpec = [
   { term: 'Base', detail: 'Mais de 20 anos em TI aplicada a operações que não podem parar' },
 ];
 
+const tickerItems = [
+  'Infraestrutura',
+  'Segurança digital',
+  'Sistemas sob medida',
+  'Automação',
+  'Multitenant',
+  'Backup',
+  'Integrações',
+  'Suporte consultivo',
+];
+
+// As capturas são telas reais dos produtos da Serratech, não maquete.
+const shots = [
+  {
+    src: '/media/sindancora-dashboard.jpg',
+    url: 'sindancora.ancorahub.com.br/dashboard',
+    alt: 'Painel do SindÂncora mostrando carteira de condomínios, unidades, moradores e ações rápidas',
+    caption: 'SindÂncora — painel da administradora',
+    meta: 'Carteira consolidada',
+  },
+  {
+    src: '/media/sindancora-condominios.jpg',
+    url: 'sindancora.ancorahub.com.br/condominios',
+    alt: 'Lista de condomínios cadastrados no SindÂncora com blocos e unidades por condomínio',
+    caption: 'SindÂncora — condomínios da carteira',
+    meta: 'Blocos e unidades',
+  },
+  {
+    src: '/media/ancora-login.jpg',
+    url: 'ancora — erp jurídico',
+    alt: 'Tela de acesso do Âncora, ERP jurídico multitenant, com ambiente isolado por escritório',
+    caption: 'Âncora — ERP jurídico multitenant',
+    meta: 'Ambiente isolado por escritório',
+  },
+];
+
 export default function HomePage() {
   const heroRef = useRef(null);
 
@@ -30,26 +69,13 @@ export default function HomePage() {
   useEffect(() => {
     if (prefersReducedMotion()) return undefined;
 
-    let ctx;
-    let cancelled = false;
-
-    loadGsap().then((lib) => {
-      if (cancelled || !lib || !heroRef.current) return;
-      const { gsap } = lib;
-
-      ctx = gsap.context(() => {
-        gsap
-          .timeline({ defaults: { ease: 'power4.out' } })
-          .to('[data-hero-meta]', { opacity: 1, y: 0, duration: 0.7, stagger: 0.08 })
-          .to('.hero-line > span', { y: '0%', duration: 1.05, stagger: 0.09 }, '-=0.45')
-          .to('[data-hero-body]', { opacity: 1, y: 0, duration: 0.85, stagger: 0.1 }, '-=0.6');
-      }, heroRef);
-    });
-
-    return () => {
-      cancelled = true;
-      if (ctx) ctx.revert();
-    };
+    return withGsap(({ gsap }) => {
+      gsap
+        .timeline({ defaults: { ease: 'power4.out' } })
+        .to('[data-hero-meta]', { opacity: 1, y: 0, duration: 0.7, stagger: 0.08 })
+        .to('.hero-line > span', { y: '0%', duration: 1.05, stagger: 0.09 }, '-=0.45')
+        .to('[data-hero-body]', { opacity: 1, y: 0, duration: 0.85, stagger: 0.1 }, '-=0.6');
+    }, heroRef);
   }, []);
 
   return (
@@ -109,11 +135,27 @@ export default function HomePage() {
             </div>
 
             <div data-hero-body>
-              <OperationDiagram />
+              <div className="hero-stage">
+                <div className="stage-head">
+                  <span>Mapa da operação</span>
+                  <span className="stage-live">Em operação</span>
+                </div>
+
+                <OperationDiagram />
+
+                <div className="stage-foot">
+                  <span>Entrada → Hub → Operação</span>
+                  <span>Serratech</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <div className="container">
+        <Ticker items={tickerItems} />
+      </div>
 
       <section className="section section-tint">
         <div className="container">
@@ -121,7 +163,7 @@ export default function HomePage() {
             <span className="eyebrow" data-anim="rise">
               Dois mercados, uma base técnica
             </span>
-            <h2 data-anim="rise">
+            <h2 data-anim="lines">
               A mesma disciplina de engenharia, aplicada a operações muito diferentes.
             </h2>
           </div>
@@ -147,6 +189,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      <PhotoBand
+        src="/media/foto/gestao-sobrecarregada.jpg"
+        alt="Gestor com as mãos no rosto diante do notebook, cercado de papéis e relatórios impressos"
+        eyebrow="O ponto de virada"
+        title="Toda operação tem o dia em que a tecnologia vira o problema."
+        text="Costuma começar pequeno: uma planilha que só uma pessoa entende, um backup que ninguém confere, um chamado que se perde no grupo de mensagem. Quando a Serratech é chamada, normalmente já virou rotina."
+        credit="Foto: Pexels"
+      />
+
       <section className="section">
         <div className="container">
           <div className="section-head">
@@ -154,7 +205,7 @@ export default function HomePage() {
               <span className="eyebrow" data-anim="rise">
                 Diagnóstico
               </span>
-              <h2 data-anim="rise">O que costuma estar quebrado quando nos chamam.</h2>
+              <h2 data-anim="lines">O que costuma estar quebrado quando nos chamam.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Estes são os pontos onde a operação perde tempo, controle e segurança. Cada um deles
@@ -183,7 +234,7 @@ export default function HomePage() {
               <span className="eyebrow" data-anim="rise">
                 Frentes de trabalho
               </span>
-              <h2 data-anim="rise">Como a Serratech resolve.</h2>
+              <h2 data-anim="lines">Como a Serratech resolve.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Oito frentes que operam juntas. Raramente um problema real se resolve dentro de uma só.
@@ -206,6 +257,49 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* O ponto alto do scroll: o site para de descrever e mostra o produto. */}
+      <section className="band">
+        <div className="container">
+          <div className="showcase">
+            <div className="showcase-aside">
+              <span className="eyebrow" data-anim="rise">
+                Produtos em produção
+              </span>
+              <h2 data-anim="lines">Isto não é portfólio de terceiro. É o que a gente opera.</h2>
+              <p data-anim="rise">
+                O Âncora e o SindÂncora foram desenhados, construídos e são sustentados pela
+                Serratech — servidor, backup, monitoramento e roadmap inclusos. As telas abaixo são
+                dos sistemas rodando, não maquete de apresentação.
+              </p>
+
+              <ul className="spec-notes" data-stagger>
+                <li data-stagger-item>Multitenant com isolamento de dados por cliente</li>
+                <li data-stagger-item>Auditoria e permissões desde a fundação</li>
+                <li data-stagger-item>Backup diário criptografado fora do servidor</li>
+                <li data-stagger-item>App do síndico publicado na Google Play</li>
+              </ul>
+
+              <div className="button-row" data-anim="rise">
+                <Link className="btn" to="/ancora">
+                  <span>Conhecer o Âncora</span>
+                  <Icon name="arrow" className="btn-icon" />
+                </Link>
+                <Link className="btn btn-secondary" to="/app-sindico">
+                  <span>Ver o SindÂncora</span>
+                  <Icon name="building" className="btn-icon" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="showcase-stack">
+              {shots.map((shot) => (
+                <ProductShot key={shot.src} {...shot} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container">
           <div className="section-head">
@@ -213,7 +307,7 @@ export default function HomePage() {
               <span className="eyebrow" data-anim="rise">
                 Fábrica de software
               </span>
-              <h2 data-anim="rise">Quando não existe sistema pronto que sirva, a gente constrói.</h2>
+              <h2 data-anim="lines">Quando não existe sistema pronto que sirva, a gente constrói.</h2>
             </div>
             <p className="lead" data-anim="rise">
               {factoryPitch}
@@ -252,14 +346,16 @@ export default function HomePage() {
               <span className="eyebrow" data-anim="rise">
                 Ficha técnica
               </span>
-              <h2 data-anim="rise">Experiência prática, não teoria de slide.</h2>
+              <h2 data-anim="lines">Experiência prática, não teoria de slide.</h2>
             </div>
           </div>
 
           <div className="spec-sheet" data-stagger>
             {homeMetrics.map((item) => (
               <div className="spec-row" key={item.value} data-stagger-item>
-                <span className="spec-value">{item.value}</span>
+                <span className="spec-value" data-counter={item.value}>
+                  {item.value}
+                </span>
                 <span className="spec-label">{item.label}</span>
               </div>
             ))}
@@ -274,7 +370,7 @@ export default function HomePage() {
               <span className="eyebrow" data-anim="rise">
                 Produtos próprios
               </span>
-              <h2 data-anim="rise">Não paramos no suporte técnico.</h2>
+              <h2 data-anim="lines">Não paramos no suporte técnico.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Plataformas construídas a partir de problemas que encontramos em campo — e que hoje
@@ -305,7 +401,7 @@ export default function HomePage() {
             <span className="eyebrow" data-anim="rise">
               Próximo passo
             </span>
-            <h2 data-anim="rise">Comece por um diagnóstico da sua operação.</h2>
+            <h2 data-anim="lines">Comece por um diagnóstico da sua operação.</h2>
           </div>
 
           <div className="cta-aside">

@@ -19,12 +19,14 @@ export const siteConfig = {
 };
 
 // A home fica fora do menu: a marca no header já cumpre esse papel.
+// A rota /app-sindico é mantida — está indexada — mas o rótulo acompanha o
+// nome real do produto em produção, SindÂncora.
 export const navigation = [
   { label: 'Sobre', to: '/sobre' },
   { label: 'Soluções', to: '/solucoes' },
   { label: 'Fábrica de Software', to: '/fabrica-de-software' },
   { label: 'Âncora', to: '/ancora' },
-  { label: 'App Síndico', to: '/app-sindico' },
+  { label: 'SindÂncora', to: '/app-sindico' },
   { label: 'Contato', to: '/contato' },
 ];
 
@@ -124,17 +126,22 @@ export const homeSolutions = [
   },
 ];
 
-// Ficha técnica: cada valor é um número verificável no próprio site.
+// Ficha técnica: cada valor é verificável — no próprio site, no repositório dos
+// produtos ou na loja de aplicativos. Nada aqui é número de efeito.
 export const homeMetrics = [
   { value: '20+', label: 'anos de experiência em TI aplicada a operações que não podem parar' },
   {
+    value: '2',
+    label:
+      'plataformas SaaS multitenant próprias em produção: o Âncora, para escritórios de advocacia, e o SindÂncora, para gestão condominial',
+  },
+  {
+    value: '1',
+    label: 'aplicativo do síndico publicado na Google Play, com API própria por trás',
+  },
+  {
     value: '8',
     label: 'frentes técnicas que operam de forma integrada, da infraestrutura à automação',
-  },
-  { value: '4', label: 'produtos próprios em operação e evolução contínua' },
-  {
-    value: '2',
-    label: 'mercados atendidos com a mesma disciplina: corporativo e condominial',
   },
 ];
 
@@ -151,13 +158,13 @@ export const featuredProducts = [
   {
     icon: 'anchor',
     title: 'Âncora',
-    text: 'Hub de gestão jurídica, condominial e empresarial para centralizar clientes, contratos, cobranças, documentos e atendimento.',
+    text: 'SaaS jurídico multitenant para escritórios de advocacia: processos, publicações, honorários, financeiro, agenda e automações com isolamento de dados por escritório.',
     to: '/ancora',
   },
   {
-    icon: 'app',
-    title: 'Âncora Síndico',
-    text: 'Gestão condominial na palma da mão com chamados, comunicados, documentos, agenda e integrações inteligentes.',
+    icon: 'building',
+    title: 'SindÂncora',
+    text: 'Plataforma de gestão condominial com atendimento por WhatsApp, obras, assembleias, portaria, cobrança e a LemeIA respondendo com base nos documentos do condomínio.',
     to: '/app-sindico',
   },
   {
@@ -271,7 +278,7 @@ export const factoryDifferentials = [
   },
   {
     title: 'Produtos próprios em produção',
-    text: 'Âncora, Âncora Síndico e o Portal do Cliente não são portfólio de terceiros: foram desenhados, construídos e operados pela Serratech.',
+    text: 'O Âncora e o SindÂncora não são portfólio de terceiros: foram desenhados, construídos e são operados pela Serratech — servidor, backup e monitoramento inclusos.',
   },
   {
     title: 'Domínio do negócio do cliente',
@@ -431,255 +438,324 @@ export const solutionsCategories = [
   },
 ];
 
+/* =========================================================================
+   Âncora — SaaS jurídico multitenant
+   Conteúdo conferido contra o repositório do produto (README, docs/roadmap.md
+   e as páginas em apps/web/src/pages). O que está aqui existe em código; o que
+   ainda não existe vive em `ancoraRoadmap`, separado de propósito.
+   ========================================================================= */
+
+export const ancoraPitch =
+  'O Âncora é um SaaS jurídico multitenant para escritórios de advocacia: processos, prazos, publicações, documentos, honorários e financeiro em uma base só, com os dados de cada escritório isolados no próprio banco.';
+
 export const ancoraAudience = [
-  'Escritórios de advocacia',
-  'Escritórios especializados em Direito Condominial',
-  'Administradoras',
-  'Consultorias',
-  'Empresas prestadoras de serviço',
-  'Operações que atendem condomínios',
-  'Equipes que precisam organizar clientes, documentos, processos e cobranças',
+  'Escritórios de advocacia de qualquer área',
+  'Bancas com vários advogados e correspondentes',
+  'Escritórios de Direito Condominial',
+  'Departamentos jurídicos internos',
+  'Operações que precisam separar dados por cliente e por responsável',
+  'Times que hoje dividem processo, prazo e honorário entre planilhas',
 ];
 
 export const ancoraModules = [
   {
     icon: 'chart',
-    title: 'Dashboard Executivo',
+    title: 'Área de trabalho',
     bullets: [
-      'Visão geral da operação',
-      'Indicadores e atalhos inteligentes',
-      'Cards de produtividade',
-      'Acompanhamento de áreas estratégicas',
+      'Visão consolidada da operação do escritório',
+      'Central de alertas com sino, lidos e não lidos',
+      'Deep-link do alerta direto para o registro',
+      'Cronômetro de timesheet no próprio cabeçalho',
     ],
   },
   {
     icon: 'clients',
-    title: 'Módulo de Clientes',
+    title: 'Pessoas',
     bullets: [
-      'Cadastro centralizado de pessoas e empresas',
-      'Condomínios, blocos, torres e unidades',
-      'Proprietários, locatários, síndicos e administradoras',
-      'Timeline, anexos, filtros avançados e rastreabilidade',
-    ],
-  },
-  {
-    icon: 'building',
-    title: 'Módulo de Condomínios',
-    bullets: [
-      'Cadastro completo do condomínio',
-      'Dados do síndico, endereço e conta bancária',
-      'Documentos como convenção, regimento, atas e contratos',
-      'Base preparada para importação por planilhas',
-    ],
-  },
-  {
-    icon: 'document',
-    title: 'Módulo de Propostas',
-    bullets: [
-      'Criação de propostas comerciais',
-      'Templates profissionais e visual premium',
-      'Serviços contratados e dados do cliente',
-      'Base para assinatura e conversão futura em contrato',
+      'Cadastro de pessoa física e jurídica',
+      'Papéis por pessoa: cliente, parte contrária, terceiro',
+      'Validação de CPF e CNPJ na entrada',
+      'Vínculo direto com processos e atendimentos',
     ],
   },
   {
     icon: 'contract',
-    title: 'Módulo de Contratos',
+    title: 'Processos',
     bullets: [
-      'Cadastro e templates padronizados',
-      'Geração automática de documentos',
-      'Preview antes da emissão',
-      'Controle de vigência e anexos',
+      'Partes, andamentos e histórico por processo',
+      'Documentos e financeiro amarrados ao caso',
+      'Agenda e prazos vinculados',
+      'Consulta ao DataJUD em fila diária',
     ],
   },
   {
-    icon: 'cash',
-    title: 'Financeiro 360º',
+    icon: 'calendar',
+    title: 'Agenda e prazos',
     bullets: [
-      'Faturamento, contas a pagar e a receber',
-      'Controle de caixa, receitas e despesas',
-      'Relatórios gerenciais',
-      'Exportação em CSV, XLSX e PDF',
+      'Calculadora de prazos com motor CPC e CLT',
+      'Audiências, compromissos e tarefas em uma agenda',
+      'Lembretes automáticos por e-mail e WhatsApp',
+      'Rotina diária de disparo às 07h',
     ],
   },
   {
-    icon: 'message',
-    title: 'Módulo de Cobrança',
+    icon: 'notify',
+    title: 'Publicações e monitoramento',
     bullets: [
-      'Gestão de cobranças e inadimplentes',
-      'Importação por planilhas',
-      'Histórico de cobrança por unidade e referência',
-      'Base para automações por WhatsApp, e-mail e SMS',
-    ],
-  },
-  {
-    icon: 'portal',
-    title: 'Portal do Cliente',
-    bullets: [
-      'Área exclusiva com login próprio',
-      'Consulta de informações e documentos',
-      'Abertura e acompanhamento de solicitações',
-      'Comunicação organizada com o escritório ou empresa',
+      'Captura de publicações e andamentos',
+      'Deduplicação antes de chegar ao escritório',
+      'Alerta no sino quando algo novo entra',
+      'Ingestão por API assinada, sem tocar o banco do tenant',
     ],
   },
   {
     icon: 'workflow',
-    title: 'Módulo de Processos',
+    title: 'Kanban',
     bullets: [
-      'Cadastro de processos e andamentos',
-      'Audiências, prazos e histórico',
-      'Integração futura com bases públicas',
-      'Atualizações automáticas via portal, WhatsApp e API',
+      'Board de casos e tarefas',
+      'Colunas configuráveis por escritório',
+      'Arrastar e soltar sem dependência externa',
+      'Cartão ligado ao processo de origem',
+    ],
+  },
+  {
+    icon: 'support',
+    title: 'Atendimentos',
+    bullets: [
+      'Registro de atendimento ligado a pessoa ou processo',
+      'Timeline de interações',
+      'Filtros e drawer de detalhe',
+      'Alerta ao atribuir responsável',
     ],
   },
   {
     icon: 'document',
-    title: 'Gerador de Convenção e Regimento Interno',
+    title: 'Documentos e modelos',
     bullets: [
-      'Geração assistida de documentos condominiais',
-      'Organização por cláusulas e templates',
-      'Adequação por perfil do condomínio',
-      'Base para apoio legal municipal, estadual e federal',
+      'GED com Google Drive por escritório',
+      'Templates com merge de variáveis',
+      'Geração a partir dos dados do processo',
+      'Histórico de versões dos documentos',
     ],
   },
   {
-    icon: 'workflow',
-    title: 'Integrações e API',
+    icon: 'cash',
+    title: 'Financeiro',
     bullets: [
-      'Integração com n8n, WhatsApp e webhooks',
-      'APIs externas e consulta automática de informações',
-      'Automação de atendimento',
-      'Base futura para ecossistema jurídico-condominial conectado',
+      'Faturas: a faturar, emitidas, pagas e canceladas',
+      'Fluxo de caixa com realizado contra previsto',
+      'Categorias, centros de custo e contas bancárias',
+      'Exportação em CSV',
     ],
   },
   {
-    icon: 'shield',
-    title: 'Logs e Auditoria',
+    icon: 'clock',
+    title: 'Honorários e timesheet',
     bullets: [
-      'Registro de ações',
-      'Segurança e rastreabilidade',
-      'Controle administrativo',
-      'Transparência operacional',
+      'Contratos de honorários por cliente',
+      'Apontamento de horas por processo',
+      'Cronômetro que registra ao parar',
+      'Horas viram recebível no financeiro',
+    ],
+  },
+  {
+    icon: 'chart',
+    title: 'Indicadores',
+    bullets: [
+      'Receita contra despesa realizada',
+      'Processos por status e por área',
+      'Ranking de clientes',
+      'Gráficos legíveis para daltonismo',
+    ],
+  },
+  {
+    icon: 'message',
+    title: 'Automações e canais',
+    bullets: [
+      'WhatsApp via Evolution API',
+      'E-mail com SMTP e IMAP',
+      'Lembretes e disparos agendados',
+      'Cobrança recorrente integrada ao Asaas',
     ],
   },
   {
     icon: 'settings',
-    title: 'Configurações e Branding',
+    title: 'Super administração',
     bullets: [
-      'Personalização visual com logo e favicon',
-      'Identidade do escritório ou empresa',
-      'Ajustes administrativos',
-      'Base para permissões futuras',
+      'Gestão de escritórios, planos e assinaturas',
+      'Configuração global da plataforma',
+      'Faturamento do próprio SaaS',
+      'Contratos customizados por cliente',
     ],
   },
 ];
 
+// A fundação técnica é o argumento comercial mais forte do Âncora — e é
+// verificável no repositório, não uma promessa de marketing.
+export const ancoraFoundation = [
+  {
+    term: 'Isolamento',
+    detail:
+      'Row Level Security do PostgreSQL como camada obrigatória: um escritório não alcança a linha do outro nem por erro de aplicação',
+  },
+  {
+    term: 'Auditoria',
+    detail: 'Registro das ações sensíveis desde a fundação do produto, não como módulo adicionado depois',
+  },
+  {
+    term: 'Permissões',
+    detail: 'Perfis e permissões granulares controlando rota, módulo e dado visível',
+  },
+  {
+    term: 'Operação',
+    detail: 'Deploy em container com Postgres dedicado, proxy reverso e TLS',
+  },
+];
+
 export const ancoraDifferentials = [
-  'Modular',
-  'Escalável',
-  'Focado no mercado jurídico-condominial',
-  'Preparado para automações',
-  'Baseado em problemas reais',
-  'Integração com WhatsApp, n8n e APIs',
-  'Portal do cliente',
-  'Visão de produto SaaS',
-  'Uso interno hoje com potencial de licenciamento futuro',
+  {
+    title: 'Segurança na fundação, não na borda',
+    text: 'O isolamento entre escritórios é feito pelo banco, com Row Level Security. Mesmo uma falha na aplicação não vaza dado de um cliente para outro — a regra está abaixo do código.',
+  },
+  {
+    title: 'Prazo calculado, não digitado',
+    text: 'O motor de prazos entende CPC e CLT. O sistema calcula a data a partir do ato, em vez de depender de alguém contar dias no calendário e acertar sempre.',
+  },
+  {
+    title: 'Construído por quem também opera',
+    text: 'Quem escreve o Âncora sustenta o servidor, o backup e o monitoramento em que ele roda. Continuidade não vira problema de outra empresa.',
+  },
 ];
 
 export const ancoraJourney = [
-  'Cliente entra',
-  'Proposta',
-  'Contrato',
-  'Cadastro',
-  'Cobrança / Processo',
-  'Portal do Cliente',
-  'Relatórios',
-  'Automação',
+  'Pessoa cadastrada',
+  'Processo aberto',
+  'Prazo calculado',
+  'Publicação capturada',
+  'Tarefa no kanban',
+  'Horas apontadas',
+  'Fatura emitida',
+  'Indicador atualizado',
 ];
 
+// Roadmap: o que ainda não está pronto. Fica separado dos módulos de propósito.
 export const ancoraRoadmap = [
-  'App Android',
-  'Portal do cliente completo',
-  'Consulta automática de processos',
-  'IA para pareceres simples',
-  'API pública',
-  'Módulo de tarefas',
-  'Integração com WhatsApp',
-  'Assinatura digital',
-  'Relatórios avançados',
-  'Multiempresa / multitenant',
-  'Módulo de documentos inteligentes',
+  'Motor de monitoramento próprio com a API Comunica/DJEN do PJe',
+  'Detecção automática de ato que abre prazo',
+  'Painel "meu dia" com prazos, tarefas e audiências',
+  'Conciliação bancária',
+  'Exportação em XLSX nas demais telas',
+  'Filtros salvos e colunas configuráveis nos indicadores',
 ];
 
+/* =========================================================================
+   SindÂncora — gestão condominial
+   Conferido contra `docs/produto/10-resumo-executivo-sistema-e-app-sindico.md`
+   e as rotas em `routes/web.php` do produto.
+   ========================================================================= */
+
+export const sindancoraPitch =
+  'O SindÂncora é a plataforma de gestão condominial da Serratech: atendimento, obras, comunicação, cobrança e decisões de assembleia em um só lugar — com a LemeIA respondendo a partir dos documentos do próprio condomínio.';
+
+export const sindancoraAudience = [
+  'Administradoras com carteira de condomínios',
+  'Síndicos profissionais',
+  'Síndicos moradores',
+  'Conselhos e subsíndicos',
+  'Equipes de portaria e zeladoria',
+  'Moradores, pelo portal e pelo app',
+];
+
+// Cada tela citada existe como rota no produto.
 export const appScreens = [
   {
-    title: 'Dashboard do síndico',
-    accent: 'Chamados pendentes',
-    items: ['Visão geral', 'Alertas prioritários', 'Comunicados recentes', 'Atalhos para documentos'],
+    title: 'Carteira de condomínios',
+    accent: 'Visão consolidada',
+    items: ['Todos os condomínios geridos', 'Seletor de contexto', 'Dashboard modular', 'Cronograma consolidado'],
   },
   {
-    title: 'Chamados abertos',
-    accent: 'Status em tempo real',
-    items: ['Aberto', 'Em análise', 'Em execução', 'Concluído'],
+    title: 'Atendimento por WhatsApp',
+    accent: 'Inbox em tempo real',
+    items: ['Conversas centralizadas', 'Setores e respostas rápidas', 'Chatbot de triagem', 'Campanhas e disparos'],
   },
   {
-    title: 'Documentos do condomínio',
-    accent: 'Tudo organizado',
-    items: ['Convenção', 'Regimento', 'Atas', 'Contratos'],
+    title: 'LemeIA',
+    accent: 'Assistente do síndico',
+    items: ['Responde pelos documentos do condomínio', 'Cita a fonte da resposta', 'Busca híbrida com pgvector', 'Apoio a inadimplência e comunicados'],
   },
   {
-    title: 'Notificações e agenda',
-    accent: 'Rotina na palma da mão',
-    items: ['Assembleias', 'Manutenções', 'Vistorias', 'Avisos push'],
+    title: 'Portaria digital',
+    accent: 'Entrada controlada',
+    items: ['Visitantes e autorizações', 'QR code e token', 'Check-in e check-out', 'Encomendas com rastro de retirada'],
   },
 ];
 
 export const appFeatures = [
   {
-    icon: 'chart',
-    title: 'Dashboard do condomínio',
-    text: 'Visão geral, chamados pendentes, comunicados recentes, documentos importantes e alertas da operação.',
-  },
-  {
-    icon: 'support',
-    title: 'Chamados com acompanhamento',
-    text: 'Fluxo de abertura, anexos, comentários, fotos e status claros do atendimento à conclusão.',
-  },
-  {
-    icon: 'notify',
-    title: 'Comunicados e push',
-    text: 'Avisos importantes, histórico e confirmação de leitura para melhorar comunicação com os moradores.',
-  },
-  {
-    icon: 'document',
-    title: 'Documentos do condomínio',
-    text: 'Convenção, regimento, atas, contratos, laudos, manuais e prestação de contas disponíveis no app.',
-  },
-  {
-    icon: 'building',
-    title: 'Ocorrências',
-    text: 'Registro com classificação, fotos, histórico e relatórios rápidos para acompanhamento mais organizado.',
-  },
-  {
-    icon: 'calendar',
-    title: 'Agenda da operação',
-    text: 'Assembleias, manutenções, vistorias, reuniões e reservas futuras reunidas em uma experiência clara.',
-  },
-  {
     icon: 'spark',
-    title: 'IA condominial futura',
-    text: 'Assistente para consultar regras, responder dúvidas frequentes e apoiar o síndico com base nos documentos.',
+    title: 'LemeIA, o assistente do síndico',
+    text: 'Responde perguntas sobre convenção, regimento e atas usando os documentos indexados do próprio condomínio, com busca híbrida e citação da fonte — não é um chat genérico.',
   },
   {
     icon: 'message',
-    title: 'Integração com WhatsApp',
-    text: 'Avisos, lembretes, status de chamados e mensagens automáticas conectando gestão e comunicação.',
+    title: 'Atendimento por WhatsApp',
+    text: 'Conexão por condomínio, setores, chatbot de triagem, inbox em tempo real, mídia e campanhas. A conversa com o morador para de viver no celular pessoal do síndico.',
   },
   {
-    icon: 'anchor',
-    title: 'Integração com o Âncora',
-    text: 'Dados, documentos, demandas, atendimento e solicitações jurídicas ou administrativas conectados ao hub.',
+    icon: 'support',
+    title: 'Ocorrências com SLA',
+    text: 'Abertura com anexos, responsável, status, comentários e timeline. Cada ocorrência tem prazo, dono e histórico auditável.',
   },
+  {
+    icon: 'notify',
+    title: 'Comunicados multicanal',
+    text: 'Editor rico, anexos, agendamento e disparo por mais de um canal, com histórico do que foi enviado e para quem.',
+  },
+  {
+    icon: 'building',
+    title: 'Obras, orçamentos e manutenção',
+    text: 'Manutenção preventiva, obras e reformas com orçamento, cronograma e andamento — a reforma deixa de ser controlada por grupo de mensagem.',
+  },
+  {
+    icon: 'users',
+    title: 'Assembleias digitais',
+    text: 'Pauta, votação, registro de presença, geração de ata em PDF e apoio da IA na redação. Enquetes com voto por unidade e link público.',
+  },
+  {
+    icon: 'cash',
+    title: 'Cobrança e financeiro',
+    text: 'Cobranças, despesas, inadimplência e relatórios, com PIX e boleto pelo Asaas e conciliação por webhook.',
+  },
+  {
+    icon: 'document',
+    title: 'Documentos e portaria',
+    text: 'Documentos com visibilidade controlada, download assinado e lixeira. Portaria com visitantes, autorizações, QR e encomendas.',
+  },
+  {
+    icon: 'portal',
+    title: 'Portal e app do morador',
+    text: 'O morador acompanha comunicados, ocorrências, reservas, documentos, cobranças, encomendas, visitantes e enquetes sem passar pelo síndico.',
+  },
+];
+
+// Confiabilidade: o que sustenta o produto quando ninguém está olhando.
+export const sindancoraOps = [
+  { term: 'Backup', detail: 'Diário e criptografado, enviado para armazenamento externo' },
+  { term: 'Saúde', detail: 'Health check profundo de banco e cache em /api/health' },
+  { term: 'Erros', detail: 'Monitoramento com contexto por tenant e sem dado pessoal' },
+  { term: 'Isolamento', detail: 'Multitenant com permissões, planos, limites e escopo por condomínio' },
+];
+
+export const sindancoraDifferentials = [
+  'Multitenant por administradora',
+  'Escopo por condomínio',
+  'Perfis do super admin ao morador',
+  'IA ancorada nos documentos do condomínio',
+  'WhatsApp nativo, não plugin',
+  'Portaria e encomendas',
+  'Assembleia com voto e ata',
+  'API pública com escopos e webhooks',
+  'LGPD com exportação e exclusão de conta',
 ];
 
 export const contactInterests = [
@@ -687,7 +763,7 @@ export const contactInterests = [
   'Consultoria',
   'Sistemas',
   'Âncora',
-  'App do Síndico',
+  'SindÂncora',
   'Automação',
   'Suporte',
   'Outro',
@@ -728,7 +804,7 @@ export const portalCategories = [
   'Suporte em TI',
   'Infraestrutura',
   'Sistema Âncora',
-  'App Síndico',
+  'SindÂncora',
   'Consultoria',
   'Automação',
   'Outro',

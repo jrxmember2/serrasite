@@ -32,7 +32,7 @@ export default function ContactPage() {
               <span className="eyebrow" data-anim="rise">
                 Canais
               </span>
-              <h2 data-anim="rise">Escolha por onde prefere começar.</h2>
+              <h2 data-anim="lines">Escolha por onde prefere começar.</h2>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ export default function ContactPage() {
               <span className="eyebrow" data-anim="rise">
                 Formulário
               </span>
-              <h2 data-anim="rise">Conte um pouco sobre a sua necessidade.</h2>
+              <h2 data-anim="lines">Conte um pouco sobre a sua necessidade.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Quanto mais contexto sobre o cenário atual, mais precisa fica a primeira resposta.

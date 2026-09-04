@@ -18,6 +18,25 @@
   --line-soft: #dde3df;
   --white: #ffffff;
 
+  /* Superfície "instrumento": o avesso escuro do papel. Usada nas faixas em que
+     o site mostra o produto rodando — a tela de um sistema não é uma folha. */
+  --deep: #071613;
+  --deep-2: #0b201c;
+  --deep-3: #102b26;
+  --deep-line: rgba(0, 184, 172, 0.22);
+  --deep-line-soft: rgba(244, 246, 244, 0.1);
+  --deep-ink: #dfe8e5;
+  --deep-ink-2: rgba(223, 232, 229, 0.66);
+  --deep-ink-3: rgba(223, 232, 229, 0.42);
+  --glow: rgba(0, 184, 172, 0.16);
+
+  /* Cores de estado. Existem só dentro das telas de produto reproduzidas no
+     site: um painel real tem semáforo, e sem ele a maquete não convence.
+     Fora delas o teal continua sendo o único acento da marca. */
+  --signal-ok: #3ddc97;
+  --signal-warn: #f5b544;
+  --signal-alert: #ff6b5e;
+
   --display: 'Archivo', system-ui, sans-serif;
   --body: 'IBM Plex Sans', system-ui, sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
@@ -1796,6 +1815,828 @@ textarea:focus {
 }
 
 /* =========================================================================
+   SUPERFÍCIE INSTRUMENTO — o avesso escuro do papel
+   Faixas em que o site para de falar sobre o produto e mostra o produto.
+   O contraste é o argumento: papel = documento, escuro = sistema rodando.
+   ========================================================================= */
+
+.band {
+  position: relative;
+  isolation: isolate;
+  background: var(--deep);
+  color: var(--deep-ink);
+  padding-block: clamp(80px, 12vw, 168px);
+  overflow: hidden;
+}
+
+/* Grade fina + halo teal. Fica no ::before para não exigir um nó extra em
+   cada faixa e para não competir com o conteúdo pelo z-index. */
+.band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(0, 184, 172, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 184, 172, 0.07) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(120% 80% at 50% 0%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(120% 80% at 50% 0%, #000 0%, transparent 75%);
+}
+
+.band::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: -30%;
+  width: min(120vw, 1400px);
+  aspect-ratio: 2 / 1;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, var(--glow) 0%, transparent 62%);
+  pointer-events: none;
+}
+
+.band h2,
+.band h3 {
+  color: var(--deep-ink);
+}
+
+.band p,
+.band .lead,
+.band .ledger-text,
+.band .duo-col p {
+  color: var(--deep-ink-2);
+}
+
+.band .eyebrow,
+.band .label,
+.band .ledger-index,
+.band .flow-index,
+.band .phase-index,
+.band .dimension {
+  color: var(--deep-ink-3);
+}
+
+.band .ledger,
+.band .spec-sheet,
+.band .index-list,
+.band .duo,
+.band .flow,
+.band .chip-list-wide,
+.band .hero-spec {
+  border-top-color: var(--deep-line);
+}
+
+.band .ledger-row,
+.band .spec-row,
+.band .index-item,
+.band .duo-col,
+.band .flow-step,
+.band .hero-spec-row {
+  border-bottom-color: var(--deep-line-soft);
+}
+
+.band .spec-value,
+.band .flow-label,
+.band .channel-value {
+  color: var(--deep-ink);
+}
+
+.band .phases,
+.band .catalog,
+.band .screens {
+  border-top-color: var(--deep-line);
+}
+
+.band .phase,
+.band .catalog-item,
+.band .screen,
+.band .feature-list li {
+  border-bottom-color: var(--deep-line-soft);
+}
+
+.band .screen,
+.band .flow-step {
+  border-right-color: var(--deep-line-soft);
+}
+
+.band .phase-body p,
+.band .catalog-head p,
+.band .feature-list li {
+  color: var(--deep-ink-2);
+}
+
+.band .hero-tags {
+  border-top-color: var(--deep-line);
+}
+
+.band .hero-tags li {
+  border-bottom-color: var(--deep-line-soft);
+  color: var(--deep-ink-2);
+}
+
+.band .chip-list li {
+  border-color: var(--deep-line);
+  color: var(--deep-ink-2);
+}
+
+.band .chip-list li:hover {
+  border-color: var(--teal);
+  color: var(--deep-ink);
+}
+
+.band .btn {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--deep);
+}
+
+.band .btn::before {
+  background: var(--deep-ink);
+}
+
+.band .btn:hover {
+  color: var(--deep);
+  border-color: var(--deep-ink);
+}
+
+.band .btn-secondary {
+  background: transparent;
+  color: var(--deep-ink);
+  border-color: var(--deep-line);
+}
+
+.band .btn-secondary::before {
+  background: var(--deep-ink);
+}
+
+.band .btn-secondary:hover {
+  color: var(--deep);
+  border-color: var(--deep-ink);
+}
+
+/* =========================================================================
+   MOLDURAS DE PRODUTO — a tela real, apresentada como equipamento
+   ========================================================================= */
+
+.frame {
+  position: relative;
+  border: 1px solid var(--deep-line);
+  background: linear-gradient(180deg, var(--deep-2), var(--deep));
+}
+
+/* Cantos de mira: assinatura de instrumento, e o único "enfeite" permitido. */
+.frame::before,
+.frame::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--teal);
+  opacity: 0.7;
+}
+
+.frame::before {
+  top: -1px;
+  left: -1px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.frame::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: 0;
+  border-top: 0;
+}
+
+.frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--deep-line-soft);
+}
+
+.frame-dots {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.frame-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--deep-line);
+}
+
+.frame-dots span:first-child {
+  background: var(--signal-alert);
+  opacity: 0.65;
+}
+
+.frame-dots span:nth-child(2) {
+  background: var(--signal-warn);
+  opacity: 0.65;
+}
+
+.frame-dots span:nth-child(3) {
+  background: var(--signal-ok);
+  opacity: 0.65;
+}
+
+.frame-url {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 12px;
+  border: 1px solid var(--deep-line-soft);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: var(--deep-ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.frame-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Varredura que percorre a captura uma vez quando ela entra em cena. */
+.frame-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 140px;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, var(--glow), transparent);
+  opacity: 0;
+}
+
+.frame-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--deep-ink-3);
+}
+
+/* Telefone: mesma lógica de moldura, proporção de aparelho. */
+.phones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: clamp(18px, 3vw, 34px);
+  align-items: start;
+}
+
+.phone {
+  position: relative;
+  padding: 10px;
+  border: 1px solid var(--deep-line);
+  border-radius: 26px;
+  background: linear-gradient(160deg, var(--deep-3), var(--deep));
+}
+
+.phone-screen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--deep-2);
+  aspect-ratio: 9 / 19;
+}
+
+.phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 42%;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--deep);
+  z-index: 2;
+}
+
+.phone-label {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--deep-ink-3);
+}
+
+/* =========================================================================
+   VITRINE — texto que fica parado enquanto as telas passam
+   ========================================================================= */
+
+.showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(32px, 5vw, 88px);
+  align-items: start;
+}
+
+.showcase-aside {
+  position: sticky;
+  top: calc(var(--header-h) + clamp(24px, 5vw, 72px));
+}
+
+.showcase-aside h2 {
+  margin-top: 18px;
+}
+
+.showcase-aside p {
+  margin-top: 22px;
+}
+
+.showcase-aside .button-row {
+  margin-top: 30px;
+}
+
+.showcase-stack {
+  display: grid;
+  gap: clamp(28px, 5vw, 68px);
+}
+
+/* Lista de checagem técnica usada ao lado das capturas. */
+.spec-notes {
+  margin-top: 30px;
+  border-top: 1px solid var(--deep-line);
+}
+
+.band .spec-notes {
+  border-top-color: var(--deep-line);
+}
+
+.spec-notes li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--deep-line-soft);
+  font-size: 0.95rem;
+  color: var(--deep-ink-2);
+}
+
+.spec-notes li::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  margin-top: 8px;
+  background: var(--teal);
+}
+
+/* =========================================================================
+   TICKER — repetição contínua das frentes técnicas
+   ========================================================================= */
+
+.ticker {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  padding-block: 20px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.band .ticker {
+  border-color: var(--deep-line);
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  padding-inline: 26px;
+  font-family: var(--display);
+  font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: var(--ink-2);
+}
+
+.band .ticker-item {
+  color: var(--deep-ink-2);
+}
+
+.ticker-item::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+
+/* =========================================================================
+   PALCO DO HERO — o diagrama passa a viver dentro de um instrumento
+   ========================================================================= */
+
+.hero-stage {
+  position: relative;
+  padding: clamp(20px, 2.6vw, 30px);
+  background: linear-gradient(165deg, var(--deep-2), var(--deep));
+  border: 1px solid var(--deep-line);
+  overflow: hidden;
+}
+
+.hero-stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 184, 172, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 184, 172, 0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  pointer-events: none;
+}
+
+.stage-head,
+.stage-foot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--deep-ink-3);
+}
+
+.stage-head {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--deep-line-soft);
+}
+
+.stage-foot {
+  padding-top: 16px;
+  border-top: 1px solid var(--deep-line-soft);
+}
+
+/* Ponto vivo: confirma que o painel está "ligado" sem precisar de texto. */
+.stage-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--teal);
+}
+
+.stage-live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 0 var(--glow);
+  animation: stage-pulse 2.4s var(--ease) infinite;
+}
+
+@keyframes stage-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 184, 172, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(0, 184, 172, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 184, 172, 0);
+  }
+}
+
+.hero-stage .hero-diagram {
+  position: relative;
+  padding-block: clamp(18px, 2.4vw, 28px);
+}
+
+/* O diagrama foi desenhado sobre papel; dentro do palco ele inverte. */
+.hero-stage .diagram-line {
+  stroke: var(--deep-line);
+}
+
+.hero-stage .diagram-line.is-live {
+  stroke: var(--teal);
+}
+
+.hero-stage .diagram-node rect {
+  fill: rgba(7, 22, 19, 0.6);
+  stroke: var(--deep-line);
+}
+
+.hero-stage .diagram-node.is-key rect {
+  fill: var(--teal);
+  stroke: var(--teal);
+}
+
+.hero-stage .diagram-node text {
+  fill: var(--deep-ink);
+}
+
+.hero-stage .diagram-node.is-key text {
+  fill: var(--deep);
+}
+
+.hero-stage .diagram-tick {
+  fill: var(--deep-ink-3);
+}
+
+/* =========================================================================
+   FICHA DE NÚMEROS ANIMADA
+   ========================================================================= */
+
+.spec-row {
+  transition: background 0.5s var(--ease);
+}
+
+.spec-row:hover {
+  background: var(--paper-2);
+}
+
+.band .spec-row:hover {
+  background: rgba(0, 184, 172, 0.05);
+}
+
+.spec-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================================================================
+   COMPARATIVO ANTES / DEPOIS
+   ========================================================================= */
+
+.contrast {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--deep-line);
+}
+
+.contrast-col {
+  padding: clamp(26px, 3vw, 42px) clamp(22px, 3vw, 40px) clamp(26px, 3vw, 42px) 0;
+  border-bottom: 1px solid var(--deep-line-soft);
+}
+
+.contrast-col + .contrast-col {
+  border-left: 1px solid var(--deep-line-soft);
+  padding-left: clamp(22px, 3vw, 40px);
+  padding-right: 0;
+}
+
+.contrast-col h3 {
+  margin: 14px 0 18px;
+}
+
+.contrast-col li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--deep-line-soft);
+  font-size: 0.95rem;
+  color: var(--deep-ink-2);
+}
+
+.contrast-col.is-before .label::before {
+  background: var(--signal-alert);
+}
+
+/* =========================================================================
+   FAIXA FOTOGRÁFICA — sangria total, duotone, texto por cima
+   O duotone não é enfeite: é o que impede uma foto de banco de parecer uma
+   foto de banco, e o que costura a fotografia ao resto da linguagem.
+   ========================================================================= */
+
+.photo-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  min-height: min(78vh, 680px);
+  padding-block: clamp(64px, 9vw, 128px);
+  background: var(--deep);
+  color: var(--deep-ink);
+}
+
+.photo-band.is-end {
+  align-items: end;
+}
+
+.photo-band.is-center {
+  align-items: center;
+}
+
+/* Maior que a faixa: sobra para o parallax deslocar sem descobrir a borda. */
+.photo-media {
+  position: absolute;
+  inset: -8% 0;
+  z-index: -2;
+  isolation: isolate;
+}
+
+.photo-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Tira a cor original antes de recolorir; sem isso o duotone fica sujo.
+     O brilho baixo é o que dá margem para o texto branco por cima. */
+  filter: grayscale(1) contrast(1.12) brightness(0.62);
+}
+
+/* `color` toma o matiz da cor sólida e a luminosidade da foto — é isso que
+   produz o monocromático teal em vez de um véu por cima da imagem. */
+.photo-tint {
+  position: absolute;
+  inset: 0;
+  background: var(--teal);
+  mix-blend-mode: color;
+  opacity: 0.92;
+}
+
+/* Dois véus sobrepostos: o horizontal garante que a coluna de texto caia
+   sempre sobre área escura, independente do que a foto tenha ali; o vertical
+   costura a faixa com as seções de papel acima e abaixo. */
+.photo-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 22, 19, 0.94) 0%,
+      rgba(7, 22, 19, 0.78) 42%,
+      rgba(7, 22, 19, 0.3) 78%,
+      rgba(7, 22, 19, 0.2) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(7, 22, 19, 0.6) 0%,
+      rgba(7, 22, 19, 0.3) 40%,
+      rgba(7, 22, 19, 0.85) 100%
+    );
+}
+
+.photo-content {
+  position: relative;
+}
+
+.photo-content h2 {
+  margin-top: 20px;
+  max-width: 20ch;
+  color: var(--deep-ink);
+  font-size: clamp(2.1rem, 4.4vw, 3.6rem);
+}
+
+.photo-content .lead {
+  margin-top: 24px;
+  color: var(--deep-ink-2);
+  max-width: 56ch;
+}
+
+.photo-content .eyebrow {
+  color: var(--deep-ink-3);
+}
+
+.photo-content .button-row {
+  margin-top: 32px;
+}
+
+.photo-content .btn {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--deep);
+}
+
+.photo-content .btn::before {
+  background: var(--deep-ink);
+}
+
+.photo-content .btn:hover {
+  color: var(--deep);
+  border-color: var(--deep-ink);
+}
+
+.photo-content .btn-secondary {
+  background: transparent;
+  color: var(--deep-ink);
+  border-color: var(--deep-line);
+}
+
+.photo-content .btn-secondary::before {
+  background: var(--deep-ink);
+}
+
+.photo-content .btn-secondary:hover {
+  color: var(--deep);
+  border-color: var(--deep-ink);
+}
+
+/* Crédito da imagem: obrigação de boa prática, não elemento de composição. */
+.photo-credit {
+  position: absolute;
+  right: var(--gutter);
+  top: clamp(20px, 3vw, 32px);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(223, 232, 229, 0.34);
+}
+
+/* Mapa de camadas da infraestrutura. Vive nas faixas escuras. */
+.infra-map svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.infra-link {
+  fill: none;
+  stroke: var(--deep-line);
+  stroke-width: 1;
+}
+
+.infra-box {
+  fill: rgba(0, 184, 172, 0.07);
+  stroke: var(--deep-line);
+  stroke-width: 1;
+}
+
+.infra-pulse {
+  fill: var(--teal);
+}
+
+.infra-text {
+  font-family: var(--mono);
+}
+
+.infra-text.is-index {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  fill: var(--teal);
+}
+
+.infra-text.is-label {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  fill: var(--deep-ink);
+}
+
+.infra-text.is-detail {
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  fill: var(--deep-ink-3);
+}
+
+/* A figura inteira: moldura + legenda. O recorte da varredura precisa de um
+   contexto próprio, senão ela escapa por cima da barra de endereço. */
+.shot {
+  margin: 0;
+}
+
+.frame-viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+/* O SplitText embrulha cada linha em `.split-line-mask` com overflow hidden.
+   Com line-height 1.04 essa caixa termina exatamente no fim da letra e corta a
+   descida de "ç", "g" e "p". O par padding/margem negativa estica só a máscara,
+   sem mexer no ritmo do título. */
+.split-line-mask {
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+/* =========================================================================
    MOTION — estados iniciais aplicados só quando o GSAP está no comando
    ========================================================================= */
 
@@ -1917,6 +2758,28 @@ textarea:focus {
 
   .index-item p {
     margin-left: calc(44px + clamp(16px, 3vw, 40px));
+  }
+
+  /* Sem duas colunas não há o que fixar: o texto volta a rolar com as telas. */
+  .showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-aside {
+    position: static;
+  }
+
+  .contrast {
+    grid-template-columns: 1fr;
+  }
+
+  .contrast-col {
+    padding: 26px 0;
+  }
+
+  .contrast-col + .contrast-col {
+    border-left: none;
+    padding-left: 0;
   }
 }
 

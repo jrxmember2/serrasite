@@ -65,7 +65,7 @@ export default function ClientPortalPage() {
               <span className="eyebrow" data-anim="rise">
                 Ambiente demonstrativo
               </span>
-              <h2 data-anim="rise">Veja como funciona.</h2>
+              <h2 data-anim="lines">Veja como funciona.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Esta é a interface do portal. Os dados são de demonstração — a estrutura já está pronta

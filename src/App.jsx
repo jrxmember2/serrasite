@@ -11,7 +11,13 @@ import AppSindicoPage from './pages/AppSindicoPage';
 import ContactPage from './pages/ContactPage';
 import ClientPortalPage from './pages/ClientPortalPage';
 import NotFoundPage from './pages/NotFoundPage';
-import { loadGsap, prefersReducedMotion, revealAll, startMotionWatchdog } from './lib/motion';
+import {
+  countUp,
+  loadGsap,
+  prefersReducedMotion,
+  revealAll,
+  startMotionWatchdog,
+} from './lib/motion';
 
 export function Layout() {
   const location = useLocation();
@@ -30,7 +36,8 @@ export function Layout() {
 
     loadGsap().then((lib) => {
       if (cancelled || !lib) return;
-      const { gsap, ScrollTrigger } = lib;
+      const { gsap, ScrollTrigger, SplitText } = lib;
+      const splits = [];
 
       ctx = gsap.context(() => {
         gsap.utils.toArray('[data-anim="rise"]').forEach((node) => {
@@ -65,6 +72,54 @@ export function Layout() {
             scrollTrigger: { trigger: group, start: 'top 82%' },
           });
         });
+
+        // Títulos que sobem linha a linha por trás de uma máscara. O SplitText
+        // recorta no cliente, então o HTML pré-renderizado segue sendo um h2
+        // inteiro para o buscador.
+        gsap.utils.toArray('[data-anim="lines"]').forEach((node) => {
+          // `mask: 'lines'` embrulha cada linha em um recorte próprio — é o que
+          // faz o texto surgir por trás da linha anterior em vez de deslizar solto.
+          const split = new SplitText(node, {
+            type: 'lines',
+            mask: 'lines',
+            linesClass: 'split-line',
+          });
+          splits.push(split);
+
+          gsap.from(split.lines, {
+            yPercent: 118,
+            duration: 1,
+            ease: 'power4.out',
+            stagger: 0.08,
+            scrollTrigger: { trigger: node, start: 'top 86%' },
+          });
+        });
+
+        // Deslocamento preso ao scroll: dá profundidade sem tirar nada do lugar.
+        gsap.utils.toArray('[data-parallax]').forEach((node) => {
+          const depth = Number(node.dataset.parallax) || 6;
+
+          gsap.fromTo(
+            node,
+            { yPercent: depth * -1 },
+            {
+              yPercent: depth,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: node,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+              },
+            },
+          );
+        });
+
+        gsap.utils.toArray('[data-counter]').forEach((node) => countUp(gsap, node));
+
+        // O SplitText reescreve o DOM do título; desfazê-lo no revert devolve o
+        // texto original antes que o React remonte a rota seguinte.
+        return () => splits.forEach((split) => split.revert());
       });
 
       ScrollTrigger.refresh();
