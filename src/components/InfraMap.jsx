@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { drawPath, prefersReducedMotion, withGsap } from '../lib/motion';
 
-// Camadas de uma operação sustentada pela Serratech, de fora para dentro.
-// A ordem no eixo Y é a ordem real de travessia de um pedido.
+// As quatro camadas de proteção, de fora para dentro. A ordem no eixo Y é a
+// ordem real em que um acesso atravessa o sistema.
 const layers = [
-  { y: 40, label: 'Borda', detail: 'TLS · proxy reverso · firewall' },
-  { y: 128, label: 'Aplicação', detail: 'containers · deploy versionado' },
-  { y: 216, label: 'Dados', detail: 'PostgreSQL · isolamento por tenant' },
-  { y: 304, label: 'Continuidade', detail: 'backup cifrado · fora do servidor' },
+  { y: 40, label: 'Entrada', detail: 'quem pode entrar · conexão protegida' },
+  { y: 128, label: 'Sistema', detail: 'atualização segura · volta atrás' },
+  { y: 216, label: 'Dados', detail: 'separados por cliente · tudo registrado' },
+  { y: 304, label: 'Cópia', detail: 'diária · protegida · guardada longe' },
 ];
 
 // Trajetos verticais entre as camadas, desenhados na ordem em que aparecem.
@@ -59,7 +59,7 @@ export default function InfraMap() {
       <svg
         viewBox="0 0 560 360"
         role="img"
-        aria-label="Camadas de uma operação sustentada pela Serratech: borda com TLS e firewall, aplicação em containers, dados em PostgreSQL com isolamento por tenant e continuidade com backup cifrado fora do servidor"
+        aria-label="As quatro camadas de proteção da Serratech: controle de quem entra, atualização do sistema que pode voltar atrás, dados separados por cliente com registro de cada ação e cópia de segurança diária guardada fora do sistema"
       >
         {links.map((d) => (
           <path key={d} className="infra-link" d={d} />

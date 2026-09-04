@@ -8,7 +8,6 @@ import {
   factoryModels,
   factoryPitch,
   factoryProcess,
-  factoryStack,
 } from '../data/siteContent';
 
 export default function SoftwareFactoryPage() {
@@ -22,7 +21,7 @@ export default function SoftwareFactoryPage() {
         description={factoryPitch}
         primaryAction={{ label: 'Solicitar orçamento', to: '/contato#diagnostico' }}
         secondaryAction={{ label: 'Ver o Âncora funcionando', to: '/ancora' }}
-        highlights={['Discovery ao deploy', 'Entregas em ciclos curtos', 'Produtos próprios em produção']}
+        highlights={['Do problema ao sistema no ar', 'Entregas de pouco em pouco', 'Preço fechado antes de começar']}
       />
 
       <section className="section">
@@ -65,7 +64,7 @@ export default function SoftwareFactoryPage() {
               <span className="eyebrow" data-anim="rise">
                 Como trabalhamos
               </span>
-              <h2 data-anim="lines">Do problema ao sistema em produção.</h2>
+              <h2 data-anim="lines">Do problema ao sistema no ar.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Sete etapas na ordem em que acontecem. Você sabe onde o projeto está em qualquer
@@ -97,8 +96,8 @@ export default function SoftwareFactoryPage() {
               <h2 data-anim="lines">Três formas de nos contratar.</h2>
             </div>
             <p className="lead" data-anim="rise">
-              A escolha sai do discovery: escopo fechado quando o objetivo é claro, time dedicado
-              quando o produto vai evoluir sempre.
+              A escolha sai do diagnóstico: preço fechado quando o objetivo já está claro, time
+              reservado quando o produto vai crescer sem data para parar.
             </p>
           </div>
 
@@ -137,14 +136,6 @@ export default function SoftwareFactoryPage() {
             ))}
           </div>
 
-          <dl className="hero-spec factory-stack" data-anim="rise">
-            {factoryStack.map((row) => (
-              <div className="hero-spec-row" key={row.term}>
-                <dt>{row.term}</dt>
-                <dd>{row.detail}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 
@@ -159,8 +150,8 @@ export default function SoftwareFactoryPage() {
 
           <div className="cta-aside">
             <p data-anim="rise">
-              O primeiro passo é um discovery para entender a operação. Só depois dele falamos em
-              número — orçamento antes disso é chute.
+              O primeiro passo é entender a sua operação. Só depois disso falamos em número —
+              orçamento antes de entender o problema é chute, e chute sai caro para os dois lados.
             </p>
             <div className="button-row" data-anim="rise">
               <Link className="btn" to="/contato#diagnostico">

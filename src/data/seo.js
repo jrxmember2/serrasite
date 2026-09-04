@@ -33,18 +33,18 @@ export const seoByPath = {
       'fábrica de software, desenvolvimento de sistemas sob medida, software sob medida, desenvolvimento web, squad dedicado, integração de sistemas, automação de processos, modernização de sistemas legados',
   },
   '/ancora': {
-    title: 'Âncora, ERP jurídico',
+    title: 'Âncora, sistema para escritórios de advocacia',
     description:
-      'Âncora: ERP jurídico multitenant para escritórios de advocacia, com processos, cálculo de prazos, publicações, documentos, honorários e financeiro em ambiente isolado por escritório.',
+      'Âncora: processos, prazos, publicações, documentos, honorários e financeiro do escritório em um lugar só, com sigilo garantido para cada cliente.',
     keywords:
-      'ERP jurídico, software para advogados, sistema para escritório de advocacia, controle de prazos processuais, gestão de processos, honorários advocatícios, timesheet jurídico, Âncora sistema',
+      'software para advogados, sistema para escritório de advocacia, controle de prazos processuais, gestão de processos, honorários advocatícios, software jurídico, Âncora sistema',
   },
   '/app-sindico': {
     title: 'SindÂncora, app e sistema para síndico',
     description:
-      'SindÂncora: plataforma de gestão condominial com atendimento por WhatsApp, obras, assembleias digitais, portaria, cobrança e a LemeIA respondendo pelos documentos do condomínio.',
+      'SindÂncora: app para Android na Google Play e sistema de gestão de condomínios com atendimento pelo WhatsApp, obras, assembleias, portaria, cobrança e a LemeIA respondendo pelos documentos do condomínio.',
     keywords:
-      'app para síndico, SindÂncora, sistema para condomínios, gestão condominial digital, software para administradora de condomínios, assembleia digital, portaria digital, tecnologia condominial',
+      'app para síndico, aplicativo para síndico Android, SindÂncora, sistema para condomínios, gestão de condomínios, software para administradora de condomínios, assembleia digital, portaria digital',
   },
   '/contato': {
     title: 'Contato',
