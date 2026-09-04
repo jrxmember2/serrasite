@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
+import PhotoBand from '../components/PhotoBand';
+import InfraMap from '../components/InfraMap';
 import Seo from '../components/Seo';
 import Icon from '../components/Icon';
 import { factoryPitch, featuredProducts, solutionsCategories } from '../data/siteContent';
@@ -25,7 +27,7 @@ export default function SolutionsPage() {
               <span className="eyebrow" data-anim="rise">
                 Amplitude de atuação
               </span>
-              <h2 data-anim="rise">Da base tecnológica ao produto digital.</h2>
+              <h2 data-anim="lines">Da base tecnológica ao produto digital.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Seis frentes pensadas para sustentar empresas e condomínios com mais controle,
@@ -54,6 +56,46 @@ export default function SolutionsPage() {
         </div>
       </section>
 
+      <PhotoBand
+        src="/media/foto/infraestrutura-servidores.jpg"
+        alt="Fileira de racks de servidores em corredor de datacenter, com cabeamento de rede e luzes de status"
+        eyebrow="Onde a operação realmente mora"
+        title="Bonito é o sistema. Quem sustenta é a camada de baixo."
+        text="Servidor, rede, backup, acesso e monitoramento não aparecem na apresentação comercial — e são exatamente o que decide se a operação continua de pé na segunda-feira."
+        credit="Foto: Pexels"
+      />
+
+      {/* Segurança é o assunto mais difícil de mostrar em texto corrido: o mapa
+          de camadas resolve em uma imagem o que levaria três parágrafos. */}
+      <section className="band" id="seguranca-camadas">
+        <div className="container">
+          <div className="showcase">
+            <div className="showcase-aside">
+              <span className="eyebrow" data-anim="rise">
+                Como a segurança é montada
+              </span>
+              <h2 data-anim="lines">Quatro camadas entre a internet e o seu dado.</h2>
+              <p data-anim="rise">
+                Segurança não é um produto que se instala no fim do projeto: é a ordem em que as
+                coisas foram montadas. Cada camada abaixo tem uma função específica, e a de baixo
+                existe justamente para o dia em que a de cima falhar.
+              </p>
+
+              <ul className="spec-notes" data-stagger>
+                <li data-stagger-item>Acesso cifrado e superfície de exposição reduzida</li>
+                <li data-stagger-item>Aplicação em container, com deploy versionado e reversível</li>
+                <li data-stagger-item>Banco com isolamento por cliente e registro de auditoria</li>
+                <li data-stagger-item>Backup cifrado guardado fora do servidor que ele protege</li>
+              </ul>
+            </div>
+
+            <div className="showcase-stack" data-parallax="4">
+              <InfraMap />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section section-tint">
         <div className="container">
           <div className="section-head">
@@ -61,7 +103,7 @@ export default function SolutionsPage() {
               <span className="eyebrow" data-anim="rise">
                 Fábrica de software
               </span>
-              <h2 data-anim="rise">Precisa de um sistema que não existe pronto?</h2>
+              <h2 data-anim="lines">Precisa de um sistema que não existe pronto?</h2>
             </div>
             <p className="lead" data-anim="rise">
               {factoryPitch}
@@ -88,7 +130,7 @@ export default function SolutionsPage() {
               <span className="eyebrow" data-anim="rise">
                 Produtos próprios
               </span>
-              <h2 data-anim="rise">Soluções com identidade Serratech.</h2>
+              <h2 data-anim="lines">Soluções com identidade Serratech.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Plataformas em evolução para fortalecer atendimento, gestão condominial, automação e

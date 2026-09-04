@@ -33,23 +33,23 @@ export const seoByPath = {
       'fábrica de software, desenvolvimento de sistemas sob medida, software sob medida, desenvolvimento web, squad dedicado, integração de sistemas, automação de processos, modernização de sistemas legados',
   },
   '/ancora': {
-    title: 'Âncora sistema',
+    title: 'Âncora, ERP jurídico',
     description:
-      'Âncora: hub inteligente para centralizar clientes, contratos, cobranças, documentos, atendimento e automações em operações jurídicas, condominiais e administrativas.',
+      'Âncora: ERP jurídico multitenant para escritórios de advocacia, com processos, cálculo de prazos, publicações, documentos, honorários e financeiro em ambiente isolado por escritório.',
     keywords:
-      'Âncora sistema, sistema para escritórios, sistema para condomínios, portal do cliente, automação empresarial, gestão condominial digital',
+      'ERP jurídico, software para advogados, sistema para escritório de advocacia, controle de prazos processuais, gestão de processos, honorários advocatícios, timesheet jurídico, Âncora sistema',
   },
   '/app-sindico': {
-    title: 'App para síndico',
+    title: 'SindÂncora, app e sistema para síndico',
     description:
-      'Âncora Síndico: app moderno para organizar chamados, documentos, comunicados, solicitações e rotinas condominiais com integração ao ecossistema Serratech.',
+      'SindÂncora: plataforma de gestão condominial com atendimento por WhatsApp, obras, assembleias digitais, portaria, cobrança e a LemeIA respondendo pelos documentos do condomínio.',
     keywords:
-      'app para síndico, gestão condominial digital, tecnologia condominial, sistema para condomínios, app de condomínio, Serratech',
+      'app para síndico, SindÂncora, sistema para condomínios, gestão condominial digital, software para administradora de condomínios, assembleia digital, portaria digital, tecnologia condominial',
   },
   '/contato': {
     title: 'Contato',
     description:
-      'Entre em contato com a Serratech para falar sobre infraestrutura em TI, consultoria, sistemas, automação, Âncora, App do Síndico e suporte técnico corporativo.',
+      'Entre em contato com a Serratech para falar sobre infraestrutura em TI, consultoria, sistemas, automação, Âncora, SindÂncora e suporte técnico corporativo.',
     keywords:
       'contato Serratech, consultoria em TI, suporte técnico corporativo, automação empresarial, app para síndico, Âncora sistema',
   },

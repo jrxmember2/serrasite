@@ -32,7 +32,7 @@ export default function SoftwareFactoryPage() {
               <span className="eyebrow" data-anim="rise">
                 O que construímos
               </span>
-              <h2 data-anim="rise">Sete tipos de projeto que entregamos.</h2>
+              <h2 data-anim="lines">Sete tipos de projeto que entregamos.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Se a sua operação depende de planilha compartilhada, retrabalho manual ou de um sistema
@@ -56,14 +56,16 @@ export default function SoftwareFactoryPage() {
         </div>
       </section>
 
-      <section className="section section-tint">
+      {/* A esteira de entrega é a parte mais "sistema" desta página; ganha a
+          superfície escura para separá-la do texto comercial em volta. */}
+      <section className="band">
         <div className="container">
           <div className="section-head">
             <div>
               <span className="eyebrow" data-anim="rise">
                 Como trabalhamos
               </span>
-              <h2 data-anim="rise">Do problema ao sistema em produção.</h2>
+              <h2 data-anim="lines">Do problema ao sistema em produção.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Sete etapas na ordem em que acontecem. Você sabe onde o projeto está em qualquer
@@ -92,7 +94,7 @@ export default function SoftwareFactoryPage() {
               <span className="eyebrow" data-anim="rise">
                 Modelos de contratação
               </span>
-              <h2 data-anim="rise">Três formas de nos contratar.</h2>
+              <h2 data-anim="lines">Três formas de nos contratar.</h2>
             </div>
             <p className="lead" data-anim="rise">
               A escolha sai do discovery: escopo fechado quando o objetivo é claro, time dedicado
@@ -119,7 +121,7 @@ export default function SoftwareFactoryPage() {
               <span className="eyebrow" data-anim="rise">
                 Por que a Serratech
               </span>
-              <h2 data-anim="rise">A diferença de contratar quem opera, não só quem programa.</h2>
+              <h2 data-anim="lines">A diferença de contratar quem opera, não só quem programa.</h2>
             </div>
           </div>
 
@@ -152,7 +154,7 @@ export default function SoftwareFactoryPage() {
             <span className="eyebrow" data-anim="rise">
               Orçamento
             </span>
-            <h2 data-anim="rise">Traga o problema. Devolvemos escopo, prazo e custo.</h2>
+            <h2 data-anim="lines">Traga o problema. Devolvemos escopo, prazo e custo.</h2>
           </div>
 
           <div className="cta-aside">

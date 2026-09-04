@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
+import PhotoBand from '../components/PhotoBand';
 import Seo from '../components/Seo';
 import Icon from '../components/Icon';
 import { aboutReasons, values } from '../data/siteContent';
@@ -40,7 +41,7 @@ export default function AboutPage() {
               <span className="eyebrow" data-anim="rise">
                 Nossa história
               </span>
-              <h2 data-anim="rise">Tecnologia precisa resolver, proteger e organizar.</h2>
+              <h2 data-anim="lines">Tecnologia precisa resolver, proteger e organizar.</h2>
             </div>
             <p className="lead" data-anim="rise">
               A Serratech entende que tecnologia não deve ser complicada. Ela precisa resolver
@@ -59,14 +60,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section section-tint">
+      <section className="band">
         <div className="container">
           <div className="section-head">
             <div>
               <span className="eyebrow" data-anim="rise">
                 Missão, visão e valores
               </span>
-              <h2 data-anim="rise">O que orienta cada decisão técnica.</h2>
+              <h2 data-anim="lines">O que orienta cada decisão técnica.</h2>
             </div>
           </div>
 
@@ -97,6 +98,15 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <PhotoBand
+        src="/media/foto/equipe-reuniao.jpg"
+        alt="Equipe reunida em volta de uma mesa de madeira, com notebooks, relatórios impressos e discussão em andamento"
+        eyebrow="Como o trabalho começa"
+        title="A conversa começa no problema, não no framework."
+        text="Antes de falar em sistema, backup ou automação, a Serratech senta com quem opera para entender onde o processo trava. Diagnóstico primeiro; proposta depois."
+        credit="Foto: Pexels"
+      />
+
       <section className="section">
         <div className="container">
           <div className="section-head">
@@ -104,7 +114,7 @@ export default function AboutPage() {
               <span className="eyebrow" data-anim="rise">
                 Por que escolhem a Serratech
               </span>
-              <h2 data-anim="rise">Estrutura, estratégia e proximidade.</h2>
+              <h2 data-anim="lines">Estrutura, estratégia e proximidade.</h2>
             </div>
             <p className="lead" data-anim="rise">
               Empresas e condomínios escolhem a Serratech porque precisam de uma parceira que entenda
@@ -134,7 +144,7 @@ export default function AboutPage() {
             <span className="eyebrow" data-anim="rise">
               Em uma frase
             </span>
-            <h2 data-anim="rise">
+            <h2 data-anim="lines">
               Não entregamos apenas suporte técnico. Entregamos estrutura, estratégia e evolução
               digital.
             </h2>
