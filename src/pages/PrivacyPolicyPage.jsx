@@ -61,7 +61,7 @@ function Block({ block }) {
 }
 
 export default function PrivacyPolicyPage() {
-  const { updatedAt, version, summary, highlights, sections } = privacyPolicy;
+  const { updatedAt, version, summary, scopeNote, highlights, sections } = privacyPolicy;
 
   return (
     <>
@@ -73,6 +73,11 @@ export default function PrivacyPolicyPage() {
             <span className="eyebrow">Documento legal</span>
             <h1>Política de Privacidade</h1>
             <p className="lead">{summary}</p>
+
+            {/* O escopo vem antes de tudo: cada produto tem a sua política, e
+                quem chega pela loja precisa saber na primeira tela se caiu no
+                documento certo. */}
+            <p className="legal-scope">{scopeNote}</p>
 
             <dl className="legal-meta">
               <div>

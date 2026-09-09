@@ -1,16 +1,23 @@
 import { siteConfig } from './siteContent';
 
 /* =========================================================================
-   Política de Privacidade
+   Política de Privacidade — Serratech e Âncora
    Texto único, versionado junto com o site. Fica em arquivo de dados porque a
    página é só a casca: quem revisa o texto jurídico mexe aqui, não no JSX.
+
+   ESCOPO: cada produto tem a sua própria política. Esta cobre o site, o Portal
+   do Cliente e o Âncora (incluindo os aplicativos Android de cada escritório).
+   O SindÂncora tem documento próprio, mantido fora deste repositório — nada
+   aqui fala por ele, e nada aqui deve ser copiado para lá sem revisão.
    ========================================================================= */
 
 export const privacyPolicy = {
   updatedAt: '9 de setembro de 2026',
-  version: '1.0',
+  version: '1.1',
+  scopeNote:
+    'O SindÂncora tem política de privacidade própria, informada na ficha do aplicativo na Google Play. Este documento não se aplica a ele.',
   summary:
-    'Esta política explica quais dados a Serratech trata, por que trata, com quem compartilha e como você pede acesso, correção ou exclusão. Vale para este site, para o Portal do Cliente, para o sistema Âncora e para o SindÂncora, incluindo o aplicativo Android publicado na Google Play.',
+    'Esta política explica quais dados a Serratech trata, por que trata, com quem compartilha e como você pede acesso, correção ou exclusão. Vale para este site, para o Portal do Cliente e para o Âncora, incluindo os aplicativos Android publicados para cada escritório.',
 
   // O resumo em três linhas existe porque quase ninguém lê política inteira.
   // O texto completo abaixo é o que vale juridicamente.
@@ -21,14 +28,14 @@ export const privacyPolicy = {
         'Nenhum dado pessoal tratado pela Serratech é vendido, alugado ou cedido para publicidade de terceiros.',
     },
     {
-      term: 'Cada cliente na sua caixa',
+      term: 'Cada escritório na sua caixa',
       detail:
-        'Escritório, administradora e condomínio enxergam apenas os próprios dados. O isolamento é aplicado pelo sistema, não pela boa vontade de quem opera.',
+        'Cada escritório enxerga apenas os próprios dados. O isolamento é aplicado pelo sistema, não pela boa vontade de quem opera.',
     },
     {
       term: 'Você pode pedir exclusão',
       detail:
-        'A qualquer momento, por e-mail ou pelo próprio aplicativo, com prazo de resposta de 15 dias.',
+        'A qualquer momento, ao escritório responsável ou diretamente a nós, com prazo de resposta de 15 dias.',
     },
   ],
 
@@ -39,7 +46,11 @@ export const privacyPolicy = {
       blocks: [
         {
           type: 'p',
-          text: `${siteConfig.fullName} ("Serratech", "nós") é a empresa responsável por este site e pelas plataformas Âncora, SindÂncora e Portal do Cliente. Esta política segue a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018, "LGPD").`,
+          text: `${siteConfig.fullName} ("Serratech", "nós") é a empresa responsável por este site, pelo Portal do Cliente e pela plataforma Âncora. Esta política segue a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018, "LGPD").`,
+        },
+        {
+          type: 'p',
+          text: 'Cada produto da Serratech tem a sua própria política. Esta cobre o site institucional, o Portal do Cliente e o Âncora — o sistema de gestão para escritórios de advocacia e os aplicativos Android publicados para cada escritório. O SindÂncora, voltado a condomínios, tem documento próprio, informado na ficha do aplicativo na Google Play.',
         },
         {
           type: 'p',
@@ -63,18 +74,18 @@ export const privacyPolicy = {
             {
               term: 'Controladora',
               detail:
-                'Quando você navega neste site, preenche um formulário de contato, fala com a gente pelo WhatsApp ou abre um chamado como nosso cliente. Aqui somos nós que decidimos a finalidade do tratamento.',
+                'Quando você navega neste site, preenche um formulário de contato ou abre um chamado como nosso cliente. Aqui somos nós que decidimos a finalidade do tratamento.',
             },
             {
               term: 'Operadora',
               detail:
-                'Quando tratamos dados dentro do Âncora e do SindÂncora. Nesses casos, o controlador é o escritório de advocacia, a administradora ou o condomínio que contratou o sistema; a Serratech trata os dados seguindo as instruções desse cliente e o contrato firmado com ele.',
+                'Quando tratamos dados dentro do Âncora. Nesse caso, o controlador é o escritório de advocacia que contratou o sistema; a Serratech trata os dados seguindo as instruções desse escritório e o contrato firmado com ele.',
             },
           ],
         },
         {
           type: 'p',
-          text: 'Se você é morador, cliente do escritório ou parte de um processo e quer exercer direitos sobre dados que estão dentro de um desses sistemas, o pedido pode ser feito diretamente ao controlador ou a nós — nesse caso, encaminhamos e apoiamos o controlador na resposta.',
+          text: 'Essa distinção importa na prática. Se você é cliente de um escritório, parte em um processo ou terceiro cujos dados estão dentro do Âncora, quem decide sobre esses dados é o escritório, não a Serratech. O pedido pode ser feito diretamente a ele ou a nós — nesse caso, encaminhamos e apoiamos o escritório na resposta, mas não alteramos nem eliminamos dados por conta própria.',
         },
       ],
     },
@@ -93,7 +104,7 @@ export const privacyPolicy = {
             {
               term: 'Site institucional',
               detail:
-                'Dados que você digita nos formulários (nome, e-mail, telefone, empresa ou condomínio, assunto e mensagem) e dados técnicos de acesso gerados automaticamente pelo servidor, como endereço IP, data e hora do acesso, página visitada, navegador e sistema operacional.',
+                'Dados que você digita nos formulários (nome, e-mail, telefone, empresa, assunto e mensagem) e dados técnicos de acesso gerados automaticamente pelo servidor, como endereço IP, data e hora do acesso, página visitada, navegador e sistema operacional.',
             },
             {
               term: 'Portal do Cliente',
@@ -103,17 +114,17 @@ export const privacyPolicy = {
             {
               term: 'Âncora',
               detail:
-                'Dados cadastrais de clientes, partes e terceiros (incluindo CPF e CNPJ), dados de processos, prazos, publicações, documentos, atendimentos, honorários e lançamentos financeiros do escritório. Parte desse conteúdo pode conter dados sensíveis, na medida em que o próprio processo judicial os contenha.',
+                'Dados cadastrais de clientes, partes e terceiros (incluindo CPF e CNPJ), dados de processos, prazos, publicações, documentos, atendimentos, demandas, honorários, cobranças e lançamentos financeiros do escritório. Parte desse conteúdo pode conter dados sensíveis, na medida em que o próprio processo judicial os contenha.',
             },
             {
-              term: 'SindÂncora e aplicativo Android',
+              term: 'Aplicativo Android do escritório',
               detail:
-                'Dados cadastrais de síndicos, conselheiros, funcionários e moradores (nome, unidade, e-mail, telefone), conversas de atendimento, ocorrências, reservas, registros de portaria e encomendas, votos e atas de assembleia, documentos do condomínio, cobranças e comprovantes de pagamento.',
+                'O aplicativo acessa a mesma base do escritório, e não coleta nada além do que o sistema já trata. Somam-se a isso o identificador do dispositivo, usado para entregar notificações, a versão do app e registros de erro.',
             },
             {
-              term: 'Dados técnicos do aplicativo',
+              term: 'Biometria do aparelho',
               detail:
-                'Identificador do dispositivo para envio de notificações, versão do app e registros de erro. O aplicativo pede permissões do sistema — como câmera, notificações e acesso a arquivos — apenas quando você aciona a função correspondente, e usa cada permissão somente para essa função.',
+                'O desbloqueio por digital ou rosto é resolvido pelo próprio Android, no aparelho. A Serratech recebe apenas a confirmação de que a checagem passou: nenhum dado biométrico é enviado, transmitido ou armazenado por nós.',
             },
           ],
         },
@@ -139,7 +150,12 @@ export const privacyPolicy = {
             {
               term: 'Responder ao seu contato',
               detail:
-                'Retornar mensagens de formulário, WhatsApp e e-mail e preparar propostas. Base legal: procedimentos preliminares de contrato (art. 7º, V).',
+                'Retornar mensagens de formulário e de e-mail e preparar propostas. Base legal: procedimentos preliminares de contrato (art. 7º, V).',
+            },
+            {
+              term: 'Exercício regular de direitos em processo',
+              detail:
+                'Os dados que o escritório registra no Âncora existem para o acompanhamento de processos judiciais e administrativos. Base legal: exercício regular de direitos em processo (art. 7º, VI, e art. 11, II, "d", quanto a dados sensíveis).',
             },
             {
               term: 'Segurança e prevenção a fraude',
@@ -163,19 +179,19 @@ export const privacyPolicy = {
 
     {
       id: 'inteligencia-artificial',
-      title: 'Inteligência artificial (LemeIA)',
+      title: 'Inteligência artificial (Leme)',
       blocks: [
         {
           type: 'p',
-          text: 'A LemeIA responde perguntas do síndico a partir dos documentos do próprio condomínio. Para isso, a pergunta e o trecho de documento pertinente a ela são enviados a um provedor de modelo de linguagem contratado pela Serratech, em modalidade corporativa, na qual o conteúdo enviado não é usado para treinar modelos do provedor.',
+          text: 'A Leme é a assistente do Âncora: responde perguntas em conversa, a partir do acervo do próprio escritório. Para isso, a pergunta e o trecho pertinente a ela são enviados a um provedor de modelo de linguagem contratado pela Serratech, em modalidade corporativa, na qual o conteúdo enviado não é usado para treinar modelos do provedor.',
         },
         {
           type: 'list',
           items: [
-            'A consulta é limitada ao acervo do condomínio a que o usuário tem acesso.',
-            'A resposta indica o documento de origem, para que possa ser conferida.',
+            'A consulta é limitada ao acervo do escritório a que o usuário tem acesso, e respeita as permissões que ele já tem no sistema.',
+            'A Leme pode ser liberada por usuário: quem não tem acesso liberado não a utiliza.',
             'Nenhuma decisão com efeito jurídico sobre o titular é tomada exclusivamente por processamento automatizado.',
-            'O histórico de perguntas fica registrado para auditoria e pode ser excluído a pedido do controlador.',
+            'O histórico de conversas fica registrado no sistema e pode ser excluído a pedido do escritório.',
           ],
         },
       ],
@@ -200,7 +216,7 @@ export const privacyPolicy = {
             {
               term: 'Serviços de mensagem',
               detail:
-                'Plataforma oficial do WhatsApp e serviços de envio de e-mail e de notificação push, para entregar as comunicações que você pediu.',
+                'Serviços de envio de e-mail e de notificação push, para entregar as comunicações que você pediu. Os links de contato do aplicativo apenas abrem o WhatsApp ou o discador do próprio aparelho: essa conversa acontece fora dos nossos sistemas.',
             },
             {
               term: 'Meios de pagamento',
@@ -233,8 +249,9 @@ export const privacyPolicy = {
           type: 'list',
           items: [
             'Tráfego cifrado em trânsito (HTTPS/TLS) em todos os sistemas.',
-            'Isolamento lógico por cliente: cada escritório, administradora e condomínio acessa apenas os próprios dados.',
+            'Isolamento lógico por escritório: cada instância acessa apenas os próprios dados.',
             'Controle de acesso por perfil, com privilégio mínimo para a equipe interna.',
+            'Bloqueio do aplicativo por biometria ou senha do aparelho, quando o usuário ativa.',
             'Cópia de segurança diária, guardada em ambiente separado do sistema em produção.',
             'Registros de auditoria das operações relevantes.',
             'Monitoramento de disponibilidade e de tentativas de acesso indevido.',
@@ -242,7 +259,7 @@ export const privacyPolicy = {
         },
         {
           type: 'p',
-          text: 'Nenhum sistema é imune a incidentes. Se ocorrer incidente de segurança com risco relevante aos titulares, comunicamos o controlador, os titulares afetados e a Autoridade Nacional de Proteção de Dados, nos prazos e na forma da LGPD.',
+          text: 'Nenhum sistema é imune a incidentes. Se ocorrer incidente de segurança com risco relevante aos titulares, comunicamos o escritório controlador, os titulares afetados e a Autoridade Nacional de Proteção de Dados, nos prazos e na forma da LGPD.',
         },
       ],
     },
@@ -259,13 +276,14 @@ export const privacyPolicy = {
               detail: 'Até 2 anos após o último contato, salvo se você pedir exclusão antes.',
             },
             {
-              term: 'Dados de sistemas em contrato',
-              detail: 'Durante toda a vigência do contrato com o cliente controlador.',
+              term: 'Dados dentro do Âncora',
+              detail:
+                'Durante toda a vigência do contrato com o escritório. O prazo de guarda de cada processo é definido pelo escritório, que responde pelos prazos legais e profissionais aplicáveis à advocacia.',
             },
             {
               term: 'Após o fim do contrato',
               detail:
-                'Até 90 dias para extração e devolução dos dados pelo cliente. Passado esse prazo, os dados são eliminados ou anonimizados.',
+                'Até 90 dias para extração e devolução dos dados pelo escritório. Passado esse prazo, os dados são eliminados ou anonimizados.',
             },
             {
               term: 'Registros de acesso',
@@ -315,18 +333,26 @@ export const privacyPolicy = {
       blocks: [
         {
           type: 'p',
-          text: 'Usuários do aplicativo SindÂncora podem solicitar a exclusão da conta e dos dados associados de duas formas:',
+          text: 'As contas de acesso ao Âncora não são criadas pelo próprio usuário: quem cadastra, libera e remove o acesso da equipe é o escritório contratante. Por isso, o pedido de exclusão segue dois caminhos:',
         },
         {
-          type: 'list',
+          type: 'defs',
           items: [
-            'Pelo próprio aplicativo, na tela de perfil, opção de exclusão de conta.',
-            `Por e-mail para ${siteConfig.contactEmail}, com o assunto "Exclusão de conta", informando o nome, o e-mail ou telefone cadastrado e o condomínio.`,
+            {
+              term: 'Se você é da equipe do escritório',
+              detail:
+                'Peça ao responsável pelo sistema no seu escritório. O acesso é revogado por ele, na hora, sem depender de nós.',
+            },
+            {
+              term: 'Se os seus dados estão em um processo ou cadastro',
+              detail:
+                'O controlador é o escritório, e é a ele que o pedido deve ser dirigido. Se preferir, escreva para nós: encaminhamos ao escritório em até 5 dias e apoiamos a resposta.',
+            },
           ],
         },
         {
           type: 'p',
-          text: 'A conta é desativada em até 7 dias e os dados pessoais associados são eliminados em até 30 dias. Permanecem guardados apenas os registros que a lei obriga a manter — como registros de acesso e documentos fiscais — e os dados cujo controlador é o condomínio ou a administradora e que precisam ser preservados para a gestão condominial, como atas de assembleia e registros de cobrança. Nesses casos, o pedido é encaminhado ao controlador.',
+          text: 'Quando a exclusão é determinada pelo escritório controlador, os dados pessoais são eliminados dos sistemas em até 30 dias. Permanecem guardados apenas os registros que a lei obriga a manter — como registros de acesso e documentos fiscais — e aqueles necessários ao exercício regular de direitos em processo, hipótese em que a guarda é do escritório e segue os prazos da advocacia.',
         },
       ],
     },
@@ -348,7 +374,7 @@ export const privacyPolicy = {
       blocks: [
         {
           type: 'p',
-          text: 'Nossos produtos são feitos para uso profissional e não se destinam a menores de 18 anos. Dados de menores só aparecem quando inseridos pelo controlador no contexto do serviço — por exemplo, um dependente cadastrado em uma unidade do condomínio ou uma parte em processo judicial — e são tratados no melhor interesse do menor, nos termos do art. 14 da LGPD.',
+          text: 'O Âncora é feito para uso profissional e não se destina a menores de 18 anos. Dados de menores só aparecem quando o escritório os registra no contexto de um caso — por exemplo, uma parte em processo de família — e são tratados no melhor interesse do menor, nos termos do art. 14 da LGPD, sob responsabilidade do escritório controlador.',
         },
       ],
     },
