@@ -4,7 +4,7 @@ import { Layout } from './App';
 import { resolveSeo } from './data/seo';
 import { siteConfig } from './data/siteContent';
 
-export { indexablePaths } from './data/seo';
+export { indexablePaths, prerenderPaths } from './data/seo';
 
 function escapeAttr(value) {
   return String(value)

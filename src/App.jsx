@@ -10,6 +10,7 @@ import AncoraPage from './pages/AncoraPage';
 import AppSindicoPage from './pages/AppSindicoPage';
 import ContactPage from './pages/ContactPage';
 import ClientPortalPage from './pages/ClientPortalPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import NotFoundPage from './pages/NotFoundPage';
 import {
   countUp,
@@ -161,6 +162,7 @@ export function Layout() {
           <Route path="/app-sindico" element={<AppSindicoPage />} />
           <Route path="/contato" element={<ContactPage />} />
           <Route path="/portal-cliente" element={<ClientPortalPage />} />
+          <Route path="/legal/politica-de-privacidade" element={<PrivacyPolicyPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

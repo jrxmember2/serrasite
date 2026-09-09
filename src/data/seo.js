@@ -60,6 +60,17 @@ export const seoByPath = {
     keywords:
       'portal do cliente, chamados de TI, suporte técnico corporativo, portal Serratech, app para síndico',
   },
+  // Fica fora do menu, fora do sitemap e fora do índice de busca — é um
+  // documento de referência, não uma página de venda. A URL precisa ser estável
+  // e pública porque é ela que consta na ficha do app na Google Play.
+  '/legal/politica-de-privacidade': {
+    title: 'Política de Privacidade',
+    description:
+      'Como a Serratech trata dados pessoais no site, no Portal do Cliente, no Âncora e no SindÂncora: dados coletados, finalidades, compartilhamento, retenção, direitos do titular e exclusão de conta.',
+    keywords:
+      'política de privacidade Serratech, LGPD, tratamento de dados pessoais, exclusão de conta SindÂncora, encarregado de dados',
+    noindex: true,
+  },
   '/404': {
     title: 'Página não encontrada',
     description:
@@ -69,8 +80,12 @@ export const seoByPath = {
   },
 };
 
-// Rotas publicadas no sitemap e pré-renderizadas como HTML indexável.
+// Rotas publicadas no sitemap e indexáveis pelos buscadores.
 export const indexablePaths = Object.keys(seoByPath).filter((path) => !seoByPath[path].noindex);
+
+// Tudo que vira HTML estático no build. Inclui as rotas noindex: elas não vão
+// ao sitemap, mas precisam responder direto no servidor, sem depender de JS.
+export const prerenderPaths = Object.keys(seoByPath);
 
 export function resolveSeo(path) {
   const meta = seoByPath[path] ?? seoByPath['/404'];
