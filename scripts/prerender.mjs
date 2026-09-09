@@ -1,7 +1,7 @@
 // Gera um HTML estático por rota a partir do build SSR, para que buscadores
 // recebam title, description, canonical e conteúdo sem depender de execução de JS.
-import { readFile, writeFile, rm } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
+import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const root = resolve(import.meta.dirname, '..');
@@ -33,10 +33,10 @@ function buildSitemap(paths) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
-const { render, indexablePaths } = await import(pathToFileURL(ssrEntry).href);
+const { render, indexablePaths, prerenderPaths } = await import(pathToFileURL(ssrEntry).href);
 const template = await readFile(resolve(distDir, 'index.html'), 'utf8');
 
-const routes = [...indexablePaths, '/404'];
+const routes = prerenderPaths;
 
 for (const path of routes) {
   const { html, head } = render(path);
@@ -46,7 +46,12 @@ for (const path of routes) {
     html,
   );
 
-  await writeFile(resolve(distDir, fileNameFor(path)), page, 'utf8');
+  const target = resolve(distDir, fileNameFor(path));
+
+  // Rotas aninhadas (/legal/...) viram subpasta em dist; o nginx as serve via
+  // try_files $uri.html.
+  await mkdir(dirname(target), { recursive: true });
+  await writeFile(target, page, 'utf8');
   console.log(`pré-renderizado  ${path.padEnd(16)} -> dist/${fileNameFor(path)}`);
 }
 
