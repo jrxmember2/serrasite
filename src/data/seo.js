@@ -66,9 +66,9 @@ export const seoByPath = {
   '/legal/politica-de-privacidade': {
     title: 'Política de Privacidade',
     description:
-      'Como a Serratech trata dados pessoais no site, no Portal do Cliente, no Âncora e no SindÂncora: dados coletados, finalidades, compartilhamento, retenção, direitos do titular e exclusão de conta.',
+      'Como a Serratech trata dados pessoais no site, no Portal do Cliente e no Âncora: dados coletados, finalidades, compartilhamento, retenção, direitos do titular e exclusão. O SindÂncora tem política própria.',
     keywords:
-      'política de privacidade Serratech, LGPD, tratamento de dados pessoais, exclusão de conta SindÂncora, encarregado de dados',
+      'política de privacidade Serratech, LGPD, tratamento de dados pessoais, Âncora, encarregado de dados',
     noindex: true,
   },
   '/404': {

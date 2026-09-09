@@ -87,11 +87,6 @@ export default function Footer() {
             © {new Date().getFullYear()} {siteConfig.fullName}
           </p>
           <p>Todos os direitos reservados</p>
-          {/* Único ponto de entrada para os documentos legais. Fora do menu de
-              propósito: é referência, não navegação. */}
-          <Link className="footer-legal-link" to="/legal/politica-de-privacidade">
-            Política de Privacidade
-          </Link>
         </div>
       </div>
     </footer>

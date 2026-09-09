@@ -2686,6 +2686,16 @@ textarea:focus {
   margin-top: 24px;
 }
 
+.legal-scope {
+  margin-top: 22px;
+  padding: 14px 0 14px 18px;
+  border-left: 2px solid var(--teal);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 62ch;
+}
+
 .legal-meta {
   display: flex;
   flex-wrap: wrap;
@@ -2921,18 +2931,6 @@ textarea:focus {
   border-bottom: 1px solid var(--line);
 }
 
-.footer-legal-link {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  transition: color 0.3s var(--ease);
-}
-
-.footer-legal-link:hover {
-  color: var(--teal-deep);
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,
