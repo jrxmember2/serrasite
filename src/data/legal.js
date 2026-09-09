@@ -6,18 +6,19 @@ import { siteConfig } from './siteContent';
    página é só a casca: quem revisa o texto jurídico mexe aqui, não no JSX.
 
    ESCOPO: cada produto tem a sua própria política. Esta cobre o site, o Portal
-   do Cliente e o Âncora (incluindo os aplicativos Android de cada escritório).
-   O SindÂncora tem documento próprio, mantido fora deste repositório — nada
-   aqui fala por ele, e nada aqui deve ser copiado para lá sem revisão.
+   do Cliente e o Âncora como sistema. Cada aplicativo Android publicado na loja
+   tem documento proprio — o do escritorio Rebeca Medina esta em
+   src/data/legalRebecaApp.js, e o do SindAncora e mantido fora deste
+   repositorio. Nada aqui fala por eles.
    ========================================================================= */
 
 export const privacyPolicy = {
   updatedAt: '9 de setembro de 2026',
   version: '1.1',
   scopeNote:
-    'O SindÂncora tem política de privacidade própria, informada na ficha do aplicativo na Google Play. Este documento não se aplica a ele.',
+    'Os aplicativos Android publicados na Google Play têm política própria, informada na ficha de cada um: o do escritório Rebeca Medina Advocacia e o do SindÂncora. Este documento não se aplica a eles.',
   summary:
-    'Esta política explica quais dados a Serratech trata, por que trata, com quem compartilha e como você pede acesso, correção ou exclusão. Vale para este site, para o Portal do Cliente e para o Âncora, incluindo os aplicativos Android publicados para cada escritório.',
+    'Esta política explica quais dados a Serratech trata, por que trata, com quem compartilha e como você pede acesso, correção ou exclusão. Vale para este site, para o Portal do Cliente e para o Âncora como sistema.',
 
   // O resumo em três linhas existe porque quase ninguém lê política inteira.
   // O texto completo abaixo é o que vale juridicamente.
@@ -50,7 +51,7 @@ export const privacyPolicy = {
         },
         {
           type: 'p',
-          text: 'Cada produto da Serratech tem a sua própria política. Esta cobre o site institucional, o Portal do Cliente e o Âncora — o sistema de gestão para escritórios de advocacia e os aplicativos Android publicados para cada escritório. O SindÂncora, voltado a condomínios, tem documento próprio, informado na ficha do aplicativo na Google Play.',
+          text: 'Cada produto da Serratech tem a sua própria política. Esta cobre o site institucional, o Portal do Cliente e o Âncora, o sistema de gestão para escritórios de advocacia. Os aplicativos Android têm documento próprio, informado na ficha de cada um na Google Play — tanto o do escritório Rebeca Medina Advocacia quanto o do SindÂncora, voltado a condomínios.',
         },
         {
           type: 'p',
@@ -115,16 +116,6 @@ export const privacyPolicy = {
               term: 'Âncora',
               detail:
                 'Dados cadastrais de clientes, partes e terceiros (incluindo CPF e CNPJ), dados de processos, prazos, publicações, documentos, atendimentos, demandas, honorários, cobranças e lançamentos financeiros do escritório. Parte desse conteúdo pode conter dados sensíveis, na medida em que o próprio processo judicial os contenha.',
-            },
-            {
-              term: 'Aplicativo Android do escritório',
-              detail:
-                'O aplicativo acessa a mesma base do escritório, e não coleta nada além do que o sistema já trata. Somam-se a isso o identificador do dispositivo, usado para entregar notificações, a versão do app e registros de erro.',
-            },
-            {
-              term: 'Biometria do aparelho',
-              detail:
-                'O desbloqueio por digital ou rosto é resolvido pelo próprio Android, no aparelho. A Serratech recebe apenas a confirmação de que a checagem passou: nenhum dado biométrico é enviado, transmitido ou armazenado por nós.',
             },
           ],
         },
@@ -251,7 +242,6 @@ export const privacyPolicy = {
             'Tráfego cifrado em trânsito (HTTPS/TLS) em todos os sistemas.',
             'Isolamento lógico por escritório: cada instância acessa apenas os próprios dados.',
             'Controle de acesso por perfil, com privilégio mínimo para a equipe interna.',
-            'Bloqueio do aplicativo por biometria ou senha do aparelho, quando o usuário ativa.',
             'Cópia de segurança diária, guardada em ambiente separado do sistema em produção.',
             'Registros de auditoria das operações relevantes.',
             'Monitoramento de disponibilidade e de tentativas de acesso indevido.',

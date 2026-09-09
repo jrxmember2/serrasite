@@ -71,6 +71,16 @@ export const seoByPath = {
       'política de privacidade Serratech, LGPD, tratamento de dados pessoais, Âncora, encarregado de dados',
     noindex: true,
   },
+  // URL informada na ficha do app na Google Play. Precisa continuar
+  // respondendo enquanto o app estiver publicado — nao renomear.
+  '/legal/rebeca-medina-advocacia/politica-de-privacidade': {
+    title: 'Política de Privacidade do app Rebeca Medina Advocacia',
+    description:
+      'Como o aplicativo Android do escritório Rebeca Medina Advocacia trata dados pessoais: dados, permissões, biometria no aparelho, o que ele não coleta, compartilhamento, retenção, direitos e exclusão.',
+    keywords:
+      'política de privacidade, Rebeca Medina Advocacia, aplicativo advocacia, LGPD, permissões do app, exclusão de dados',
+    noindex: true,
+  },
   '/404': {
     title: 'Página não encontrada',
     description:
