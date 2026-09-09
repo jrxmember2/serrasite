@@ -2867,6 +2867,35 @@ textarea:focus {
   background: var(--teal);
 }
 
+.legal-steps {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: legal-step;
+  max-width: 68ch;
+  border-top: 1px solid var(--line-soft);
+}
+
+.legal-steps li {
+  counter-increment: legal-step;
+  position: relative;
+  padding: 12px 0 12px 42px;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+.legal-steps li::before {
+  content: counter(legal-step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 13px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--teal-deep);
+}
+
 .legal-defs {
   margin: 20px 0 0;
   border-top: 1px solid var(--line-soft);

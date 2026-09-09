@@ -379,30 +379,50 @@ export const rebecaAppPolicy = {
 
     {
       id: 'exclusao',
-      title: 'Exclusão de conta e de dados',
+      title: 'Exclusão de dados',
       blocks: [
         {
           type: 'p',
-          text: 'As contas deste aplicativo não são criadas pelo usuário: quem cadastra, libera e remove acesso é o escritório. Por isso o pedido segue dois caminhos:',
+          text: 'Esta seção descreve como pedir a exclusão de dados pessoais tratados pelo aplicativo "Rebeca Medina Advocacia" (br.com.rebecamedina.advocacia), publicado por Serratech Soluções Digitais Corporativas e Condominiais e operado para o escritório Rebeca Medina Advocacia.',
+        },
+        {
+          type: 'p',
+          text: 'As contas deste aplicativo não são criadas pelo usuário: quem cadastra, libera e remove acesso é o escritório, que é o controlador dos dados. O pedido de exclusão é feito por escrito, e desinstalar o aplicativo não o substitui — a desinstalação encerra as notificações, mas não apaga nada.',
+        },
+        {
+          type: 'steps',
+          items: [
+            `Escreva para ${escritorioEmail}, que é o endereço do escritório. Se preferir, escreva para ${siteConfig.contactEmail} e a Serratech encaminha ao escritório em até 5 dias.`,
+            'Use "Exclusão de dados" no assunto da mensagem.',
+            'Informe o seu nome completo e o e-mail ou telefone que consta no cadastro, para que o registro possa ser localizado.',
+            'Diga se o pedido é de exclusão de todos os seus dados ou apenas de dados específicos, indicando quais.',
+            'Responda ao pedido de confirmação de identidade, se houver. Ele existe para impedir que um terceiro peça a exclusão dos seus dados.',
+            'Você recebe a confirmação do que foi excluído e do que precisou ser mantido em até 15 dias.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Confirmada a identidade e determinada a exclusão pelo escritório, os dados são eliminados dos sistemas em até 30 dias.',
         },
         {
           type: 'defs',
           items: [
             {
-              term: 'Você é da equipe do escritório',
+              term: 'O que é excluído',
               detail:
-                'Peça ao responsável pelo sistema no escritório. Ele revoga o seu acesso na hora, sem depender de nós. Desinstalar o aplicativo encerra as notificações, mas não apaga o seu usuário.',
+                'Dados cadastrais (nome, CPF ou CNPJ, endereço, e-mail e telefone), registros de atendimento e demandas, eventos de agenda, documentos anexados ao seu cadastro e as conversas com a assistente Leme. O identificador usado para notificação é eliminado assim que o aplicativo é desinstalado.',
             },
             {
-              term: 'Seus dados estão em um cadastro ou processo',
+              term: 'O que é mantido, e por quanto tempo',
               detail:
-                `O controlador é o escritório: escreva para ${escritorioEmail}. Se preferir, escreva para ${siteConfig.contactEmail} e a Serratech encaminha em até 5 dias, apoiando a resposta.`,
+                'Registros de acesso, por 6 meses, conforme o art. 15 do Marco Civil da Internet (Lei nº 12.965/2014). Documentos fiscais, pelo prazo legal de guarda aplicável a cada um. E os dados necessários ao exercício regular de direitos em processo judicial ou administrativo, cuja guarda cabe ao escritório e segue os prazos legais e profissionais da advocacia.',
+            },
+            {
+              term: 'Se você é da equipe do escritório',
+              detail:
+                'O seu acesso pode ser revogado na hora pelo responsável pelo sistema no escritório, sem depender da Serratech. A exclusão dos seus dados pessoais de cadastro segue o mesmo pedido por escrito descrito acima.',
             },
           ],
-        },
-        {
-          type: 'p',
-          text: 'Determinada a exclusão pelo escritório, os dados pessoais são eliminados dos sistemas em até 30 dias. Permanecem apenas os registros que a lei obriga a manter — como registros de acesso e documentos fiscais — e os necessários ao exercício regular de direitos em processo, cuja guarda é do escritório e segue os prazos da advocacia.',
         },
       ],
     },
