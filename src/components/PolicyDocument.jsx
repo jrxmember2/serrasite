@@ -24,6 +24,18 @@ function Block({ block }) {
     );
   }
 
+  // Lista numerada. Existe porque a Google Play exige que a pagina de exclusao
+  // de dados "destaque as etapas que os usuarios precisam seguir".
+  if (block.type === 'steps') {
+    return (
+      <ol className="legal-steps">
+        {block.items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ol>
+    );
+  }
+
   if (block.type === 'defs') {
     return (
       <dl className="legal-defs">
