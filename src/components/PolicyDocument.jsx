@@ -37,23 +37,29 @@ function Block({ block }) {
     );
   }
 
+  // Cada politica tem os seus interlocutores: a do app lista o escritorio, que e
+  // o controlador, antes da Serratech. Sem `items`, cai no contato da Serratech.
   if (block.type === 'contact') {
+    const items = block.items ?? [
+      { term: 'E-mail', email: siteConfig.contactEmail },
+      { term: 'Atendimento', detail: siteConfig.serviceHours },
+      { term: 'Prazo de resposta', detail: 'Até 15 dias, contados do recebimento do pedido' },
+    ];
+
     return (
       <dl className="legal-defs legal-contact">
-        <div className="legal-def">
-          <dt>E-mail</dt>
-          <dd>
-            <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
-          </dd>
-        </div>
-        <div className="legal-def">
-          <dt>Atendimento</dt>
-          <dd>{siteConfig.serviceHours}</dd>
-        </div>
-        <div className="legal-def">
-          <dt>Prazo de resposta</dt>
-          <dd>Até 15 dias, contados do recebimento do pedido</dd>
-        </div>
+        {items.map((item) => (
+          <div className="legal-def" key={item.term}>
+            <dt>{item.term}</dt>
+            <dd>
+              {item.email ? (
+                <a href={`mailto:${item.email}`}>{item.email}</a>
+              ) : (
+                item.detail
+              )}
+            </dd>
+          </div>
+        ))}
       </dl>
     );
   }
@@ -73,6 +79,7 @@ export default function PolicyDocument({ policy }) {
     scopeNote,
     highlights,
     sections,
+    footContactEmail = siteConfig.contactEmail,
   } = policy;
 
   return (
@@ -145,7 +152,7 @@ export default function PolicyDocument({ policy }) {
             <div className="legal-foot">
               <p>
                 Dúvidas sobre esta política ou sobre um pedido já enviado?{' '}
-                <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>.
+                <a href={`mailto:${footContactEmail}`}>{footContactEmail}</a>.
               </p>
               <Link className="btn btn-secondary" to="/">
                 <span>Voltar para a home</span>

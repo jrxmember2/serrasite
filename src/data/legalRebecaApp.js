@@ -13,8 +13,14 @@ import { siteConfig } from './siteContent';
    de analytics e de relatório de falhas, instância fixa e biometria local.
    ========================================================================= */
 
+// Contato do escritorio, que e o controlador dos dados. O canal da Serratech
+// continua valendo como operadora, mas o pedido do titular vai primeiro a quem
+// decide sobre o dado.
+const escritorioEmail = 'contato@rebecamedina.com.br';
+
 export const rebecaAppPolicy = {
   eyebrow: 'Aplicativo Android',
+  footContactEmail: escritorioEmail,
   title: 'Política de Privacidade do aplicativo',
   controllerLabel: 'Escritório Rebeca Medina Advocacia',
   updatedAt: '9 de setembro de 2026',
@@ -72,7 +78,7 @@ export const rebecaAppPolicy = {
             {
               term: 'Controlador',
               detail:
-                'O escritório Rebeca Medina Advocacia. É ele quem decide quais dados entram no sistema, quem tem acesso a eles e por quanto tempo ficam guardados. Os dados de clientes, partes e processos são do escritório.',
+                `O escritório Rebeca Medina Advocacia, no e-mail ${escritorioEmail}. É ele quem decide quais dados entram no sistema, quem tem acesso a eles e por quanto tempo ficam guardados. Os dados de clientes, partes e processos são do escritório.`,
             },
             {
               term: 'Operadora',
@@ -366,7 +372,7 @@ export const rebecaAppPolicy = {
         },
         {
           type: 'p',
-          text: 'Como o controlador é o escritório, o caminho mais rápido é falar com ele. Se preferir, escreva para o contato desta política: encaminhamos ao escritório e apoiamos a resposta. Podemos pedir informações que confirmem a sua identidade, como proteção contra pedidos feitos por terceiros. O prazo de resposta é de 15 dias.',
+          text: `Como o controlador é o escritório, o caminho mais curto é escrever para ${escritorioEmail}. Se preferir, procure a Serratech em ${siteConfig.contactEmail}: encaminhamos ao escritório e apoiamos a resposta. Podemos pedir informações que confirmem a sua identidade, como proteção contra pedidos feitos por terceiros. O prazo de resposta é de 15 dias.`,
         },
       ],
     },
@@ -390,7 +396,7 @@ export const rebecaAppPolicy = {
             {
               term: 'Seus dados estão em um cadastro ou processo',
               detail:
-                `O controlador é o escritório, e é a ele que o pedido deve ser dirigido. Se preferir, escreva para ${siteConfig.contactEmail}: encaminhamos em até 5 dias e apoiamos a resposta.`,
+                `O controlador é o escritório: escreva para ${escritorioEmail}. Se preferir, escreva para ${siteConfig.contactEmail} e a Serratech encaminha em até 5 dias, apoiando a resposta.`,
             },
           ],
         },
@@ -429,9 +435,20 @@ export const rebecaAppPolicy = {
       blocks: [
         {
           type: 'p',
-          text: 'Para dúvidas, pedidos e reclamações sobre dados pessoais tratados por este aplicativo, fale com o encarregado pelo tratamento de dados pessoais da Serratech, que também recebe e encaminha pedidos dirigidos ao escritório:',
+          text: 'Para dúvidas, pedidos e reclamações sobre dados pessoais tratados por este aplicativo, procure o escritório, que é o controlador. A Serratech, como operadora, também recebe pedidos e os encaminha:',
         },
-        { type: 'contact' },
+        {
+          type: 'contact',
+          items: [
+            { term: 'Escritório (controlador)', email: escritorioEmail },
+            { term: 'Serratech (operadora)', email: siteConfig.contactEmail },
+            { term: 'Atendimento', detail: siteConfig.serviceHours },
+            {
+              term: 'Prazo de resposta',
+              detail: 'Até 15 dias, contados do recebimento do pedido',
+            },
+          ],
+        },
       ],
     },
   ],
