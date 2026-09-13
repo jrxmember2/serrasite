@@ -412,19 +412,35 @@ main {
   right: 0;
   z-index: 100;
   height: var(--header-h);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s var(--ease);
+}
+
+/* O vidro fosco mora num pseudo-elemento: backdrop-filter no próprio header
+   o tornaria o containing block do .mobile-nav (position: fixed), e o menu
+   ficaria preso aos 76px do header em vez de cobrir a tela. */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: rgba(244, 246, 244, 0.82);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.4s var(--ease), background 0.4s var(--ease);
+  transition: background 0.4s var(--ease);
 }
 
 .site-header.is-scrolled {
   border-bottom-color: var(--line);
+}
+
+.site-header.is-scrolled::before {
   background: rgba(244, 246, 244, 0.94);
 }
 
 .header-inner {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -579,12 +595,15 @@ main {
 .mobile-nav {
   position: fixed;
   inset: 0;
-  z-index: 99;
+  z-index: 1;
   background: var(--paper);
-  padding: calc(var(--header-h) + 40px) var(--gutter) 48px;
+  padding: calc(var(--header-h) + 24px) var(--gutter) 36px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 32px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   clip-path: inset(0 0 100% 0);
   visibility: hidden;
 }
@@ -602,10 +621,11 @@ main {
   display: flex;
   align-items: baseline;
   gap: 18px;
-  padding: 18px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--line-soft);
   font-family: var(--display);
-  font-size: clamp(2rem, 9vw, 3rem);
+  font-size: clamp(1.5rem, 7vw, 2.4rem);
+  line-height: 1.1;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--ink);
