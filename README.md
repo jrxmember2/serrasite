@@ -1,11 +1,14 @@
 # Serratech Soluções Digitais Corporativas e Condominiais
 
-Site institucional premium da Serratech, criado para posicionar a marca como parceira estratégica em transformação digital para empresas, escritórios, síndicos e condomínios. O projeto foi estruturado para produção, versionamento em GitHub e deploy em VPS com EasyPanel.
+Site institucional da Serratech, fábrica de software e desenvolvedora do ÂncoraHUB. O posicionamento destaca fluxos de trabalho mais simples, proteção das informações e tempo para novos negócios. Administradoras são parceiras da Serratech.
 
 ## Visão geral
 
-- Visual premium com identidade tecnológica, seções comerciais, mockups de produto, portal do cliente e foco em conversão.
-- Estrutura SPA com páginas para `Home`, `Sobre`, `Soluções`, `Âncora`, `App Síndico`, `Contato` e `Portal do Cliente`.
+- Direção visual inspirada na Vandslab: tipografia em grande escala, formas gráficas, identidade Serratech e transições animadas com GSAP.
+- ÂncoraHUB com SindÂncora disponível e ÂncorADV marcado como **em breve**. A rota `/ancora` apresenta o ecossistema e `/ancoradv` apresenta o futuro produto.
+- Capturas reais do SindÂncora, otimizadas em WebP, com galeria por área e ampliação acessível. As versões utilizadas ficam em `public/media/products/`.
+- Visualização da infraestrutura distribuída entre Helsinki, Nuremberg, Ohio e São Paulo, com Hetzner, AWS e Oracle. A simulação de incidente é ilustrativa e não consulta servidores.
+- Fontes locais sob Open Font License, responsividade, navegação por teclado e respeito a movimento reduzido.
 - Preparado para deploy via Docker com Nginx, incluindo fallback para rotas do React Router.
 - SEO básico por página, `robots.txt`, `sitemap.xml`, `manifest` e metadados sociais.
 
@@ -14,7 +17,7 @@ Site institucional premium da Serratech, criado para posicionar a marca como par
 - React 18
 - Vite 5
 - React Router DOM
-- CSS autoral responsivo com animações suaves e glassmorphism
+- CSS autoral responsivo e GSAP para animações de entrada e scroll
 - Docker + Nginx para produção
 
 ## Estrutura de pastas
@@ -307,6 +310,9 @@ Depois disso:
 
 ## Observações de produção
 
-- O site está pronto visualmente para integração futura com backend no formulário e no portal do cliente.
-- O `Portal do Cliente` foi desenhado como interface demonstrativa, mas já organizado para futura autenticação e consumo de API.
-- O projeto prioriza performance, deploy simples e manutenção clara.
+- O contato prepara um e-mail com os campos informados. O cliente revisa e envia em seu aplicativo de e-mail; a interface não afirma que uma mensagem foi enviada. Para envio direto pelo site, será necessário integrar um serviço de recebimento.
+- O acesso ao produto encaminha ao login oficial do SindÂncora. Não existe autenticação simulada no site institucional.
+- WhatsApp e redes sociais só aparecem quando os links estão configurados. Links vazios não geram botões sem destino.
+- Frequência de backup, retenção, RPO/RTO e SLA não são inventados pelo conteúdo comercial. A comunicação usa a política rigorosa de backup, espelhamento regional e validação externa informados pela empresa.
+- Os documentos legais mantêm suas URLs. Todas as rotas têm HTML pré-renderizado; `/ancoradv` integra o sitemap.
+- A imagem social de compartilhamento está em `public/og-cover.png`.

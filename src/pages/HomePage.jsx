@@ -2,426 +2,320 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import Icon from '../components/Icon';
-import OperationDiagram from '../components/OperationDiagram';
-import PhotoBand from '../components/PhotoBand';
-import ProductShot from '../components/ProductShot';
-import Ticker from '../components/Ticker';
+import HubGlyph from '../components/HubGlyph';
+import InfrastructureSection from '../components/InfrastructureSection';
+import ExpertiseSection from '../components/ExpertiseSection';
+import ProjectCTA from '../components/ProjectCTA';
 import { prefersReducedMotion, withGsap } from '../lib/motion';
-import {
-  factoryCapabilities,
-  factoryPitch,
-  featuredProducts,
-  homeMetrics,
-  homePainPoints,
-  homeSolutions,
-} from '../data/siteContent';
 
-// Cada linha é mascarada individualmente no reveal, então precisa caber em uma
-// linha visual — quebras internas cortariam o texto pela metade.
-const heroLines = ['Tecnologia que', 'sustenta a', 'operação inteira.'];
-
-const heroSpec = [
-  { term: 'Atuação', detail: 'Infraestrutura, sistemas próprios, automação e segurança digital' },
-  { term: 'Clientes', detail: 'Empresas, escritórios, administradoras, síndicos e condomínios' },
-  { term: 'Base', detail: 'Mais de 20 anos em TI aplicada a operações que não podem parar' },
-];
-
-const tickerItems = [
-  'Infraestrutura',
-  'Segurança digital',
-  'Sistemas sob medida',
-  'Automação',
-  'Condomínios',
-  'Escritórios de advocacia',
-  'Suporte que resolve',
-  'Cópia de segurança',
-];
-
-// As capturas são telas reais dos produtos da Serratech, não maquete.
-const shots = [
+const services = [
   {
-    src: '/media/sindancora-dashboard.jpg',
-    url: 'sindancora.ancorahub.com.br/dashboard',
-    alt: 'Painel do SindÂncora mostrando carteira de condomínios, unidades, moradores e ações rápidas',
-    caption: 'SindÂncora — painel da administradora',
-    meta: 'Carteira consolidada',
+    icon: 'app',
+    title: 'Software sob medida',
+    text: 'O seu processo é o ponto de partida. Criamos sistemas e aplicativos que conectam a operação e simplificam o trabalho.',
+    to: '/fabrica-de-software',
   },
   {
-    src: '/media/sindancora-condominios.jpg',
-    url: 'sindancora.ancorahub.com.br/condominios',
-    alt: 'Lista de condomínios cadastrados no SindÂncora com blocos e unidades por condomínio',
-    caption: 'SindÂncora — condomínios da carteira',
-    meta: 'Blocos e unidades',
+    icon: 'anchor',
+    title: 'Ecossistema ÂncoraHUB',
+    text: 'Tecnologia própria, desenvolvida pela Serratech. SindÂncora para síndicos e, em breve, ÂncorADV para advogados.',
+    to: '/ancora',
   },
   {
-    src: '/media/ancora-login.jpg',
-    url: 'Âncora · sistema para escritórios de advocacia',
-    alt: 'Tela de entrada do Âncora, o sistema de gestão para escritórios de advocacia da Serratech',
-    caption: 'Âncora — entrada do escritório',
-    meta: 'Cada cliente na sua caixa-forte',
+    icon: 'workflow',
+    title: 'Integração e automação',
+    text: 'Menos tarefas repetidas. Mais informação fluindo entre pessoas e sistemas, com contexto e rastreabilidade.',
+    to: '/solucoes#automacoes',
   },
 ];
 
 export default function HomePage() {
   const heroRef = useRef(null);
-
-  // Sequência de abertura: o hero se monta uma vez, no carregamento.
   useEffect(() => {
     if (prefersReducedMotion()) return undefined;
-
     return withGsap(({ gsap }) => {
       gsap
         .timeline({ defaults: { ease: 'power4.out' } })
-        .to('[data-hero-meta]', { opacity: 1, y: 0, duration: 0.7, stagger: 0.08 })
-        .to('.hero-line > span', { y: '0%', duration: 1.05, stagger: 0.09 }, '-=0.45')
-        .to('[data-hero-body]', { opacity: 1, y: 0, duration: 0.85, stagger: 0.1 }, '-=0.6');
+        .to('[data-hero-meta]', {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.08,
+        })
+        .to(
+          '.hero-line > span',
+          { y: '0%', duration: 1.15, stagger: 0.13 },
+          '-=0.35',
+        )
+        .from(
+          '.hero-symbol',
+          { scale: 0.5, rotation: -75, opacity: 0, duration: 1 },
+          '-=0.95',
+        )
+        .to(
+          '[data-hero-body]',
+          { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
+          '-=0.65',
+        );
+      gsap.to('.hero-orbit', {
+        rotation: 35,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1,
+        },
+      });
     }, heroRef);
   }, []);
-
   return (
     <>
       <Seo path="/" />
-
-      <section className="hero" ref={heroRef}>
+      <section className="studio-hero" ref={heroRef}>
         <div className="container">
-          <div className="hero-top">
-            <span className="hero-coord" data-hero-meta>
-              Serratech — Soluções digitais corporativas e condominiais
+          <div className="hero-kicker" data-hero-meta>
+            <span className="eyebrow">
+              Fábrica de software · Criadora do ÂncoraHUB
             </span>
-            <span className="hero-coord" data-hero-meta>
-              Atendimento remoto e presencial
+            <span className="hero-origin">
+              Feito no Brasil. Preparado para ir além.
             </span>
           </div>
-
-          <div className="hero-grid">
-            <div className="hero-copy">
-              <span className="eyebrow" data-hero-meta>
-                Infraestrutura · Sistemas · Automação
+          <h1
+            className="studio-title"
+            aria-label="Menos tarefas. Mais negócios."
+          >
+            <span className="studio-title-row" aria-hidden="true">
+              <span className="hero-line">
+                <span>MENOS</span>
               </span>
-
-              <h1>
-                {heroLines.map((line) => (
-                  <span className="hero-line" key={line}>
-                    <span>{line}</span>
-                  </span>
-                ))}
-              </h1>
-
-              <p className="lead" data-hero-body>
-                Infraestrutura, sistemas sob medida, automação e segurança para empresas,
-                escritórios e condomínios que não podem parar. Você cuida do negócio — a parte que
-                precisa funcionar todo santo dia é com a gente.
+              <span className="hero-symbol hero-orbit">
+                <HubGlyph variant="arrow" />
+              </span>
+              <span className="hero-line">
+                <span>TAREFAS.</span>
+              </span>
+            </span>
+            <span className="studio-title-row second" aria-hidden="true">
+              <span className="hero-line">
+                <span>MAIS</span>
+              </span>
+              <span className="hero-symbol hero-flower">
+                <HubGlyph />
+              </span>
+              <span className="hero-line accent">
+                <span>NEGÓCIOS.</span>
+              </span>
+            </span>
+          </h1>
+          <div className="hero-bottom">
+            <div className="hero-intro" data-hero-body>
+              <span className="micro-label">
+                Tecnologia que devolve o seu tempo
+              </span>
+              <p>
+                Transformamos fluxos de trabalho em software inteligente. Sua
+                equipe ganha tempo. Suas informações ganham proteção. Seu
+                negócio ganha espaço para crescer.
               </p>
-
-              <div className="button-row" data-hero-body>
-                <Link className="btn" to="/solucoes">
-                  <span>Ver soluções</span>
-                  <Icon name="arrow" className="btn-icon" />
-                </Link>
-                <Link className="btn btn-secondary" to="/contato#diagnostico">
-                  <span>Solicitar diagnóstico</span>
-                  <Icon name="chart" className="btn-icon" />
-                </Link>
-              </div>
-
-              <dl className="hero-spec" data-hero-body>
-                {heroSpec.map((row) => (
-                  <div className="hero-spec-row" key={row.term}>
-                    <dt>{row.term}</dt>
-                    <dd>{row.detail}</dd>
-                  </div>
-                ))}
-              </dl>
             </div>
-
-            <div data-hero-body>
-              <div className="hero-stage">
-                <div className="stage-head">
-                  <span>Mapa da operação</span>
-                  <span className="stage-live">Em operação</span>
-                </div>
-
-                <OperationDiagram />
-
-                <div className="stage-foot">
-                  <span>Entrada → Hub → Operação</span>
-                  <span>Serratech</span>
-                </div>
-              </div>
+            <div className="hero-actions" data-hero-body>
+              <Link className="btn btn-lime" to="/contato#diagnostico">
+                <span>Vamos construir juntos</span>
+                <Icon name="arrow" />
+              </Link>
+              <Link className="text-link" to="/ancora">
+                Conheça o ÂncoraHUB <Icon name="arrow" />
+              </Link>
             </div>
+          </div>
+          <div className="hero-baseline" data-hero-body>
+            <span>Engenharia. Experiência. Confiança.</span>
+            <a href="#o-que-fazemos">
+              Explore a Serratech <span aria-hidden="true">↓</span>
+            </a>
           </div>
         </div>
       </section>
-
-      <div className="container">
-        <Ticker items={tickerItems} />
+      <div className="promise-strip" aria-label="Nossos compromissos">
+        <div className="container">
+          <span>Seu fluxo, mais simples.</span>
+          <HubGlyph />
+          <span>Seus dados, protegidos.</span>
+          <HubGlyph />
+          <span>Seu tempo, de volta.</span>
+        </div>
       </div>
-
-      <section className="section section-tint">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow" data-anim="rise">
-              Dois mundos, o mesmo cuidado
-            </span>
-            <h2 data-anim="lines">
-              Uma sala de reunião e um hall de prédio têm mais em comum do que parece.
-            </h2>
-          </div>
-
-          <div className="duo">
-            <div className="duo-col" data-anim="rise">
-              <span className="label">Empresas e escritórios</span>
-              <h3>Ambientes que precisam responder rápido e com confiança.</h3>
-              <p>
-                Estruturamos a base de TI, padronizamos processos e criamos visibilidade para que a
-                operação pare de correr atrás do problema e passe a antecipá-lo.
-              </p>
-            </div>
-            <div className="duo-col" data-anim="rise">
-              <span className="label">Condomínios e síndicos</span>
-              <h3>Gestão condominial com organização digital de verdade.</h3>
-              <p>
-                Documentos, chamados, comunicados e demandas deixam de estar espalhados entre grupos
-                de mensagem e passam a ter fluxo, histórico e responsável.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <PhotoBand
-        src="/media/foto/gestao-sobrecarregada.jpg"
-        alt="Gestor com as mãos no rosto diante do notebook, cercado de papéis e relatórios impressos"
-        eyebrow="O ponto de virada"
-        title="Toda operação tem o dia em que a tecnologia vira o problema."
-        text="Costuma começar pequeno: uma planilha que só uma pessoa entende, um backup que ninguém confere, um chamado que se perde no grupo de mensagem. Quando a Serratech é chamada, normalmente já virou rotina."
-        credit="Foto: Pexels"
-      />
-
-      <section className="section">
+      <section className="section services-section" id="o-que-fazemos">
         <div className="container">
           <div className="section-head">
             <div>
               <span className="eyebrow" data-anim="rise">
-                Diagnóstico
+                O que fazemos
               </span>
-              <h2 data-anim="lines">O que costuma estar quebrado quando nos chamam.</h2>
+              <h2 data-anim="lines">
+                Problemas reais.
+                <br />
+                Software à altura.
+              </h2>
             </div>
             <p className="lead" data-anim="rise">
-              Estes são os pontos onde a operação perde tempo, controle e segurança. Cada um deles
-              tem uma resposta técnica direta.
+              Somos uma fábrica de software com visão de operação. Do primeiro
+              desenho à infraestrutura que sustenta tudo, construímos com
+              qualidade, segurança e continuidade.
             </p>
           </div>
-
-          <div className="ledger-split" data-stagger>
-            {homePainPoints.map((item, index) => (
-              <article className="ledger-row" key={item.title} data-stagger-item>
-                <span className="ledger-index">{String(index + 1).padStart(2, '0')}</span>
-                <div className="ledger-title">
-                  <h3>{item.title}</h3>
-                </div>
-                <p className="ledger-text">{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-tint">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Frentes de trabalho
-              </span>
-              <h2 data-anim="lines">Como a Serratech resolve.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              Oito frentes que operam juntas. Raramente um problema real se resolve dentro de uma só.
-            </p>
-          </div>
-
-          <div className="ledger" data-stagger>
-            {homeSolutions.map((item, index) => (
-              <article className="ledger-row" key={item.title} data-stagger-item>
-                <span className="ledger-index">
-                  {String(index + 1).padStart(2, '0')} / {homeSolutions.length}
+          <div className="service-grid" data-stagger>
+            {services.map((service) => (
+              <Link
+                className="service-card"
+                to={service.to}
+                key={service.title}
+                data-stagger-item
+              >
+                <Icon name={service.icon} className="service-icon" />
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+                <span className="service-link">
+                  Explore a solução <Icon name="arrow" />
                 </span>
-                <div className="ledger-title">
-                  <h3>{item.title}</h3>
-                </div>
-                <p className="ledger-text">{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* O ponto alto do scroll: o site para de descrever e mostra o produto. */}
-      <section className="band">
-        <div className="container">
-          <div className="showcase">
-            <div className="showcase-aside">
-              <span className="eyebrow" data-anim="rise">
-                Nossos produtos, no ar
-              </span>
-              <h2 data-anim="lines">A gente não mostra portfólio dos outros. Mostra o que opera.</h2>
-              <p data-anim="rise">
-                O Âncora e o SindÂncora nasceram aqui, são mantidos aqui e atendem cliente de
-                verdade todo dia. As telas abaixo são dos sistemas em funcionamento — não é maquete
-                bonita de apresentação comercial.
-              </p>
-
-              <ul className="spec-notes" data-stagger>
-                <li data-stagger-item>Cada cliente com os dados guardados só para ele</li>
-                <li data-stagger-item>Registro de quem fez o quê, desde o primeiro dia</li>
-                <li data-stagger-item>Cópia de segurança diária, protegida e fora do sistema</li>
-                <li data-stagger-item>App do síndico para Android, na Google Play</li>
-              </ul>
-
-              <div className="button-row" data-anim="rise">
-                <Link className="btn" to="/ancora">
-                  <span>Conhecer o Âncora</span>
-                  <Icon name="arrow" className="btn-icon" />
-                </Link>
-                <Link className="btn btn-secondary" to="/app-sindico">
-                  <span>Ver o SindÂncora</span>
-                  <Icon name="building" className="btn-icon" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="showcase-stack">
-              {shots.map((shot) => (
-                <ProductShot key={shot.src} {...shot} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Fábrica de software
-              </span>
-              <h2 data-anim="lines">Quando não existe sistema pronto que sirva, a gente constrói.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              {factoryPitch}
-            </p>
-          </div>
-
-          <div className="ledger" data-stagger>
-            {factoryCapabilities.slice(0, 4).map((item, index) => (
-              <article className="ledger-row" key={item.title} data-stagger-item>
-                <span className="ledger-index">{String(index + 1).padStart(2, '0')}</span>
-                <div className="ledger-title">
-                  <h3>{item.title}</h3>
-                </div>
-                <p className="ledger-text">{item.text}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="button-row section-actions" data-anim="rise">
-            <Link className="btn" to="/fabrica-de-software">
-              <span>Conhecer a fábrica de software</span>
-              <Icon name="arrow" className="btn-icon" />
-            </Link>
-            <Link className="btn btn-ghost" to="/contato#diagnostico">
-              <span>Solicitar orçamento</span>
-              <Icon name="chart" className="btn-icon" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-tint">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Ficha técnica
-              </span>
-              <h2 data-anim="lines">Estrada rodada, não teoria de slide.</h2>
-            </div>
-          </div>
-
-          <div className="spec-sheet" data-stagger>
-            {homeMetrics.map((item) => (
-              <div className="spec-row" key={item.value} data-stagger-item>
-                <span className="spec-value" data-counter={item.value}>
-                  {item.value}
-                </span>
-                <span className="spec-label">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Produtos próprios
-              </span>
-              <h2 data-anim="lines">Não paramos no suporte técnico.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              Plataformas construídas a partir de problemas que encontramos em campo — e que hoje
-              sustentam operações reais.
-            </p>
-          </div>
-
-          <div className="index-list" data-stagger>
-            {featuredProducts.map((item, index) => (
-              <Link className="index-item" to={item.to} key={item.title} data-stagger-item>
-                <div className="index-item-inner">
-                  <span className="ledger-index">{String(index + 1).padStart(2, '0')}</span>
-                  <h3>{item.title}</h3>
-                  <span className="index-arrow">
-                    <Icon name="arrow" />
-                  </span>
-                </div>
-                <p>{item.text}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
-
-      <section className="cta-band">
-        <div className="container cta-grid">
-          <div>
-            <span className="eyebrow" data-anim="rise">
-              Próximo passo
-            </span>
-            <h2 data-anim="lines">Comece por um diagnóstico da sua operação.</h2>
-          </div>
-
-          <div className="cta-aside">
+      <section className="hub-showcase" id="ancorahub">
+        <div className="container">
+          <div className="hub-heading">
+            <div>
+              <span className="eyebrow" data-anim="rise">
+                Criado, desenvolvido e mantido pela Serratech
+              </span>
+              <h2 className="hub-wordmark" data-anim="rise">
+                Âncora<span>HUB</span>
+                <HubGlyph />
+              </h2>
+            </div>
             <p data-anim="rise">
-              Uma conversa técnica para mapear o que está frágil, o que dá para automatizar e o que
-              precisa ser reconstruído. Sem compromisso comercial.
+              Um ecossistema. Diferentes rotinas.
+              <br />O mesmo compromisso com o seu tempo.
             </p>
-            <div className="button-row" data-anim="rise">
-              <Link className="btn" to="/contato#diagnostico">
-                <span>Solicitar diagnóstico</span>
-                <Icon name="arrow" className="btn-icon" />
-              </Link>
-              <Link className="btn btn-secondary" to="/contato#canais">
-                <span>Falar pelo WhatsApp</span>
-                <Icon name="phone" className="btn-icon" />
+          </div>
+          <div className="product-feature">
+            <div className="product-feature-copy" data-anim="rise">
+              <span className="status-tag">
+                <span /> Disponível
+              </span>
+              <h3>SindÂncora</h3>
+              <p className="product-lede">
+                A gestão flui.
+                <br />
+                Você segue em frente.
+              </p>
+              <p>
+                Atendimento, manutenções, documentos e comunicação em um só
+                lugar. Para síndicos que querem uma rotina organizada e tempo
+                para novas oportunidades.
+              </p>
+              <div className="product-tags">
+                <span>Gestão condominial</span>
+                <span>WhatsApp</span>
+                <span>LemeIA</span>
+              </div>
+              <Link className="btn btn-lime" to="/app-sindico">
+                <span>Conheça o SindÂncora</span>
+                <Icon name="arrow" />
               </Link>
             </div>
+            <Link
+              className="product-feature-visual"
+              to="/app-sindico"
+              aria-label="Ver as telas e funcionalidades do SindÂncora"
+            >
+              <div className="product-preview" data-anim="rise">
+                <div className="preview-bar">
+                  <span className="preview-dots" aria-hidden="true">
+                    ● ● ●
+                  </span>
+                  <span>SindÂncora / Sua operação conectada</span>
+                  <Icon name="shield" />
+                </div>
+                <div className="preview-crop">
+                  <img
+                    src="/media/products/panel-dashboard.webp"
+                    alt="Tela real do SindÂncora com ações rápidas, condomínios, ocorrências e manutenção"
+                    width="1440"
+                    height="2296"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <span className="preview-caption">
+                Interface real do sistema <span>Explorar o produto ↗</span>
+              </span>
+            </Link>
+          </div>
+          <div className="upcoming-product" data-anim="rise">
+            <div className="upcoming-title">
+              <Icon name="anchor" />
+              <h3>ÂncorADV</h3>
+              <span className="status-tag upcoming">Em breve</span>
+            </div>
+            <p>
+              Mais organização para a rotina jurídica. Mais tempo para o
+              relacionamento com seus clientes.
+            </p>
+            <Link className="text-link" to="/ancoradv">
+              Conheça o que vem aí <Icon name="arrow" />
+            </Link>
+          </div>
+          <div className="partner-note" data-anim="rise">
+            <Icon name="users" />
+            <p>
+              <strong>Administradoras, vamos crescer juntos.</strong> O
+              SindÂncora conecta síndicos e administradoras parceiras, fortalece
+              a colaboração e valoriza o trabalho de cada equipe.
+            </p>
+            <Link
+              to="/contato?interesse=parceria#diagnostico"
+              className="text-link"
+            >
+              Seja parceiro <Icon name="arrow" />
+            </Link>
           </div>
         </div>
       </section>
+      <InfrastructureSection />
+      <ExpertiseSection />
+      <section className="quality-statement">
+        <div className="container">
+          <span className="eyebrow" data-anim="rise">
+            O valor está no que sustenta o seu negócio
+          </span>
+          <h2 data-anim="lines">
+            O melhor investimento é<br />
+            poder seguir em frente.
+          </h2>
+          <div className="quality-bottom">
+            <HubGlyph variant="arrow" />
+            <p data-anim="rise">
+              Escolher software é escolher quem cuida da sua operação. Avalie a
+              experiência de quem desenvolve, a qualidade das entregas e a
+              estrutura que protege seus dados. É isso que permanece depois da
+              contratação.
+            </p>
+            <Link
+              className="text-link"
+              to="/fabrica-de-software"
+              data-anim="rise"
+            >
+              Entenda como construímos <Icon name="arrow" />
+            </Link>
+          </div>
+        </div>
+      </section>
+      <ProjectCTA />
     </>
   );
 }

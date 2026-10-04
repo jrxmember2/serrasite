@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage';
 import SolutionsPage from './pages/SolutionsPage';
 import SoftwareFactoryPage from './pages/SoftwareFactoryPage';
 import AncoraPage from './pages/AncoraPage';
+import AncorAdvPage from './pages/AncorAdvPage';
 import AppSindicoPage from './pages/AppSindicoPage';
 import ContactPage from './pages/ContactPage';
 import ClientPortalPage from './pages/ClientPortalPage';
@@ -36,7 +37,7 @@ export function Layout() {
     let ctx;
     let cancelled = false;
 
-    loadGsap().then((lib) => {
+    Promise.all([loadGsap(), document.fonts?.ready]).then(([lib]) => {
       if (cancelled || !lib) return;
       const { gsap, ScrollTrigger, SplitText } = lib;
       const splits = [];
@@ -117,7 +118,9 @@ export function Layout() {
           );
         });
 
-        gsap.utils.toArray('[data-counter]').forEach((node) => countUp(gsap, node));
+        gsap.utils
+          .toArray('[data-counter]')
+          .forEach((node) => countUp(gsap, node));
 
         // O SplitText reescreve o DOM do título; desfazê-lo no revert devolve o
         // texto original antes que o React remonte a rota seguinte.
@@ -151,19 +154,28 @@ export function Layout() {
 
   return (
     <div className="site-shell">
-      <div className="blueprint-grid" aria-hidden="true" />
+      <a className="skip-link" href="#conteudo">
+        Ir para o conteúdo
+      </a>
       <Header />
-      <main>
+      <main id="conteudo" tabIndex="-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/sobre" element={<AboutPage />} />
           <Route path="/solucoes" element={<SolutionsPage />} />
-          <Route path="/fabrica-de-software" element={<SoftwareFactoryPage />} />
+          <Route
+            path="/fabrica-de-software"
+            element={<SoftwareFactoryPage />}
+          />
           <Route path="/ancora" element={<AncoraPage />} />
+          <Route path="/ancoradv" element={<AncorAdvPage />} />
           <Route path="/app-sindico" element={<AppSindicoPage />} />
           <Route path="/contato" element={<ContactPage />} />
           <Route path="/portal-cliente" element={<ClientPortalPage />} />
-          <Route path="/legal/politica-de-privacidade" element={<PrivacyPolicyPage />} />
+          <Route
+            path="/legal/politica-de-privacidade"
+            element={<PrivacyPolicyPage />}
+          />
           <Route
             path="/legal/rebeca-medina-advocacia/politica-de-privacidade"
             element={<RebecaAppPrivacyPage />}

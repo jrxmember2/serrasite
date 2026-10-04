@@ -1,244 +1,114 @@
 import { Link } from 'react-router-dom';
-import PageHero from '../components/PageHero';
-import PhotoBand from '../components/PhotoBand';
-import ProductShot from '../components/ProductShot';
 import Seo from '../components/Seo';
 import Icon from '../components/Icon';
-import {
-  ancoraAudience,
-  ancoraDifferentials,
-  ancoraFoundation,
-  ancoraJourney,
-  ancoraModules,
-  ancoraPitch,
-  ancoraRoadmap,
-} from '../data/siteContent';
+import HubGlyph from '../components/HubGlyph';
+import InfrastructureSection from '../components/InfrastructureSection';
+import ProjectCTA from '../components/ProjectCTA';
 
 export default function AncoraPage() {
   return (
     <>
       <Seo path="/ancora" />
-
-      <PageHero
-        eyebrow="Âncora · Sistema para escritórios de advocacia"
-        title="Seu escritório inteiro em um lugar só."
-        description={ancoraPitch}
-        primaryAction={{ label: 'Solicitar apresentação', to: '/contato' }}
-        secondaryAction={{ label: 'Ver o que ele faz', to: '/ancora#modulos' }}
-        highlights={[
-          'Prazo calculado pelo sistema',
-          'Publicação chega até você',
-          'Honorários e horas',
-          'Sigilo por cliente',
-        ]}
-      />
-
-      {/* A garantia de sigilo vem antes da lista de funcionalidades: é ela que
-          sustenta a venda para um escritório, e o que separa o Âncora de uma planilha. */}
-      <section className="band">
+      <section className="hub-showcase hub-route">
         <div className="container">
-          <div className="showcase">
-            <div className="showcase-aside">
-              <span className="eyebrow" data-anim="rise">
-                O que sustenta
+          <span className="eyebrow" data-anim="rise">
+            O ecossistema de software da Serratech
+          </span>
+          <h1 className="hub-wordmark" data-anim="rise">
+            Âncora<span>HUB</span>
+            <HubGlyph />
+          </h1>
+          <p className="hub-route-intro" data-anim="rise">
+            Desenvolvemos tecnologia para quem precisa de uma rotina mais
+            organizada e tempo para crescer. Produtos próprios, com a
+            experiência, o cuidado e a infraestrutura da Serratech em cada
+            entrega.
+          </p>
+          <div className="product-feature">
+            <div className="product-feature-copy" data-anim="rise">
+              <span className="status-tag">
+                <span /> Disponível
               </span>
-              <h2 data-anim="lines">Sigilo profissional não pode ser promessa de vendedor.</h2>
-              <p data-anim="rise">
-                Você responde pelo segredo do seu cliente perante a OAB. Por isso a separação entre
-                escritórios no Âncora não é uma configuração de tela que alguém pode esquecer de
-                marcar: está no nível mais profundo do sistema, ligada o tempo inteiro.
+              <h2>SindÂncora</h2>
+              <p className="product-lede">
+                Mais controle da rotina.
+                <br />
+                Mais espaço para crescer.
               </p>
-
-              <dl className="hero-spec" data-stagger>
-                {ancoraFoundation.map((row) => (
-                  <div className="hero-spec-row" key={row.term} data-stagger-item>
-                    <dt>{row.term}</dt>
-                    <dd>{row.detail}</dd>
-                  </div>
-                ))}
-              </dl>
+              <p>
+                Para síndicos profissionais e moradores, com administradoras
+                como parceiras. Atendimento, manutenção, documentos e
+                comunicação conectados em um só ambiente.
+              </p>
+              <div className="product-tags">
+                <span>Sistema web</span>
+                <span>App Android</span>
+                <span>LemeIA</span>
+                <span>WhatsApp</span>
+              </div>
+              <Link className="btn btn-lime" to="/app-sindico">
+                <span>Conheça o SindÂncora</span>
+                <Icon name="arrow" />
+              </Link>
             </div>
-
-            <div className="showcase-stack">
-              <ProductShot
-                src="/media/ancora-login.jpg"
-                url="Âncora · sistema para escritórios de advocacia"
-                alt="Tela de entrada do Âncora, com acesso por e-mail e senha ou por código enviado ao advogado"
-                caption="Âncora — entrada do escritório"
-                meta="Acesso por senha ou por código"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <PhotoBand
-        src="/media/foto/escritorio-advocacia.jpg"
-        alt="Advogado sentado à mesa do escritório, com balança da justiça, certificado emoldurado e processos ao lado do notebook"
-        eyebrow="A rotina que o Âncora organiza"
-        title="O prazo não perdoa quem estava confiando na memória."
-        text="Audiência marcada, publicação que saiu ontem, honorário que ninguém apontou, contrato numa pasta que só o sócio acha. O Âncora existe para que nada disso dependa de alguém lembrar."
-        credit="Foto: Pexels"
-      />
-
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Para quem é
-              </span>
-              <h2 data-anim="lines">Escritórios que pararam de caber na planilha.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              O Âncora nasceu dentro de operações reais que precisavam parar de administrar
-              processo, prazo, documento e honorário em arquivos separados.
-            </p>
-          </div>
-
-          <ul className="chip-list chip-list-wide" data-anim="rise">
-            {ancoraAudience.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section section-tint" id="modulos">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                O que ele faz
-              </span>
-              <h2 data-anim="lines">Do primeiro cadastro ao fechamento do mês.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              Treze frentes que funcionam juntas. Cada uma resolve uma etapa que hoje vive em uma
-              ferramenta diferente — ou em nenhuma.
-            </p>
-          </div>
-
-          <div className="catalog">
-            {ancoraModules.map((module, index) => (
-              <article className="catalog-item" key={module.title} data-anim="rise">
-                <div className="catalog-head">
-                  <span className="ledger-index">
-                    {String(index + 1).padStart(2, '0')} / {ancoraModules.length}
+            <Link className="product-feature-visual" to="/app-sindico">
+              <div className="product-preview">
+                <div className="preview-bar">
+                  <span className="preview-dots" aria-hidden="true">
+                    ● ● ●
                   </span>
-                  <h3>{module.title}</h3>
+                  <span>SindÂncora / Operação condominial</span>
+                  <Icon name="shield" />
                 </div>
-                <ul className="feature-list">
-                  {module.bullets.map((bullet) => (
-                    <li key={bullet}>
-                      <Icon name="check" className="feature-list-icon" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Jornada
-              </span>
-              <h2 data-anim="lines">Do cadastro à fatura, sem trocar de ferramenta.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              O caminho que o sistema acompanha do começo ao fim. Cada etapa alimenta a seguinte:
-              a hora que você aponta vira valor a receber, que vira fatura, que vira resultado.
-            </p>
-          </div>
-
-          <ol className="flow" data-stagger>
-            {ancoraJourney.map((step, index) => (
-              <li className="flow-step" key={step} data-stagger-item>
-                <span className="flow-index">{String(index + 1).padStart(2, '0')}</span>
-                <span className="flow-label">{step}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="section section-tint">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Diferenciais
-              </span>
-              <h2 data-anim="lines">Três coisas que a maioria não entrega junto.</h2>
-            </div>
-          </div>
-
-          <div className="ledger" data-stagger>
-            {ancoraDifferentials.map((item, index) => (
-              <article className="ledger-row" key={item.title} data-stagger-item>
-                <span className="ledger-index">{String(index + 1).padStart(2, '0')}</span>
-                <div className="ledger-title">
-                  <h3>{item.title}</h3>
+                <div className="preview-crop">
+                  <img
+                    src="/media/products/panel-maintenance-index.webp"
+                    alt="Tela real do SindÂncora para organização e acompanhamento das manutenções"
+                    loading="lazy"
+                  />
                 </div>
-                <p className="ledger-text">{item.text}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="section-head roadmap-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Roadmap
+              </div>
+              <span className="preview-caption">
+                Produto desenvolvido pela Serratech <span>Ver o sistema ↗</span>
               </span>
-              <h2 data-anim="lines">O que ainda não está pronto.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              Esta lista fica separada dos módulos de propósito: o que está acima já roda; o que está
-              aqui está em construção. Sem os dois no mesmo balde.
-            </p>
+            </Link>
           </div>
-
-          <ul className="hero-tags" data-anim="rise">
-            {ancoraRoadmap.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="cta-band">
-        <div className="container cta-grid">
-          <div>
-            <span className="eyebrow" data-anim="rise">
-              Apresentação
-            </span>
-            <h2 data-anim="lines">Quer ver o Âncora aplicado ao seu escritório?</h2>
-          </div>
-
-          <div className="cta-aside">
-            <p data-anim="rise">
-              Mostramos os módulos rodando e discutimos o que faz sentido para o seu contexto — e o
-              que a fábrica de software precisaria construir sob medida.
-            </p>
-            <div className="button-row" data-anim="rise">
-              <Link className="btn" to="/contato">
-                <span>Solicitar apresentação</span>
-                <Icon name="arrow" className="btn-icon" />
-              </Link>
-              <Link className="btn btn-secondary" to="/fabrica-de-software">
-                <span>Ver a fábrica de software</span>
-                <Icon name="app" className="btn-icon" />
-              </Link>
+          <div className="upcoming-product" data-anim="rise">
+            <div className="upcoming-title">
+              <Icon name="anchor" />
+              <h2>ÂncorADV</h2>
+              <span className="status-tag upcoming">Em breve</span>
             </div>
+            <p>
+              A próxima solução do ÂncoraHUB vai levar o mesmo compromisso com
+              organização, proteção e tempo à rotina de advogados.
+            </p>
+            <Link className="text-link" to="/ancoradv">
+              Acompanhe o lançamento <Icon name="arrow" />
+            </Link>
+          </div>
+          <div className="partner-note" data-anim="rise">
+            <Icon name="users" />
+            <p>
+              <strong>Administradoras são nossas parceiras.</strong> Construímos
+              ferramentas para fortalecer a colaboração com síndicos e dar mais
+              eficiência à operação condominial.
+            </p>
+            <Link
+              className="text-link"
+              to="/contato?interesse=parceria#diagnostico"
+            >
+              Vamos conversar <Icon name="arrow" />
+            </Link>
           </div>
         </div>
       </section>
+      <InfrastructureSection />
+      <ProjectCTA
+        title={'Sua rotina pode\nrender muito mais.'}
+        label="Solicitar uma apresentação"
+        to="/contato?interesse=Sind%C3%82ncora#diagnostico"
+      />
     </>
   );
 }

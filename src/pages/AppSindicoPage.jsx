@@ -1,255 +1,291 @@
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import PageHero from '../components/PageHero';
-import PhotoBand from '../components/PhotoBand';
-import ProductShot from '../components/ProductShot';
 import Seo from '../components/Seo';
+import PageHero from '../components/PageHero';
 import Icon from '../components/Icon';
-import {
-  appFeatures,
-  appScreens,
-  playStoreUrl,
-  sindancoraAudience,
-  sindancoraDifferentials,
-  sindancoraOps,
-  sindancoraPitch,
-} from '../data/siteContent';
+import ProjectCTA from '../components/ProjectCTA';
+import { playStoreUrl } from '../data/siteContent';
+
+const screens = [
+  {
+    id: 'painel',
+    label: 'Visão geral',
+    src: '/media/products/panel-dashboard.webp',
+    title: 'A rotina inteira, com contexto.',
+    text: 'Condomínios, ocorrências, documentos e próximas manutenções em uma visão organizada. Veja o que merece atenção e siga para a ação.',
+    alt: 'Painel real do SindÂncora com visão do condomínio, ações rápidas e indicadores',
+  },
+  {
+    id: 'manutencoes',
+    label: 'Manutenções',
+    src: '/media/products/panel-maintenance-index.webp',
+    title: 'Antecipe o que precisa de cuidado.',
+    text: 'Organize as manutenções do condomínio e acompanhe prazos, responsáveis e registros. Mais clareza para planejar a rotina.',
+    alt: 'Tela real de manutenções do SindÂncora com planejamento e acompanhamento',
+  },
+  {
+    id: 'atendimento',
+    label: 'Atendimento',
+    src: '/media/products/panel-inbox-index.webp',
+    title: 'Conversas viram acompanhamento.',
+    text: 'Reúna o atendimento em um ambiente de trabalho. Sua equipe encontra o histórico e acompanha cada demanda com mais organização.',
+    alt: 'Caixa de atendimento real do SindÂncora com conversas e setores',
+  },
+  {
+    id: 'lemeia',
+    label: 'LemeIA',
+    src: '/media/products/panel-assistant-conversation.webp',
+    title: 'Informação à mão. Decisão com contexto.',
+    text: 'A assistente ajuda a consultar informações do condomínio e a dar fluidez ao trabalho. Uma aliada para tirar dúvidas e preparar comunicações.',
+    alt: 'Tela real de conversa com a LemeIA, assistente do SindÂncora',
+  },
+  {
+    id: 'morador',
+    label: 'Portal do morador',
+    src: '/media/products/portal-portal-dashboard.webp',
+    title: 'O morador também ganha tempo.',
+    text: 'Um canal para consultar informações, acompanhar comunicados e acessar os serviços do condomínio. Sua equipe recebe demandas com mais contexto.',
+    alt: 'Tela real do portal do morador no SindÂncora',
+  },
+];
+const benefits = [
+  {
+    icon: 'clock',
+    title: 'Tempo para novas oportunidades',
+    text: 'Concentre os fluxos de trabalho e reduza a busca por informações espalhadas. O tempo volta para o relacionamento e a expansão da sua atuação.',
+  },
+  {
+    icon: 'support',
+    title: 'Atendimento com histórico',
+    text: 'Organize conversas e demandas para que o acompanhamento continue entre pessoas e equipes, com informações no lugar certo.',
+  },
+  {
+    icon: 'building',
+    title: 'Manutenção e operação',
+    text: 'Acompanhe as rotinas do condomínio, organize os registros e tenha uma base mais clara para planejar o próximo passo.',
+  },
+  {
+    icon: 'document',
+    title: 'Documentos acessíveis',
+    text: 'Convenções, atas e documentos reunidos para consulta, com controle de acesso e organização para quem precisa trabalhar com eles.',
+  },
+  {
+    icon: 'spark',
+    title: 'LemeIA na sua rotina',
+    text: 'Uma assistente para apoiar consultas e comunicações, usando o contexto do condomínio para ajudar o síndico no trabalho diário.',
+  },
+  {
+    icon: 'shield',
+    title: 'Estrutura Serratech',
+    text: 'O produto carrega nosso compromisso com qualidade, segurança, backup e infraestrutura distribuída entre regiões.',
+  },
+];
 
 export default function AppSindicoPage() {
+  const [selected, setSelected] = useState(0);
+  const dialogRef = useRef(null);
+  const tabsRef = useRef(null);
+  const screen = screens[selected];
+  const handleTabKey = (event, index) => {
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % screens.length;
+    if (event.key === 'ArrowLeft')
+      next = (index + screens.length - 1) % screens.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = screens.length - 1;
+    if (next === undefined) return;
+    event.preventDefault();
+    setSelected(next);
+    tabsRef.current.querySelectorAll('[role="tab"]')[next].focus();
+  };
   return (
     <>
       <Seo path="/app-sindico" />
-
       <PageHero
-        eyebrow="SindÂncora · Gestão condominial"
-        title="Comande a gestão dos seus condomínios."
-        description={sindancoraPitch}
-        primaryAction={{ label: 'Solicitar apresentação', to: '/contato' }}
-        secondaryAction={{ label: 'Baixar o app na Google Play', href: playStoreUrl }}
+        eyebrow="ÂncoraHUB · SindÂncora · Disponível"
+        title="Sua gestão flui. Seu tempo volta."
+        description="Atendimento, manutenção, comunicação e documentos conectados para síndicos profissionais e moradores. Um software desenvolvido pela Serratech para organizar o trabalho, proteger as informações e abrir espaço para novos negócios."
+        primaryAction={{
+          label: 'Solicitar uma apresentação',
+          to: '/contato?interesse=Sind%C3%82ncora#diagnostico',
+        }}
+        secondaryAction={{ label: 'Baixar o app Android', href: playStoreUrl }}
         highlights={[
-          'App para Android',
-          'LemeIA responde pelo condomínio',
-          'Atendimento pelo WhatsApp',
-          'Obras, assembleias e portaria',
+          'Sistema web e aplicativo',
+          'Administradoras parceiras',
+          'Desenvolvido pela Serratech',
         ]}
       />
-
-      <PhotoBand
-        src="/media/foto/condominio-fachada.jpg"
-        alt="Fachada de prédio residencial com varandas em contraluz, vista de baixo contra o céu"
-        eyebrow="O prédio não avisa quando dá problema"
-        title="Cada varanda dessas é uma unidade que precisa de resposta."
-        text="Vazamento no terceiro, encomenda que sumiu na portaria, obra que atrasou, assembleia que precisa de quórum. O síndico responde por tudo — e, na maioria dos condomínios, responde pelo WhatsApp pessoal."
-        credit="Foto: Pexels"
-      />
-
-      <section className="band">
-        <div className="container">
-          <div className="showcase">
-            <div className="showcase-aside">
-              <span className="eyebrow" data-anim="rise">
-                O sistema por dentro
-              </span>
-              <h2 data-anim="lines">A carteira inteira cabe em uma tela.</h2>
-              <p data-anim="rise">
-                O síndico profissional troca de condomínio em um clique, sem abrir outro sistema nem
-                outra planilha. E cada pessoa entra pela porta certa: o conselheiro vê o que é do
-                conselho, o morador vê o que é dele, a portaria vê o que precisa para trabalhar.
-              </p>
-
-              <ul className="spec-notes" data-stagger>
-                <li data-stagger-item>Do síndico ao morador, cada um enxergando o seu</li>
-                <li data-stagger-item>Vários condomínios na mesma conta</li>
-                <li data-stagger-item>Com o nome, o logotipo e as cores da sua administradora</li>
-                <li data-stagger-item>App para Android, disponível na Google Play</li>
-              </ul>
-
-              <div className="button-row" data-anim="rise">
-                <a className="btn" href={playStoreUrl}>
-                  <span>Baixar na Google Play</span>
-                  <Icon name="arrow" className="btn-icon" />
-                </a>
-              </div>
-            </div>
-
-            <div className="showcase-stack">
-              <ProductShot
-                src="/media/sindancora-dashboard.jpg"
-                url="sindancora.ancorahub.com.br/dashboard"
-                alt="Painel do SindÂncora com carteira de nove condomínios, unidades, moradores e ações rápidas"
-                caption="Painel da administradora"
-                meta="Painel montado do seu jeito"
-              />
-              <ProductShot
-                src="/media/sindancora-condominios.jpg"
-                url="sindancora.ancorahub.com.br/condominios"
-                alt="Lista de condomínios do SindÂncora, cada um com cidade, blocos e número de unidades"
-                caption="Condomínios da carteira"
-                meta="Blocos, unidades e cidade"
-              />
-              <ProductShot
-                src="/media/sindancora-login.jpg"
-                url="sindancora.ancorahub.com.br/login"
-                alt="Tela de entrada do SindÂncora destacando LemeIA, atendimento, obras e carteira de condomínios"
-                caption="Entrada do síndico"
-                meta="Acesso também por código no WhatsApp"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
+      <section className="product-gallery" id="telas">
         <div className="container">
           <div className="section-head">
             <div>
               <span className="eyebrow" data-anim="rise">
-                Para quem é
+                Por dentro do SindÂncora
               </span>
-              <h2 data-anim="lines">Da administradora ao morador, no mesmo sistema.</h2>
+              <h2 data-anim="lines">
+                Software real.
+                <br />
+                Na sua rotina real.
+              </h2>
             </div>
             <p className="lead" data-anim="rise">
-              Cada perfil entra pela porta certa e enxerga o que lhe cabe — sem planilha paralela nem
-              grupo de mensagem fazendo o papel de sistema.
+              Explore as telas do sistema. Selecione uma área para conhecer o
+              fluxo e amplie a imagem para ver os detalhes.
             </p>
           </div>
-
-          <ul className="chip-list chip-list-wide" data-anim="rise">
-            {sindancoraAudience.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section section-tint">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Telas do produto
-              </span>
-              <h2 data-anim="lines">Desenhado para resolver entre uma reunião e outra.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              O síndico raramente está sentado. A informação precisa aparecer em poucos toques, com o
-              contexto do condomínio certo já selecionado.
-            </p>
-          </div>
-
-          <div className="screens" data-stagger>
-            {appScreens.map((screen, index) => (
-              <article className="screen" key={screen.title} data-stagger-item>
-                <div className="screen-head">
-                  <span className="ledger-index">{String(index + 1).padStart(2, '0')}</span>
-                  <span className="label">{screen.accent}</span>
-                </div>
-                <h3>{screen.title}</h3>
-                <ul className="feature-list">
-                  {screen.items.map((item) => (
-                    <li key={item}>
-                      <Icon name="check" className="feature-list-icon" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
+          <div
+            className="gallery-tabs"
+            role="tablist"
+            aria-label="Telas do SindÂncora"
+            ref={tabsRef}
+          >
+            {screens.map((item, index) => (
+              <button
+                type="button"
+                role="tab"
+                id={'tab-' + item.id}
+                aria-controls={'screen-' + item.id}
+                aria-selected={selected === index}
+                tabIndex={selected === index ? 0 : -1}
+                key={item.id}
+                onClick={() => setSelected(index)}
+                onKeyDown={(event) => handleTabKey(event, index)}
+              >
+                {item.label}
+              </button>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Funcionalidades
-              </span>
-              <h2 data-anim="lines">Nove frentes que cobrem a rotina inteira.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              Do chamado aberto no portão à ata assinada depois da assembleia — com histórico,
-              responsável e prazo em cada etapa.
-            </p>
-          </div>
-
-          <div className="ledger" data-stagger>
-            {appFeatures.map((item, index) => (
-              <article className="ledger-row" key={item.title} data-stagger-item>
-                <span className="ledger-index">
-                  {String(index + 1).padStart(2, '0')} / {appFeatures.length}
+          <div
+            className="gallery-panel"
+            role="tabpanel"
+            id={'screen-' + screen.id}
+            aria-labelledby={'tab-' + screen.id}
+            tabIndex="0"
+          >
+            <div className="gallery-screen">
+              <div className="preview-bar">
+                <span className="preview-dots" aria-hidden="true">
+                  ● ● ●
                 </span>
-                <div className="ledger-title">
-                  <h3>{item.title}</h3>
-                </div>
-                <p className="ledger-text">{item.text}</p>
+                <span>SindÂncora / {screen.label}</span>
+                <Icon name="shield" />
+              </div>
+              <button
+                className="gallery-image"
+                type="button"
+                onClick={() => dialogRef.current.showModal()}
+                aria-label={'Ampliar tela: ' + screen.label}
+              >
+                <img
+                  key={screen.src}
+                  src={screen.src}
+                  alt={screen.alt}
+                  loading="lazy"
+                />
+                <span>Ampliar tela ↗</span>
+              </button>
+            </div>
+            <div className="gallery-description">
+              <h3>{screen.title}</h3>
+              <p>{screen.text}</p>
+              <span className="micro-label">Uma criação Serratech</span>
+            </div>
+          </div>
+          <div className="gallery-foot">
+            <span>Capturas reais do sistema em ambiente de demonstração.</span>
+            <Link to="/contato?interesse=Sind%C3%82ncora#diagnostico">
+              Vamos apresentar para você ↗
+            </Link>
+          </div>
+        </div>
+      </section>
+      <dialog
+        className="image-dialog"
+        ref={dialogRef}
+        aria-labelledby="dialog-title"
+        onClick={(event) => {
+          if (event.target === event.currentTarget) dialogRef.current.close();
+        }}
+      >
+        <div className="dialog-top">
+          <span id="dialog-title">SindÂncora / {screen.label}</span>
+          <button
+            type="button"
+            autoFocus
+            onClick={() => dialogRef.current.close()}
+            aria-label="Fechar tela ampliada"
+          >
+            ×
+          </button>
+        </div>
+        <img src={screen.src} alt={screen.alt} loading="lazy" />
+      </dialog>
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow" data-anim="rise">
+                Mais fluidez, do começo ao fim
+              </span>
+              <h2 data-anim="lines">
+                O sistema organiza.
+                <br />
+                Você faz acontecer.
+              </h2>
+            </div>
+            <p className="lead" data-anim="rise">
+              Tecnologia a favor de quem cuida da operação. Cada área foi
+              pensada para melhorar o fluxo e dar mais clareza ao trabalho.
+            </p>
+          </div>
+          <div className="product-benefits" data-stagger>
+            {benefits.map((item) => (
+              <article key={item.title} data-stagger-item>
+                <Icon name={item.icon} />
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Confiabilidade é argumento de venda para quem já se queimou com sistema
-          condominial que sumiu com os documentos. Por isso ganha faixa própria. */}
-      <section className="band">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Quando ninguém está olhando
-              </span>
-              <h2 data-anim="lines">O que roda sozinho para o sistema não te deixar na mão.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              Convenção, ata e prestação de contas não podem depender da sorte. A operação por trás
-              do SindÂncora é a mesma que a Serratech entrega aos clientes de infraestrutura.
-            </p>
-          </div>
-
-          <dl className="hero-spec" data-stagger>
-            {sindancoraOps.map((row) => (
-              <div className="hero-spec-row" key={row.term} data-stagger-item>
-                <dt>{row.term}</dt>
-                <dd>{row.detail}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <ul className="chip-list chip-list-wide" data-anim="rise">
-            {sindancoraDifferentials.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="cta-band">
-        <div className="container cta-grid">
+      <section className="partnership-section">
+        <div className="container partnership-copy">
           <div>
             <span className="eyebrow" data-anim="rise">
-              Apresentação
+              Administradoras parceiras
             </span>
-            <h2 data-anim="lines">Quer o SindÂncora rodando no seu condomínio?</h2>
+            <h2 data-anim="lines">
+              Mais colaboração.
+              <br />
+              Mais valor para todos.
+            </h2>
           </div>
-
-          <div className="cta-aside">
-            <p data-anim="rise">
-              Mostramos o sistema com dados de demonstração, discutimos os módulos que fazem sentido
-              para a sua carteira e falamos de migração dos documentos que já existem.
+          <div data-anim="rise">
+            <p>
+              O SindÂncora fortalece a relação entre síndico, administradora e
+              condomínio. A administradora é nossa parceira: sua experiência e
+              seus serviços se somam a uma operação digital mais organizada.
             </p>
-            <div className="button-row" data-anim="rise">
-              <Link className="btn" to="/contato">
-                <span>Solicitar apresentação</span>
-                <Icon name="arrow" className="btn-icon" />
-              </Link>
-              <Link className="btn btn-secondary" to="/ancora">
-                <span>Conhecer o Âncora</span>
-                <Icon name="anchor" className="btn-icon" />
-              </Link>
-            </div>
+            <p>
+              Vamos conversar sobre como conectar os fluxos, melhorar a troca de
+              informações e criar mais tempo para atender clientes e desenvolver
+              novos negócios juntos.
+            </p>
+            <Link className="btn" to="/contato?interesse=parceria#diagnostico">
+              <span>Quero ser parceiro</span>
+              <Icon name="arrow" />
+            </Link>
           </div>
         </div>
       </section>
+      <ProjectCTA
+        title={'Veja o SindÂncora\nna sua operação.'}
+        text="Conte como é a sua rotina. Vamos apresentar o sistema e conversar sobre o que faz sentido para o seu trabalho."
+        label="Agendar uma apresentação"
+        to="/contato?interesse=Sind%C3%82ncora#diagnostico"
+      />
     </>
   );
 }

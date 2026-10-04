@@ -1,173 +1,81 @@
-import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
-import PhotoBand from '../components/PhotoBand';
 import Seo from '../components/Seo';
-import Icon from '../components/Icon';
-import { aboutReasons, values } from '../data/siteContent';
-
-const story = [
-  {
-    title: 'Origem',
-    text: 'A empresa surge de uma trajetória de mais de 20 anos em TI aplicada ao mundo real: suporte, infraestrutura, sistemas, atendimento e operações que exigem continuidade.',
-  },
-  {
-    title: 'Leitura prática',
-    text: 'Essa vivência trouxe um olhar muito claro: não basta manter a tecnologia funcionando. É preciso fazer com que ela ajude a gestão a enxergar melhor, responder melhor e crescer com menos atrito.',
-  },
-  {
-    title: 'Mercados atendidos',
-    text: 'Empresas, escritórios, operações condominiais e síndicos encontram na Serratech uma parceira capaz de unir organização, segurança, automação e visão de futuro.',
-  },
-];
+import ExpertiseSection from '../components/ExpertiseSection';
+import ProjectCTA from '../components/ProjectCTA';
 
 export default function AboutPage() {
   return (
     <>
       <Seo path="/sobre" />
-
       <PageHero
-        eyebrow="Sobre a Serratech"
-        title="Tecnologia com visão prática, estratégica e humana."
-        description="Mais de 20 anos dentro de empresas e condomínios de verdade, resolvendo o que quebra às sete da manhã de uma segunda-feira. É de onde vem tudo o que a Serratech faz hoje."
-        primaryAction={{ label: 'Falar com a Serratech', to: '/contato' }}
-        secondaryAction={{ label: 'Conhecer soluções', to: '/solucoes' }}
-        highlights={['Experiência prática', 'Atendimento próximo', 'Visão consultiva', 'Corporativo e condominial']}
+        eyebrow="Somos Serratech"
+        title="Carreira em tecnologia. Cuidado em cada escolha."
+        description="Somos uma fábrica de software e a desenvolvedora do ÂncoraHUB. Reunimos experiência em data centers, operações críticas, desenvolvimento em multinacionais e validação externa de cibersegurança para construir soluções que merecem a sua confiança."
+        primaryAction={{
+          label: 'Vamos construir juntos',
+          to: '/contato#diagnostico',
+        }}
+        secondaryAction={{ label: 'Conheça nossos produtos', to: '/ancora' }}
+        highlights={[
+          'Engenharia de software',
+          'Experiência em operações críticas',
+          'Infraestrutura distribuída',
+        ]}
       />
-
       <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Nossa história
-              </span>
-              <h2 data-anim="lines">Tecnologia boa é a que você esquece que existe.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              Quando está bem feita, ninguém comenta. Ela só aparece no dia em que falta — e é
-              exatamente esse dia que a gente trabalha para você nunca ter.
-            </p>
-          </div>
-
-          <div className="duo duo-three" data-stagger>
-            {story.map((item) => (
-              <div className="duo-col" key={item.title} data-stagger-item>
-                <span className="label">{item.title}</span>
-                <p>{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="band">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Missão, visão e valores
-              </span>
-              <h2 data-anim="lines">O que orienta cada decisão técnica.</h2>
-            </div>
-          </div>
-
-          <div className="duo" data-stagger>
-            <div className="duo-col" data-stagger-item>
-              <span className="label">Missão</span>
-              <h3>Transformar a tecnologia em estrutura real para a operação.</h3>
-              <p>
-                Entregar soluções que organizam processos, protegem informações e geram
-                produtividade de forma prática e sustentável.
-              </p>
-            </div>
-            <div className="duo-col" data-stagger-item>
-              <span className="label">Visão</span>
-              <h3>Ser referência em evolução digital para o mercado corporativo e condominial.</h3>
-              <p>
-                Construir um ecossistema de produtos, serviços e automações capaz de apoiar decisões,
-                atendimento e gestão com alto valor percebido.
-              </p>
-            </div>
-          </div>
-
-          <ul className="hero-tags" data-anim="rise">
-            {values.map((value) => (
-              <li key={value}>{value}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <PhotoBand
-        src="/media/foto/equipe-reuniao.jpg"
-        alt="Equipe reunida em volta de uma mesa de madeira, com notebooks, relatórios impressos e discussão em andamento"
-        eyebrow="Como o trabalho começa"
-        title="A conversa começa no seu problema, não no nosso catálogo."
-        text="Antes de falar em sistema, backup ou automação, a Serratech senta com quem opera para entender onde o processo trava. Diagnóstico primeiro; proposta depois."
-        credit="Foto: Pexels"
-      />
-
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow" data-anim="rise">
-                Por que escolhem a Serratech
-              </span>
-              <h2 data-anim="lines">Estrutura, estratégia e proximidade.</h2>
-            </div>
-            <p className="lead" data-anim="rise">
-              Empresas e condomínios escolhem a Serratech porque precisam de uma parceira que entenda
-              operação, não apenas tecnologia.
-            </p>
-          </div>
-
-          <div className="ledger" data-stagger>
-            {aboutReasons.map((item, index) => (
-              <article className="ledger-row" key={item.title} data-stagger-item>
-                <span className="ledger-index">
-                  {String(index + 1).padStart(2, '0')} / {aboutReasons.length}
-                </span>
-                <div className="ledger-title">
-                  <h3>{item.title}</h3>
-                </div>
-                <p className="ledger-text">{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="cta-band">
-        <div className="container cta-grid">
+        <div className="container about-manifesto">
           <div>
             <span className="eyebrow" data-anim="rise">
-              Em uma frase
+              O que nos move
             </span>
             <h2 data-anim="lines">
-              Não entregamos apenas suporte técnico. Entregamos estrutura, estratégia e evolução
-              digital.
+              Tempo é espaço
+              <br />
+              para crescer.
             </h2>
           </div>
-
-          <div className="cta-aside">
-            <p data-anim="rise">
-              Se a sua operação depende de tecnologia para funcionar todo dia, vale uma conversa
-              sobre onde ela está frágil.
+          <div data-anim="rise">
+            <p>
+              Quando o fluxo de trabalho melhora, a equipe pode fazer mais do
+              que responder às demandas do dia. Pode cuidar dos clientes,
+              encontrar oportunidades e construir o próximo passo do negócio.
             </p>
-            <div className="button-row" data-anim="rise">
-              <Link className="btn" to="/contato">
-                <span>Solicitar uma conversa</span>
-                <Icon name="arrow" className="btn-icon" />
-              </Link>
-              <Link className="btn btn-secondary" to="/fabrica-de-software">
-                <span>Ver a fábrica de software</span>
-                <Icon name="app" className="btn-icon" />
-              </Link>
-            </div>
+            <p>
+              É para isso que desenvolvemos. Transformamos a experiência de quem
+              já operou em ambientes exigentes em software, automação e
+              infraestrutura com propósito.
+            </p>
+            <p>
+              <strong>Administradoras são nossas parceiras.</strong> No mercado
+              condominial, nossa tecnologia fortalece o trabalho de síndicos e
+              administradoras e facilita a colaboração entre eles.
+            </p>
           </div>
         </div>
       </section>
+      <ExpertiseSection full />
+      <section className="quality-statement">
+        <div className="container">
+          <span className="eyebrow" data-anim="rise">
+            Qualidade que acompanha o produto
+          </span>
+          <h2 data-anim="lines">
+            Construir. Validar.
+            <br />
+            Proteger. Evoluir.
+          </h2>
+          <div className="quality-bottom">
+            <span />
+            <p data-anim="rise">
+              Da definição do fluxo às atualizações, cuidamos da qualidade do
+              software e da infraestrutura que o sustenta. A validação por
+              especialistas externos em cibersegurança complementa esse trabalho
+              com um olhar independente sobre o sistema, de ponta a ponta.
+            </p>
+          </div>
+        </div>
+      </section>
+      <ProjectCTA />
     </>
   );
 }

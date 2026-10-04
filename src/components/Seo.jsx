@@ -17,13 +17,21 @@ function upsertMeta(attribute, value, content) {
 // em dia durante a navegação client-side do SPA.
 export default function Seo({ path = '/' }) {
   useEffect(() => {
-    const { pageTitle, description, keywords, canonicalUrl, imageUrl } = resolveSeo(path);
+    const {
+      pageTitle,
+      description,
+      keywords,
+      canonicalUrl,
+      imageUrl,
+      noindex,
+    } = resolveSeo(path);
 
     document.title = pageTitle;
     document.documentElement.lang = 'pt-BR';
 
     upsertMeta('name', 'description', description);
     upsertMeta('name', 'keywords', keywords);
+    upsertMeta('name', 'robots', noindex ? 'noindex, follow' : 'index, follow');
     upsertMeta('property', 'og:title', pageTitle);
     upsertMeta('property', 'og:description', description);
     upsertMeta('property', 'og:url', canonicalUrl);

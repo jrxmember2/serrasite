@@ -1,4 +1,6 @@
 node_modules
+.tmp/
+.tmp-reference-vands.html
 dist
 dist-ssr
 .env
