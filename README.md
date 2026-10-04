@@ -2,6 +2,8 @@
 
 Site institucional da Serratech, fábrica de software e desenvolvedora do ÂncoraHUB. O posicionamento destaca fluxos de trabalho mais simples, proteção das informações e tempo para novos negócios. Administradoras são parceiras da Serratech.
 
+O estado da entrega, as validações e os próximos passos estão em [docs/CONTEXTO-ATUAL.md](docs/CONTEXTO-ATUAL.md).
+
 ## Visão geral
 
 - Direção visual inspirada na Vandslab: tipografia em grande escala, formas gráficas, identidade Serratech e transições animadas com GSAP.
