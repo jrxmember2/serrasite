@@ -10,6 +10,7 @@ export default function Header() {
   const location = useLocation();
   const progressRef = useRef(null);
   const mobileRef = useRef(null);
+  const toggleRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -52,7 +53,9 @@ export default function Header() {
     if (!panel) return undefined;
 
     if (prefersReducedMotion()) {
-      panel.style.clipPath = mobileOpen ? 'inset(0 0 0% 0)' : 'inset(0 0 100% 0)';
+      panel.style.clipPath = mobileOpen
+        ? 'inset(0 0 0% 0)'
+        : 'inset(0 0 100% 0)';
       return undefined;
     }
 
@@ -69,15 +72,29 @@ export default function Header() {
         if (mobileOpen) {
           gsap
             .timeline()
-            .to(panel, { clipPath: 'inset(0 0 0% 0)', duration: 0.7, ease: 'power4.inOut' })
+            .to(panel, {
+              clipPath: 'inset(0 0 0% 0)',
+              duration: 0.7,
+              ease: 'power4.inOut',
+            })
             .fromTo(
               items,
               { y: 32, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.6, stagger: 0.055, ease: 'power3.out' },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                stagger: 0.055,
+                ease: 'power3.out',
+              },
               '-=0.34',
             );
         } else {
-          gsap.to(panel, { clipPath: 'inset(0 0 100% 0)', duration: 0.55, ease: 'power4.inOut' });
+          gsap.to(panel, {
+            clipPath: 'inset(0 0 100% 0)',
+            duration: 0.55,
+            ease: 'power4.inOut',
+          });
         }
       }, panel);
     });
@@ -93,10 +110,48 @@ export default function Header() {
   }, [location.pathname, location.hash]);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    const previousOverflow = document.body.style.overflow;
+    if (!mobileOpen) return undefined;
+    document.body.style.overflow = 'hidden';
+    const main = document.querySelector('main');
+    const footer = document.querySelector('footer');
+    if (main) main.inert = true;
+    if (footer) footer.inert = true;
+    const frame = requestAnimationFrame(() =>
+      mobileRef.current?.querySelector('a')?.focus(),
+    );
+    const onKey = (event) => {
+      if (event.key === 'Escape') {
+        setMobileOpen(false);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const links = Array.from(mobileRef.current.querySelectorAll('a[href]'));
+      const first = toggleRef.current;
+      const last = links[links.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      }
+      if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
+    };
+    const onResize = () => {
+      if (window.innerWidth > 900) setMobileOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    window.addEventListener('resize', onResize);
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = previousOverflow;
+      if (main) main.inert = false;
+      if (footer) footer.inert = false;
+      cancelAnimationFrame(frame);
+      document.removeEventListener('keydown', onKey);
+      window.removeEventListener('resize', onResize);
+      toggleRef.current?.focus({ preventScroll: true });
     };
   }, [mobileOpen]);
 
@@ -107,7 +162,7 @@ export default function Header() {
           <img src="/favicon.svg" alt="" width="34" height="34" />
           <span className="brand-text">
             <span className="brand-name">Serratech</span>
-            <span className="brand-tag">Soluções digitais</span>
+            <span className="brand-tag">Fábrica de software</span>
           </span>
         </Link>
 
@@ -117,7 +172,9 @@ export default function Header() {
               key={item.to}
               to={item.to}
               end={item.to === '/'}
-              className={({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`}
+              className={({ isActive }) =>
+                `nav-link ${(item.to.includes('#') ? location.hash === '#infraestrutura' && location.pathname === '/' : isActive) ? 'is-active' : ''}`
+              }
             >
               {item.label}
             </NavLink>
@@ -126,7 +183,7 @@ export default function Header() {
 
         <div className="header-actions">
           <Link className="btn header-cta" to="/portal-cliente">
-            <span>Portal do cliente</span>
+            <span>Acesse seu produto</span>
             <Icon name="portal" className="btn-icon" />
           </Link>
           <button
@@ -134,6 +191,8 @@ export default function Header() {
             type="button"
             aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
             aria-expanded={mobileOpen}
+            aria-controls="menu-mobile"
+            ref={toggleRef}
             onClick={() => setMobileOpen((current) => !current)}
           >
             <span />
@@ -144,7 +203,13 @@ export default function Header() {
 
       <span className="scroll-progress" ref={progressRef} aria-hidden="true" />
 
-      <div className={`mobile-nav ${mobileOpen ? 'is-open' : ''}`} ref={mobileRef}>
+      <div
+        id="menu-mobile"
+        className={`mobile-nav ${mobileOpen ? 'is-open' : ''}`}
+        ref={mobileRef}
+        aria-hidden={!mobileOpen}
+        inert={mobileOpen ? undefined : ''}
+      >
         <nav className="mobile-nav-list" aria-label="Menu mobile">
           {navigation.map((item, index) => (
             <NavLink
@@ -152,7 +217,9 @@ export default function Header() {
               to={item.to}
               end={item.to === '/'}
               data-mobile-item
-              className={({ isActive }) => `mobile-link ${isActive ? 'is-active' : ''}`}
+              className={({ isActive }) =>
+                `mobile-link ${(item.to.includes('#') ? location.hash === '#infraestrutura' && location.pathname === '/' : isActive) ? 'is-active' : ''}`
+              }
             >
               <span className="idx">{String(index + 1).padStart(2, '0')}</span>
               <span>{item.label}</span>
@@ -161,7 +228,12 @@ export default function Header() {
         </nav>
 
         <div className="mobile-foot" data-mobile-item>
-          <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
+          <Link className="mobile-portal" to="/portal-cliente">
+            Acesse seu produto <Icon name="arrow" />
+          </Link>
+          <a href={`mailto:${siteConfig.contactEmail}`}>
+            {siteConfig.contactEmail}
+          </a>
           <span>{siteConfig.serviceHours}</span>
         </div>
       </div>

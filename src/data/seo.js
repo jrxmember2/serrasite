@@ -5,23 +5,23 @@ import { siteConfig } from './siteContent';
 // estático servido ao Googlebot já contenha title, description e canonical corretos.
 export const seoByPath = {
   '/': {
-    title: 'TI para empresas, condomínios e escritórios',
+    title: 'Fábrica de software e ÂncoraHUB',
     description:
-      'Infraestrutura em TI, consultoria, automação, segurança digital, sistemas próprios e tecnologia condominial para operações que não podem parar.',
+      'Fábrica de software e criadora do ÂncoraHUB. Sistemas que simplificam o trabalho, protegem informações e devolvem tempo para novos negócios.',
     keywords:
-      'TI para empresas, TI para condomínios, consultoria em TI, infraestrutura de TI, automação empresarial, segurança digital, portal do cliente, Serratech',
+      'fábrica de software, Serratech, ÂncoraHUB, SindÂncora, ÂncorADV, desenvolvimento de sistemas, segurança, automação',
   },
   '/sobre': {
     title: 'Sobre a Serratech',
     description:
-      'Conheça a Serratech: tecnologia com visão prática, estratégica e humana para empresas, escritórios, síndicos e condomínios.',
+      'Conheça a Serratech: experiência em data centers, operações críticas e desenvolvimento em multinacionais, com validação externa de cibersegurança.',
     keywords:
       'Serratech, consultoria em TI, tecnologia para empresas, tecnologia condominial, suporte técnico corporativo',
   },
   '/solucoes': {
     title: 'Produtos e soluções',
     description:
-      'Soluções completas para empresas, escritórios, condomínios e síndicos: infraestrutura em TI, consultoria, sistemas, automação, segurança digital e produtos próprios.',
+      'Software sob medida, integração de sistemas e ÂncoraHUB. Soluções Serratech para melhorar fluxos de trabalho com qualidade, segurança e continuidade.',
     keywords:
       'infraestrutura de TI, consultoria em TI, sistema para escritórios, sistema para condomínios, automação empresarial, segurança digital, portal do cliente',
   },
@@ -33,30 +33,37 @@ export const seoByPath = {
       'fábrica de software, desenvolvimento de sistemas sob medida, software sob medida, desenvolvimento web, squad dedicado, integração de sistemas, automação de processos, modernização de sistemas legados',
   },
   '/ancora': {
-    title: 'Âncora, sistema para escritórios de advocacia',
+    title: 'ÂncoraHUB, o ecossistema de software da Serratech',
     description:
-      'Âncora: processos, prazos, publicações, documentos, honorários e financeiro do escritório em um lugar só, com sigilo garantido para cada cliente.',
+      'Conheça o ÂncoraHUB: SindÂncora disponível para síndicos e ÂncorADV para advogados em breve. Tecnologia desenvolvida e mantida pela Serratech.',
     keywords:
-      'software para advogados, sistema para escritório de advocacia, controle de prazos processuais, gestão de processos, honorários advocatícios, software jurídico, Âncora sistema',
+      'ÂncoraHUB, Serratech, SindÂncora, ÂncorADV, software para síndicos, software para advogados',
+  },
+  '/ancoradv': {
+    title: 'ÂncorADV para advogados · Em breve',
+    description:
+      'O ÂncorADV está em desenvolvimento. A próxima solução do ÂncoraHUB vai ajudar advogados a organizar o trabalho e ganhar tempo para seus clientes.',
+    keywords:
+      'ÂncorADV, ÂncoraHUB, software para advogados, Serratech, software jurídico',
   },
   '/app-sindico': {
     title: 'SindÂncora, app e sistema para síndico',
     description:
-      'SindÂncora: app para Android na Google Play e sistema de gestão de condomínios com atendimento pelo WhatsApp, obras, assembleias, portaria, cobrança e a LemeIA respondendo pelos documentos do condomínio.',
+      'SindÂncora: sistema e aplicativo para síndicos, com administradoras parceiras. Atendimento, manutenção e documentos organizados para ganhar tempo.',
     keywords:
       'app para síndico, aplicativo para síndico Android, SindÂncora, sistema para condomínios, gestão de condomínios, software para administradora de condomínios, assembleia digital, portaria digital',
   },
   '/contato': {
     title: 'Contato',
     description:
-      'Entre em contato com a Serratech para falar sobre infraestrutura em TI, consultoria, sistemas, automação, Âncora, SindÂncora e suporte técnico corporativo.',
+      'Converse com a Serratech sobre desenvolvimento de software, ÂncoraHUB, SindÂncora, ÂncorADV e parcerias com administradoras.',
     keywords:
       'contato Serratech, consultoria em TI, suporte técnico corporativo, automação empresarial, app para síndico, Âncora sistema',
   },
   '/portal-cliente': {
-    title: 'Portal do cliente',
+    title: 'Acesse seu produto',
     description:
-      'Portal do Cliente Serratech: acompanhe chamados, solicitações, documentos e atendimentos em um só lugar.',
+      'Acesse o ambiente oficial do SindÂncora e encontre o contato de suporte da Serratech. ÂncorADV em breve.',
     keywords:
       'portal do cliente, chamados de TI, suporte técnico corporativo, portal Serratech, app para síndico',
   },
@@ -91,7 +98,9 @@ export const seoByPath = {
 };
 
 // Rotas publicadas no sitemap e indexáveis pelos buscadores.
-export const indexablePaths = Object.keys(seoByPath).filter((path) => !seoByPath[path].noindex);
+export const indexablePaths = Object.keys(seoByPath).filter(
+  (path) => !seoByPath[path].noindex,
+);
 
 // Tudo que vira HTML estático no build. Inclui as rotas noindex: elas não vão
 // ao sitemap, mas precisam responder direto no servidor, sem depender de JS.
@@ -104,6 +113,6 @@ export function resolveSeo(path) {
     ...meta,
     pageTitle: `${meta.title} | ${siteConfig.name}`,
     canonicalUrl: new URL(path, siteConfig.siteUrl).toString(),
-    imageUrl: `${siteConfig.siteUrl}/logo-serratech.svg`,
+    imageUrl: `${siteConfig.siteUrl}/og-cover.png`,
   };
 }

@@ -19,21 +19,30 @@ function replaceBetween(html, startMarker, endMarker, replacement) {
   const end = html.indexOf(endMarker);
 
   if (start === -1 || end === -1) {
-    throw new Error(`Marcadores ${startMarker}/${endMarker} não encontrados em dist/index.html`);
+    throw new Error(
+      `Marcadores ${startMarker}/${endMarker} não encontrados em dist/index.html`,
+    );
   }
 
-  return html.slice(0, start) + replacement + html.slice(end + endMarker.length);
+  return (
+    html.slice(0, start) + replacement + html.slice(end + endMarker.length)
+  );
 }
 
 function buildSitemap(paths) {
   const urls = paths
-    .map((path) => `  <url>\n    <loc>${new URL(path, SITE_URL).toString()}</loc>\n  </url>`)
+    .map(
+      (path) =>
+        `  <url>\n    <loc>${new URL(path, SITE_URL).toString()}</loc>\n  </url>`,
+    )
     .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
-const { render, indexablePaths, prerenderPaths } = await import(pathToFileURL(ssrEntry).href);
+const { render, indexablePaths, prerenderPaths } = await import(
+  pathToFileURL(ssrEntry).href
+);
 const template = await readFile(resolve(distDir, 'index.html'), 'utf8');
 
 const routes = prerenderPaths;
@@ -41,10 +50,14 @@ const routes = prerenderPaths;
 for (const path of routes) {
   const { html, head } = render(path);
 
-  const page = replaceBetween(template, '<!--seo-start-->', '<!--seo-end-->', head).replace(
-    '<!--app-html-->',
-    html,
-  );
+  const page = replaceBetween(
+    template,
+    '<!--seo-start-->',
+    '<!--seo-end-->',
+    head,
+  )
+    .replace('<div id="root">', `<div id="root" data-prerender-path="${path}">`)
+    .replace('<!--app-html-->', html);
 
   const target = resolve(distDir, fileNameFor(path));
 
@@ -52,10 +65,18 @@ for (const path of routes) {
   // try_files $uri.html.
   await mkdir(dirname(target), { recursive: true });
   await writeFile(target, page, 'utf8');
-  console.log(`pré-renderizado  ${path.padEnd(16)} -> dist/${fileNameFor(path)}`);
+  console.log(
+    `pré-renderizado  ${path.padEnd(16)} -> dist/${fileNameFor(path)}`,
+  );
 }
 
-await writeFile(resolve(distDir, 'sitemap.xml'), buildSitemap(indexablePaths), 'utf8');
-console.log(`sitemap          ${indexablePaths.length} URLs -> dist/sitemap.xml`);
+await writeFile(
+  resolve(distDir, 'sitemap.xml'),
+  buildSitemap(indexablePaths),
+  'utf8',
+);
+console.log(
+  `sitemap          ${indexablePaths.length} URLs -> dist/sitemap.xml`,
+);
 
 await rm(resolve(root, 'dist-ssr'), { recursive: true, force: true });
