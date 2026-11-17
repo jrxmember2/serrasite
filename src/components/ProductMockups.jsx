@@ -254,6 +254,68 @@ function AncoraSignPhone() {
   );
 }
 
+function RealDesktopMockup({ src, alt, tone = 'sindancora' }) {
+  return (
+    <div className={`real-desktop-device ${tone}`}>
+      <div className="real-desktop-camera" />
+      <div className="real-desktop-screen">
+        <img src={src} alt={alt} loading="lazy" />
+      </div>
+      <div className="real-desktop-stand" aria-hidden="true" />
+    </div>
+  );
+}
+
+function RealPhoneMockup({ src, alt, tone = 'sindancora' }) {
+  return (
+    <div className={`real-phone-device ${tone}`}>
+      <div className="real-phone-speaker" aria-hidden="true" />
+      <div className="real-phone-screen">
+        <img src={src} alt={alt} loading="lazy" />
+      </div>
+      <div className="real-phone-home" aria-hidden="true" />
+    </div>
+  );
+}
+
+function RealSindAncoraDevices() {
+  return (
+    <>
+      <RealDesktopMockup
+        src="/media/products/panel-dashboard.webp"
+        alt="Tela real do painel do SindÂncora com indicadores, ocorrências, reservas e próximas manutenções"
+      />
+      <RealPhoneMockup
+        src="/media/products/portal-portal-dashboard.webp"
+        alt="Tela real do portal do morador do SindÂncora em um smartphone"
+      />
+    </>
+  );
+}
+
+function RealAncoraSignDevices() {
+  return (
+    <>
+      <RealDesktopMockup
+        src="/media/ancorasign-share-frame.png"
+        tone="ancorasign"
+        alt="Tela real do ÂncoraSign para assinatura de documento"
+      />
+      <RealPhoneMockup
+        src="/media/ancorasign-share-frame.png"
+        tone="ancorasign"
+        alt="Tela real do ÂncoraSign para assinatura em smartphone"
+      />
+      <img
+        className="real-sign-seal"
+        src="/media/ancorasign-seal-authenticity.png"
+        alt="Selo de autenticidade ÂncoraSign"
+        loading="lazy"
+      />
+    </>
+  );
+}
+
 function ProductCard({ type }) {
   const isSign = type === 'ancorasign';
   return (
@@ -273,12 +335,7 @@ function ProductCard({ type }) {
         <span className="mockup-product-status"><i /> {isSign ? 'Pronto' : 'Disponível'}</span>
       </div>
       <div className="mockup-device-stage">
-        <div className="mockup-desktop-device">
-          {isSign ? <AncoraSignDesktop /> : <SindAncoraDesktop />}
-        </div>
-        <div className="mockup-phone-device">
-          {isSign ? <AncoraSignPhone /> : <SindAncoraPhone />}
-        </div>
+        {isSign ? <RealAncoraSignDevices /> : <RealSindAncoraDevices />}
       </div>
       <div className="mockup-product-foot">
         <div>
