@@ -5,6 +5,8 @@ const contactEmail =
 export const siteConfig = {
   name: 'Serratech',
   fullName: 'Serratech Soluções Digitais Corporativas e Condominiais',
+  legalName: '69.917.517 JUNIOR CORDEIRO DE AMORIM',
+  cnpj: '69.917.517/0001-46',
   tagline:
     'Fábrica de software e desenvolvedora do ÂncoraHUB. Mais tempo para novos negócios.',
   siteUrl,

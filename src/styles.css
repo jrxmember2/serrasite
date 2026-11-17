@@ -1532,6 +1532,25 @@ main {
   -webkit-text-stroke-color: var(--teal);
 }
 
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding: 16px 0 18px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.footer-legal span + span::before {
+  content: '|';
+  margin-right: 18px;
+  color: var(--line);
+}
+
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;

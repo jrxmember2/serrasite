@@ -90,6 +90,12 @@ export default function Footer() {
         <div className="footer-wordmark" aria-hidden="true">
           <span>Serratech</span>
         </div>
+        <div className="footer-legal" aria-label="Dados cadastrais">
+          <span>
+            Razão social: {siteConfig.legalName}
+          </span>
+          <span>CNPJ: {siteConfig.cnpj}</span>
+        </div>
         <div className="footer-bottom">
           <p>
             © {new Date().getFullYear()} {siteConfig.fullName}
