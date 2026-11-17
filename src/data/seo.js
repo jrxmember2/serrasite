@@ -9,7 +9,7 @@ export const seoByPath = {
     description:
       'Fábrica de software e criadora do ÂncoraHUB. Sistemas que simplificam o trabalho, protegem informações e devolvem tempo para novos negócios.',
     keywords:
-      'fábrica de software, Serratech, ÂncoraHUB, SindÂncora, ÂncorADV, desenvolvimento de sistemas, segurança, automação',
+      'fábrica de software, Serratech, ÂncoraHUB, SindÂncora, ÂncoraSign, desenvolvimento de sistemas, segurança, automação',
   },
   '/sobre': {
     title: 'Sobre a Serratech',
@@ -35,9 +35,16 @@ export const seoByPath = {
   '/ancora': {
     title: 'ÂncoraHUB, o ecossistema de software da Serratech',
     description:
-      'Conheça o ÂncoraHUB: SindÂncora disponível para síndicos e ÂncorADV para advogados em breve. Tecnologia desenvolvida e mantida pela Serratech.',
+      'Conheça o ÂncoraHUB: SindÂncora para a operação condominial e ÂncoraSign para documentos que precisam chegar ao fim. Tecnologia desenvolvida e mantida pela Serratech.',
     keywords:
-      'ÂncoraHUB, Serratech, SindÂncora, ÂncorADV, software para síndicos, software para advogados',
+      'ÂncoraHUB, Serratech, SindÂncora, ÂncoraSign, software para síndicos, assinatura eletrônica',
+  },
+  '/ancorasign': {
+    title: 'ÂncoraSign, assinatura eletrônica da Serratech',
+    description:
+      'Envie, assine e acompanhe documentos com auditoria, certificado, WhatsApp e a engenharia do ecossistema ÂncoraHUB.',
+    keywords:
+      'ÂncoraSign, assinatura eletrônica, assinatura digital, documentos, auditoria, Serratech, ÂncoraHUB',
   },
   '/ancoradv': {
     title: 'ÂncorADV para advogados · Em breve',

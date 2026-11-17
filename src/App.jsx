@@ -8,6 +8,7 @@ import SolutionsPage from './pages/SolutionsPage';
 import SoftwareFactoryPage from './pages/SoftwareFactoryPage';
 import AncoraPage from './pages/AncoraPage';
 import AncorAdvPage from './pages/AncorAdvPage';
+import AncoraSignPage from './pages/AncoraSignPage';
 import AppSindicoPage from './pages/AppSindicoPage';
 import ContactPage from './pages/ContactPage';
 import ClientPortalPage from './pages/ClientPortalPage';
@@ -169,6 +170,7 @@ export function Layout() {
           />
           <Route path="/ancora" element={<AncoraPage />} />
           <Route path="/ancoradv" element={<AncorAdvPage />} />
+          <Route path="/ancorasign" element={<AncoraSignPage />} />
           <Route path="/app-sindico" element={<AppSindicoPage />} />
           <Route path="/contato" element={<ContactPage />} />
           <Route path="/portal-cliente" element={<ClientPortalPage />} />

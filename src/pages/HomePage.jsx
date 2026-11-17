@@ -6,6 +6,7 @@ import HubGlyph from '../components/HubGlyph';
 import InfrastructureSection from '../components/InfrastructureSection';
 import ExpertiseSection from '../components/ExpertiseSection';
 import ProjectCTA from '../components/ProjectCTA';
+import ProductMockups from '../components/ProductMockups';
 import { prefersReducedMotion, withGsap } from '../lib/motion';
 
 const services = [
@@ -18,7 +19,7 @@ const services = [
   {
     icon: 'anchor',
     title: 'Ecossistema ÂncoraHUB',
-    text: 'Tecnologia própria, desenvolvida pela Serratech. SindÂncora para síndicos e, em breve, ÂncorADV para advogados.',
+    text: 'Tecnologia própria, desenvolvida pela Serratech. SindÂncora para síndicos e ÂncoraSign para documentos que precisam chegar ao fim.',
     to: '/ancora',
   },
   {
@@ -258,16 +259,16 @@ export default function HomePage() {
           </div>
           <div className="upcoming-product" data-anim="rise">
             <div className="upcoming-title">
-              <Icon name="anchor" />
-              <h3>ÂncorADV</h3>
-              <span className="status-tag upcoming">Em breve</span>
+              <Icon name="document" />
+              <h3>ÂncoraSign</h3>
+              <span className="status-tag">Pronto</span>
             </div>
             <p>
-              Mais organização para a rotina jurídica. Mais tempo para o
-              relacionamento com seus clientes.
+              Assinatura eletrônica, auditoria e distribuição por WhatsApp para
+              transformar documentos em decisões concluídas.
             </p>
-            <Link className="text-link" to="/ancoradv">
-              Conheça o que vem aí <Icon name="arrow" />
+            <Link className="text-link" to="/ancorasign">
+              Conheça o ÂncoraSign <Icon name="arrow" />
             </Link>
           </div>
           <div className="partner-note" data-anim="rise">
@@ -286,6 +287,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <ProductMockups />
       <InfrastructureSection />
       <ExpertiseSection />
       <section className="quality-statement">

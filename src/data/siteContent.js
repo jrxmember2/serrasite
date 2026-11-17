@@ -14,6 +14,7 @@ export const siteConfig = {
   whatsappUrl: import.meta.env.VITE_WHATSAPP_URL || '',
   linkedinUrl: import.meta.env.VITE_LINKEDIN_URL || '',
   instagramUrl: import.meta.env.VITE_INSTAGRAM_URL || '',
+  ancoraSignUrl: 'https://ancorasign.ancorahub.com.br',
   serviceRegion: 'Atendimento remoto e presencial sob agendamento',
   serviceHours: 'Segunda a sexta, das 8h às 18h',
 };
@@ -31,11 +32,13 @@ export const navigation = [
 export const featuredProducts = [
   { title: 'ÂncoraHUB', to: '/ancora' },
   { title: 'SindÂncora', to: '/app-sindico' },
+  { title: 'ÂncoraSign', to: '/ancorasign' },
   { title: 'ÂncorADV · Em breve', to: '/ancoradv' },
 ];
 export const contactInterests = [
   'Fábrica de software',
   'SindÂncora',
+  'ÂncoraSign',
   'ÂncorADV',
   'Parceria com administradora',
   'Integração e automação',
@@ -130,7 +133,7 @@ export const factoryDifferentials = [
   },
   {
     title: 'Tecnologia que nasce aqui',
-    text: 'A Serratech é desenvolvedora do ÂncoraHUB. O SindÂncora está disponível e o ÂncorADV está em desenvolvimento.',
+    text: 'A Serratech desenvolve o ÂncoraHUB: SindÂncora em operação e ÂncoraSign pronto para levar documentos até a conclusão.',
   },
   {
     title: 'Qualidade e segurança no processo',

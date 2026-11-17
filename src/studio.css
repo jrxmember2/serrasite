@@ -687,6 +687,600 @@ h3 {
   flex-shrink: 0;
 }
 
+/* Product proof: two brands, shown as working surfaces instead of promises. */
+.product-mockups {
+  padding-block: clamp(80px, 10vw, 140px);
+  background: var(--paper-2);
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+.product-mockups-heading {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: clamp(28px, 7vw, 120px);
+  align-items: end;
+  margin-bottom: 58px;
+}
+.product-mockups-heading .eyebrow {
+  color: var(--teal-deep);
+}
+.product-mockups-heading h2 {
+  margin-top: 18px;
+  color: var(--ink);
+}
+.product-mockups-heading > p {
+  max-width: 42ch;
+  color: var(--ink-2);
+  line-height: 1.8;
+}
+.mockup-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 42px);
+}
+.mockup-product-grid.count-1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+.mockup-product-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: 0 20px 60px rgba(21, 34, 31, 0.08);
+  overflow: hidden;
+}
+.mockup-product-card.is-ancorasign {
+  background: #fffdf9;
+}
+.mockup-product-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 26px 20px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.mockup-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mockup-brand-lockup > svg,
+.mockup-brand-lockup > img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+.mockup-brand-lockup > svg {
+  color: var(--teal);
+}
+.mockup-brand-lockup > img {
+  padding: 3px;
+  border-radius: 8px;
+  background: #f0f4f7;
+}
+.mockup-brand-lockup strong,
+.mockup-brand-lockup span {
+  display: block;
+}
+.mockup-brand-lockup strong {
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.1;
+}
+.mockup-brand-lockup span {
+  margin-top: 4px;
+  color: var(--ink-3);
+  font-size: 10px;
+}
+.mockup-product-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  color: var(--teal-deep);
+  font-size: 10px;
+  white-space: nowrap;
+}
+.mockup-product-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal-ok);
+}
+.mockup-device-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 126px;
+  align-items: end;
+  gap: 12px;
+  min-height: 405px;
+  padding: 34px 24px 0;
+  background:
+    radial-gradient(circle at 20% 8%, rgba(0, 184, 172, 0.18), transparent 34%),
+    linear-gradient(145deg, #0d2024, #102f2c);
+}
+.is-ancorasign .mockup-device-stage {
+  background:
+    radial-gradient(circle at 80% 15%, rgba(33, 192, 158, 0.2), transparent 35%),
+    linear-gradient(145deg, #122d50, #0e1b2d);
+}
+.mockup-desktop-device {
+  min-width: 0;
+  padding: 7px;
+  border-radius: 10px 10px 0 0;
+  background: #d4ded9;
+  box-shadow: 0 22px 38px rgba(0, 0, 0, 0.24);
+}
+.mockup-desktop-screen {
+  aspect-ratio: 1.52;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #f5f8f6;
+  color: #18302d;
+  font-family: var(--body);
+  font-size: 8px;
+  line-height: 1.3;
+}
+.mockup-window-bar {
+  display: grid;
+  grid-template-columns: 52px 1fr 66px;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  padding: 0 9px;
+  background: #15352f;
+  color: rgba(245, 248, 246, 0.76);
+  font-size: 7px;
+}
+.mockup-window-bar.ancorasign {
+  background: #122d50;
+}
+.mockup-window-dots {
+  display: flex;
+  gap: 3px;
+}
+.mockup-window-dots i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #8fb5a9;
+}
+.mockup-window-dots i:nth-child(2) { background: #d9c275; }
+.mockup-window-dots i:nth-child(3) { background: #d58678; }
+.mockup-window-lock {
+  text-align: right;
+  color: #8ed7bd;
+  font-size: 6px;
+}
+.mockup-app-shell {
+  display: grid;
+  grid-template-columns: 25% minmax(0, 1fr);
+  height: calc(100% - 24px);
+}
+.mockup-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 13px 10px 9px;
+  background: #e5efea;
+  border-right: 1px solid #d2e0da;
+  color: #53716a;
+}
+.ancorasign-sidebar {
+  background: #edf1f6;
+  border-color: #d7e0eb;
+  color: #62748b;
+}
+.mockup-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-bottom: 10px;
+  color: #15352f;
+  border-bottom: 1px solid #d1e0d9;
+  font-size: 8px;
+}
+.ancorasign-sidebar .mockup-sidebar-brand {
+  color: #122d50;
+  border-color: #d5deea;
+}
+.mockup-sidebar-brand svg,
+.mockup-sidebar-brand img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+}
+.mockup-sidebar-brand img {
+  padding: 2px;
+  border-radius: 4px;
+  background: #f0f4f7;
+}
+.mockup-sidebar > span {
+  padding: 4px 5px;
+  font-size: 7px;
+}
+.mockup-sidebar .mockup-nav-active {
+  background: #ccebe0;
+  color: #006c63;
+  font-weight: 700;
+}
+.ancorasign-sidebar .mockup-nav-active {
+  background: #dbeaf0;
+  color: #122d50;
+}
+.mockup-sidebar-foot {
+  margin-top: auto;
+  font-size: 6px;
+  color: #7c9990;
+}
+.mockup-app-main {
+  min-width: 0;
+  padding: 15px 16px 11px;
+  background: #fbfdfb;
+}
+.ancorasign-screen .mockup-app-main {
+  background: #fffefa;
+}
+.mockup-app-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 13px;
+}
+.mockup-app-header small,
+.mockup-panel-heading span,
+.mockup-stat-grid small,
+.mockup-sign-summary small {
+  display: block;
+  color: #7b948d;
+  font-size: 6px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.mockup-app-header h4 {
+  margin-top: 4px;
+  color: #15352f;
+  font-size: 14px;
+  line-height: 1.05;
+}
+.ancorasign-header h4 { color: #122d50; }
+.mockup-avatar {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 50%;
+  background: #d1f1e5;
+  color: #007e70;
+  font-size: 7px;
+  font-weight: 700;
+}
+.ancorasign-header .mockup-action-button {
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: #21c09e;
+  color: #102c2a;
+  font-size: 7px;
+  font-weight: 700;
+}
+.mockup-stat-grid,
+.mockup-sign-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 9px;
+}
+.mockup-stat-grid > div,
+.mockup-sign-summary > div {
+  padding: 8px;
+  border: 1px solid #e0eae5;
+  background: #fff;
+}
+.mockup-sign-summary > div { border-color: #e2e5e9; }
+.mockup-stat-grid strong,
+.mockup-sign-summary strong {
+  display: block;
+  margin: 4px 0 2px;
+  color: #15352f;
+  font-size: 15px;
+  line-height: 1;
+}
+.mockup-sign-summary strong { color: #122d50; }
+.mockup-stat-grid span,
+.mockup-sign-summary span {
+  color: #759089;
+  font-size: 6px;
+}
+.mockup-stat-grid .mockup-positive { color: #008578; }
+.mockup-stat-grid .mockup-warning { color: #b27918; }
+.mockup-panel-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 7px;
+}
+.mockup-panel {
+  min-width: 0;
+  padding: 9px;
+  border: 1px solid #e0eae5;
+  background: #fff;
+}
+.mockup-document-panel { border-color: #e2e5e9; }
+.mockup-panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+.mockup-panel-heading strong {
+  color: #24443e;
+  font-size: 8px;
+}
+.ancorasign-screen .mockup-panel-heading strong { color: #122d50; }
+.mockup-panel-heading span { color: #008578; text-transform: none; letter-spacing: 0; white-space: nowrap; }
+.mockup-task-row,
+.mockup-document-row {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+  padding-block: 6px;
+  border-top: 1px solid #edf2ef;
+}
+.mockup-task-row > span:last-child { color: #829990; font-size: 6px; }
+.mockup-task-row strong,
+.mockup-document-row strong {
+  display: block;
+  overflow: hidden;
+  color: #31564e;
+  font-size: 7px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mockup-task-row small,
+.mockup-document-row small {
+  display: block;
+  margin-top: 2px;
+  color: #81958f;
+  font-size: 6px;
+}
+.mockup-task-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3ddc97;
+}
+.mockup-task-dot.warning { background: #f5b544; }
+.mockup-bars {
+  display: flex;
+  align-items: end;
+  justify-content: space-around;
+  height: 83px;
+  padding: 8px 3px 0;
+  border-bottom: 1px solid #dfe9e4;
+  background: repeating-linear-gradient(to top, transparent 0 18px, #edf3ef 19px 20px);
+}
+.mockup-bars i {
+  width: 11%;
+  min-height: 10px;
+  background: linear-gradient(#00b8ac, #76d8a9);
+}
+.mockup-chart-labels {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4px;
+  color: #9aa9a4;
+  font-size: 6px;
+}
+.mockup-document-icon {
+  display: grid;
+  width: 15px;
+  height: 18px;
+  place-items: center;
+  border: 1px solid #b8c7d4;
+  color: #69859d;
+  font-size: 8px;
+}
+.mockup-document-status {
+  padding: 3px 5px;
+  font-size: 6px;
+  white-space: nowrap;
+}
+.mockup-document-status.signed { background: #d7f4e8; color: #087b62; }
+.mockup-document-status.waiting { background: #fff0cc; color: #9c6a16; }
+.mockup-document-status.draft { background: #edf0f4; color: #718094; }
+.mockup-sign-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  color: #7b8b9e;
+  font-size: 6px;
+}
+.mockup-phone-device {
+  align-self: end;
+  width: 100%;
+  min-width: 0;
+  transform: translateY(14px);
+}
+.mockup-phone-frame {
+  position: relative;
+  padding: 5px;
+  border: 2px solid #263c3a;
+  border-radius: 21px 21px 16px 16px;
+  background: #162928;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.26);
+}
+.ancorasign-phone { border-color: #263a55; background: #10233d; }
+.mockup-phone-notch {
+  position: absolute;
+  z-index: 2;
+  top: 7px;
+  left: 50%;
+  width: 35px;
+  height: 7px;
+  border-radius: 0 0 7px 7px;
+  background: #162928;
+  transform: translateX(-50%);
+}
+.ancorasign-phone .mockup-phone-notch { background: #10233d; }
+.mockup-phone-screen {
+  min-height: 290px;
+  padding: 10px 8px 11px;
+  border-radius: 15px 15px 11px 11px;
+  background: #fbfdfb;
+  color: #19332f;
+  font-size: 7px;
+}
+.ancorasign-phone .mockup-phone-screen { background: #fffefa; color: #122d50; }
+.mockup-phone-topline {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 11px;
+  color: #77918a;
+  font-size: 6px;
+}
+.mockup-mobile-brand,
+.mockup-sign-mobile-brand {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #e5eeea;
+  font-size: 8px;
+}
+.mockup-mobile-brand svg,
+.mockup-sign-mobile-brand img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+.mockup-mobile-brand span,
+.mockup-sign-mobile-brand span { margin-left: auto; color: #74918a; font-size: 12px; }
+.mockup-mobile-greeting { position: relative; padding: 13px 0 11px; }
+.mockup-mobile-greeting small,
+.mockup-sign-mobile-kicker { display: block; color: #78928b; font-size: 5px; letter-spacing: 0.06em; }
+.mockup-mobile-greeting strong { display: block; margin-top: 3px; font-size: 11px; }
+.mockup-mobile-greeting > span { position: absolute; right: 2px; bottom: 11px; color: #00a290; font-size: 12px; }
+.mockup-mobile-card { padding: 9px; border: 1px solid #dbeae4; background: #fff; }
+.mockup-mobile-highlight { border-left: 3px solid #00b8ac; background: #e8f8f2; }
+.mockup-mobile-card small,
+.mockup-mobile-card span { display: block; color: #7c958e; font-size: 6px; }
+.mockup-mobile-highlight strong { display: block; margin: 3px 0; font-size: 9px; }
+.mockup-mobile-section-heading { display: flex; justify-content: space-between; margin: 13px 0 7px; font-size: 7px; }
+.mockup-mobile-section-heading span { color: #00a290; font-size: 6px; }
+.mockup-mobile-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.mockup-mobile-actions span { display: grid; place-items: center; gap: 3px; padding: 7px 2px; border: 1px solid #e0ebe6; color: #5f7d75; font-size: 5px; text-align: center; }
+.mockup-mobile-actions b { color: #00a290; font-size: 11px; font-weight: 400; }
+.mockup-mobile-message { display: flex; gap: 6px; align-items: center; margin-top: 7px; padding: 7px; }
+.mockup-mini-avatar { display: grid !important; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: #d7f3e8; color: #008578 !important; font-size: 8px !important; }
+.mockup-mobile-message strong { display: block; font-size: 6px; }
+.mockup-mobile-message small { margin-top: 2px; }
+.mockup-sign-mobile-brand img { padding: 2px; border-radius: 3px; background: #f0f4f7; }
+.mockup-sign-mobile-kicker { margin-top: 19px; color: #21a787; }
+.mockup-sign-document { margin-top: 7px; padding: 12px 9px; border: 1px solid #dce2e8; background: #fff; box-shadow: 0 7px 15px rgba(18, 45, 80, 0.06); }
+.mockup-sign-paper-mark { display: grid; width: 20px; height: 20px; place-items: center; margin-bottom: 12px; background: #122d50; color: #fff; font-size: 11px; font-weight: 700; }
+.mockup-sign-document small { color: #8292a3; font-size: 5px; letter-spacing: 0.06em; }
+.mockup-sign-document strong { display: block; margin: 4px 0 6px; font-size: 9px; line-height: 1.25; }
+.mockup-sign-document span { color: #8292a3; font-size: 5px; }
+.mockup-sign-progress { display: flex; gap: 3px; margin: 13px 0 10px; }
+.mockup-sign-progress span { height: 3px; flex: 1; background: #21c09e; }
+.mockup-sign-progress span:last-child { background: #e0e6eb; }
+.mockup-sign-step { display: flex; align-items: center; gap: 6px; padding: 7px 0; border-top: 1px solid #e5e9ed; }
+.mockup-sign-step > b { display: grid; width: 15px; height: 15px; place-items: center; border-radius: 50%; background: #d8f3ea; color: #087f67; font-size: 7px; }
+.mockup-sign-step strong,
+.mockup-sign-step small { display: block; }
+.mockup-sign-step strong { font-size: 7px; }
+.mockup-sign-step small { margin-top: 2px; color: #8292a3; font-size: 5px; }
+.mockup-sign-step > span { margin-left: auto; color: #21c09e; }
+.mockup-sign-step.muted { color: #8c99a7; }
+.mockup-sign-step.muted > b { background: #edf0f3; color: #8090a0; }
+.mockup-sign-button { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 8px; padding: 8px 9px; background: #21c09e; color: #0e2b2b; font-size: 7px; font-weight: 700; }
+.mockup-sign-button svg { width: 11px; height: 11px; }
+.mockup-sign-trust { display: block; margin-top: 10px; color: #8292a3; font-size: 5px; text-align: center; }
+.mockup-product-foot {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 23px 26px 27px;
+}
+.mockup-product-foot h3 { max-width: 18ch; color: var(--ink); font-size: 23px; }
+.mockup-product-foot p { max-width: 37ch; margin-top: 10px; color: var(--ink-2); font-size: 12px; line-height: 1.7; }
+.mockup-product-foot .text-link { flex-shrink: 0; color: var(--teal-deep); font-size: 11px; }
+.is-ancorasign .mockup-product-foot .text-link { color: #1b806d; }
+
+.ancorasign-proof-section {
+  padding-block: clamp(80px, 10vw, 135px);
+  background: var(--paper);
+}
+.ancorasign-proof-section .section-head {
+  margin-bottom: 60px;
+}
+.ancorasign-proof-section .eyebrow {
+  color: #1b806d;
+}
+.ancorasign-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+.ancorasign-benefit-grid article {
+  padding: 23px 0 0;
+  border-top: 1px solid var(--line);
+}
+.ancorasign-benefit-grid article > svg {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 28px;
+  color: #1b806d;
+}
+.ancorasign-benefit-grid h3 {
+  margin-bottom: 14px;
+  color: var(--ink);
+  font-size: 21px;
+}
+.ancorasign-benefit-grid p {
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.ancorasign-note {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 64px;
+  padding: 19px 22px;
+  border: 1px solid #c9d8d5;
+  background: #eaf5f1;
+}
+.ancorasign-note-mark {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  place-items: center;
+  background: #122d50;
+  color: #21c09e;
+  font-size: 16px;
+  font-weight: 700;
+}
+.ancorasign-note p {
+  flex: 1;
+  color: #365d57;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.ancorasign-note strong {
+  color: #122d50;
+}
+.ancorasign-note .text-link {
+  flex-shrink: 0;
+  color: #1b806d;
+  font-size: 11px;
+}
+
 /* Distributed architecture, with an explicitly illustrative failover. */
 .infrastructure-section {
   background: var(--paper-2);
@@ -2208,6 +2802,93 @@ h3 {
     align-items: start;
     font-size: 8px;
     flex-wrap: wrap;
+  }
+}
+@media (max-width: 1100px) {
+  .mockup-product-grid {
+    grid-template-columns: 1fr;
+  }
+  .mockup-product-grid.count-1 {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 900px) {
+  .product-mockups-heading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .product-mockups-heading > p {
+    max-width: 55ch;
+  }
+  .mockup-device-stage {
+    min-height: 390px;
+  }
+  .ancorasign-benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 22px;
+  }
+}
+@media (max-width: 620px) {
+  .product-mockups {
+    padding-block: 65px;
+  }
+  .product-mockups-heading {
+    margin-bottom: 35px;
+  }
+  .mockup-product-heading {
+    align-items: start;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .mockup-device-stage {
+    grid-template-columns: minmax(0, 1fr) 104px;
+    gap: 8px;
+    min-height: 335px;
+    padding: 24px 13px 0;
+  }
+  .mockup-phone-screen {
+    min-height: 250px;
+    padding-inline: 6px;
+  }
+  .mockup-product-foot {
+    align-items: start;
+    flex-direction: column;
+    gap: 18px;
+    padding: 21px 20px 23px;
+  }
+  .mockup-product-foot h3 {
+    max-width: 22ch;
+    font-size: 21px;
+  }
+  .mockup-product-foot p {
+    font-size: 11px;
+  }
+  .ancorasign-proof-section {
+    padding-block: 65px;
+  }
+  .ancorasign-proof-section .section-head {
+    margin-bottom: 40px;
+  }
+  .ancorasign-benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ancorasign-benefit-grid article > svg {
+    margin-bottom: 20px;
+  }
+  .ancorasign-note {
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 42px;
+    padding: 16px;
+  }
+  .ancorasign-note p {
+    flex-basis: calc(100% - 50px);
+    font-size: 12px;
+  }
+  .ancorasign-note .text-link {
+    margin-left: 44px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
